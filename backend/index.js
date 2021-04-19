@@ -6,7 +6,7 @@ const routes = require('./routes/routes');
 var bodyParser = require('body-parser');
 var cors = require('cors')
 
-mongoose.connect('mongodb+srv://user:supersecretpass@cluster0.0w5mp.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {
+mongoose.connect('mongodb+srv://user:supersecretpass@cluster0.0w5mp.mongodb.net/react-komandinis-projektas?retryWrites=true&w=majority', {
 	useNewUrlParser: true,
 	useUnifiedTopology: true,
 	useFindAndModify: false,

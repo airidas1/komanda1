@@ -1,7 +1,12 @@
+const DataController = require('../Data/DataController/DataController')
+const Data = require('../Data/DataModel/DataModel')
+
 const router = require('express').Router()
 
-router.get('/', (req, res) => {
-    res.json('Hello Team1')
-})
+router.get('/data', DataController.getData)
+router.post('/dataPost', DataController.saveData)
+router.delete('/data', DataController.removeData)
+
+
 
 module.exports = router
