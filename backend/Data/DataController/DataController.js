@@ -38,10 +38,20 @@ removeData = async (req, res) => {
     }
 }
 
+updateDataInfo = async(req,res) => {
+    try {
+        let updated = await Data.findOneAndUpdate({ _id: req.params.id }, req.body)
+        res.json(updated)
+    } catch (e) {
+        res.status(400).json(e)
+    }
+}
+
 
 
 module.exports = {
     getData,
     saveData,
-    removeData
+    removeData,
+    updateDataInfo
   }
