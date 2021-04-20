@@ -1,4 +1,5 @@
 footer {
+  min-height: 5vh;
   background-color: #457b9d;
   padding: 20px 0;
   text-align: center;

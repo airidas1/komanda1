@@ -1,6 +1,7 @@
 /* Mobile first */
 header {
   background-color: #457b9d;
+  min-height: 10vh;
 }
 
 header .container {
