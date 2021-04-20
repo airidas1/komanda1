@@ -2,9 +2,15 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Redirect } from 'react-router-dom'
 import styles from './AdminPanel.module.css'
+import LOGO from '../../assets/images/logo.png'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fas } from '@fortawesome/free-solid-svg-icons'
+import { far } from '@fortawesome/free-regular-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 
 function AdminPanel() {
+    library.add(fas, far)
     const [redirect, setRedirect] = useState(null)
     const [page, setPage] = useState(1)
     const [fetchData, setFetchData] = useState([])
@@ -69,22 +75,27 @@ function AdminPanel() {
                     </li>
                 </ul>
             </header>
-            <main>
+            <main className={styles.main}>
+                <div className={styles['add-post']}>
+                    <div className={styles['fontawesome-wrapper']}>
+                        <FontAwesomeIcon className={styles['fontawesome-plus']} icon={['fas', 'plus']} size='2x'/>
+                    </div>
+                </div>
                  <div className={styles['output-list']}>
                     {fetchData.map(el => {
                         return<div key = {el._id} className={styles['output-item']}>
                             {Object.entries(el).map(([key, value]) => {
                                 return <div className={styles['output-pair']}>
-                                    <h4>{key}:</h4><h5>{value}</h5>
+                                    <h4 className={styles.h4}>{key}: </h4><h5 className={styles.h5}> { value}</h5>
                                 </div>
                             })}
                         </div>
                     })}
                 </div>
-                <div>
-                    <button onClick={() => pageHandler('dec')}>Prev</button>
-                    <div><h5><input type='number' placeholder={page} onKeyDown={pageInputHandler} />/{Math.ceil(amount/20)}</h5></div>
-                    <button onClick={() => pageHandler('inc')}>Next</button>
+                <div className={styles.pagination}>
+                    <button onClick={() => pageHandler('dec')} className={styles['pagination-button']}>Prev</button>
+                    <div className={styles['input-pagination']}><h5><input className={styles['input-txt']} type='number' placeholder={page} onKeyDown={pageInputHandler} />/{Math.ceil(amount/20)}</h5></div>
+                    <button onClick={() => pageHandler('inc')} className={styles['pagination-button']}>Next</button>
                 </div>
             </main>
             <footer>
