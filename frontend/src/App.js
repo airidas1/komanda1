@@ -4,7 +4,8 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import About from './pages/About';
-import Contact from './pages/Contact';
+import Carrer from './pages/Carrer';
+import FAQ from './pages/FAQ';
 
 function App() {
   return (
@@ -12,16 +13,19 @@ function App() {
       <Router>
         <Header />
         <Switch>
-          <Route exact path='/'>
+          <Route exact path='/v1'>
             <Home />
           </Route>
           <Route path='/about'>
             <About />
           </Route>
-          <Route path='/contact'>
-            <Contact />
+          <Route path='/faq'>
+            <FAQ />
           </Route>
-          <Route path='/login'>
+          <Route path='/carrer'>
+            <Carrer />
+          </Route>
+          <Route path='/admin'>
           </Route>
         </Switch>
         <Footer />
