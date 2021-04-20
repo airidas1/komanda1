@@ -1,0 +1,110 @@
+/* Spalvos 
+#3A90ED tamsi melyna
+#D5EAFF sviesi melyna
+*/
+
+.home {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+
+.home-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Filter */
+
+.filter {
+  margin: 25px 0;
+  padding: 10px;
+  background-color: #3a90ed;
+  border-radius: 20px;
+  -webkit-box-shadow: 1px 5px 11px 5px rgba(0, 0, 0, 0.3);
+  box-shadow: 1px 5px 11px 5px rgba(0, 0, 0, 0.3);
+}
+
+form input {
+  margin-right: 10px;
+  padding: 10px;
+  font-size: 1em;
+  border: 0;
+  border-radius: 20px;
+}
+
+form button {
+  padding: 10px;
+  font-size: 1em;
+  font-weight: 600;
+  border-radius: 20px;
+  border: 1px solid #ffffff;
+  background-color: #3a90ed;
+  color: #ffffff;
+  transition: 0.3s;
+  -webkit-box-shadow: 1px 5px 11px -2px rgba(0, 0, 0, 0.38);
+  box-shadow: 1px 5px 11px -2px rgba(0, 0, 0, 0.38);
+}
+
+form button:hover {
+  cursor: pointer;
+  background-color: #ffff;
+  color: #3a90ed;
+  -webkit-box-shadow: 1px 5px 11px -2px rgba(0, 0, 0, 0);
+  box-shadow: 1px 5px 11px -2px rgba(0, 0, 0, 0);
+}
+
+/* Hero */
+
+.hero {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 7em 0;
+}
+
+.hero-text {
+  width: 50%;
+}
+
+.hero-text h1 {
+  margin-bottom: 20px;
+  color: #3a90ed;
+}
+
+.hero-text p {
+  margin-bottom: 20px;
+}
+
+.hero-img {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-image {
+  width: 80%;
+}
+
+/* Info Boxes */
+.additional-info {
+  padding: 7em 0;
+  text-align: center;
+  border-top: 1px solid #d5eaff;
+}
+
+.additional-info h2 {
+  margin-bottom: 25px;
+  color: #3a90ed;
+}
+
+.info-box-container {
+  display: flex;
+  justify-content: center;
+}
