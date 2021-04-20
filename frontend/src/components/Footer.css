@@ -1,0 +1,11 @@
+footer {
+  background-color: #457b9d;
+  padding: 20px 0;
+  text-align: center;
+  color: #f1faee;
+}
+
+.team-name {
+  color: #a8dadc;
+  font-weight: 600;
+}
