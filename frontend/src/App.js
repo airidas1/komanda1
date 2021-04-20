@@ -5,10 +5,11 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import About from './pages/About';
-import Contact from './pages/Contact';
 /* Backend routes */
 import AdminLogin from './pages/Admin/AdminLogin'
 import AdminPanel from './pages/Admin/AdminPanel'
+import Carrer from './pages/Carrer';
+import FAQ from './pages/FAQ';
 
 function App() {
   return (
@@ -22,14 +23,19 @@ function App() {
           <Route path='/about'>
             <About />
           </Route>
-          <Route path='/contact'>
-            <Contact />
+          <Route path='/faq'>
+            <FAQ />
           </Route>
           <Route path='/v1/admin/login'>
             <AdminLogin />
           </Route>
           <Route path='/v1/admin/panel'>
             <AdminPanel />
+          </Route>
+          <Route path='/carrer'>
+            <Carrer />
+          </Route>
+          <Route path='/admin'>
           </Route>
         </Switch>
         <Footer />
