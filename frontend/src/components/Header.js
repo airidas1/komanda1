@@ -1,38 +1,41 @@
-import React, {useRef} from 'react';
-import { Link } from 'react-router-dom';
-import './Header.css';
+import React, { useRef } from "react";
+import { Link } from "react-router-dom";
+import logo from "../assets/images/owl-logo.png";
+import "./Header.css";
 
 function Header() {
   const navigation = useRef();
 
   function clickHandler() {
-    navigation.current.classList.toggle('active');
+    navigation.current.classList.toggle("active");
   }
 
   return (
     <header>
-      <div className='container'>
-        <div className='logo'>
-          <Link to='/'>LOGO.</Link>
+      <div className="container">
+        <div className="logo">
+          <Link to="/">
+            <img src={logo} />
+          </Link>
         </div>
-        <div className='toggler' onClick={clickHandler}>
+        <div className="toggler" onClick={clickHandler}>
           <span></span>
           <span></span>
           <span></span>
         </div>
-        <nav className='navbar'>
-          <ul className='navbar__menu-items' ref={navigation}>
+        <nav className="navbar">
+          <ul className="navbar__menu-items" ref={navigation}>
             <li>
-              <Link to='/'>Home</Link>
+              <Link to="/">Home</Link>
             </li>
             <li>
-              <Link to='/about'>About Us</Link>
+              <Link to="/about">About Us</Link>
             </li>
             <li>
-              <Link to='/contact'>Contact Us</Link>
+              <Link to="/contact">Contact Us</Link>
             </li>
             <li>
-                <Link to='/admin'>Log in</Link>
+              <Link to="/admin">Log in</Link>
             </li>
           </ul>
         </nav>
