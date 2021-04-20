@@ -1,4 +1,4 @@
-import React, {useRef} from 'react';
+import React, { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import './Header.css';
 
@@ -23,7 +23,7 @@ function Header() {
         <nav className='navbar'>
           <ul className='navbar__menu-items' ref={navigation}>
             <li>
-              <Link to='/'>Home</Link>
+              <Link to='/v1'>Home</Link>
             </li>
             <li>
               <Link to='/about'>About Us</Link>
@@ -32,7 +32,7 @@ function Header() {
               <Link to='/contact'>Contact Us</Link>
             </li>
             <li>
-                <Link to='/admin'>Log in</Link>
+              <Link to='/admin'>Log in</Link>
             </li>
           </ul>
         </nav>

@@ -1,0 +1,9 @@
+.infoBox {
+  width: 25%;
+  text-align: center;
+  margin-right: 25px;
+}
+
+.infoBox-image {
+  width: 60%;
+}
