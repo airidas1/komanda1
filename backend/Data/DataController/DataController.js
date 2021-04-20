@@ -2,12 +2,26 @@ const Data = require('../DataModel/DataModel')
 
 getData = async (req, res) => {
     try {
-        let data = await Data.find()
+        const pageSize = 20;
+        const page = parseInt(req.query.page)
+        const skip = (page - 1) * pageSize
+        let data = await Data.find({})
+        .skip(skip)
+        .limit(pageSize)
         res.json(data)
     } catch(e) {
         console.log(e)
     }
 }
+getAllData = async (req, res) => {
+    try {
+        let data = await Data.find({})
+        res.json(data)
+    } catch(e) {
+        console.log(e)
+    }
+}
+
 
 saveData = async (req, res) => {
     let data = new Data({
@@ -53,5 +67,6 @@ module.exports = {
     getData,
     saveData,
     removeData,
-    updateDataInfo
+    updateDataInfo,
+    getAllData
   }

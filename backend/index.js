@@ -14,7 +14,7 @@ mongoose.connect('mongodb+srv://user:supersecretpass@cluster0.0w5mp.mongodb.net/
 })
 
 const corsOptions = {
-	exposedHeaders: ['user-id']
+	exposedHeaders: ['admin-id']
 }
 app.use(cors())
 app.use(cors(corsOptions))
