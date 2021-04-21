@@ -1,7 +1,13 @@
 import React, { useState } from 'react';
+// Style
 import styles from './Home.module.css';
+// Images
 import heroImg from '../assets/images/hero-img.png';
-import universityIcon from '../assets/images/university-icon.png';
+import icon1 from '../assets/images/icon1.svg';
+import icon2 from '../assets/images/icon2.svg';
+import icon3 from '../assets/images/icon3.svg';
+
+// Components
 import Button from '../components/Button';
 import InfoBox from '../components/InfoBox';
 
@@ -44,19 +50,19 @@ function Home() {
               text={
                 'Standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries'
               }
-              icon={universityIcon}
+              icon={icon1}
             />
             <InfoBox
               text={
                 'Standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries'
               }
-              icon={universityIcon}
+              icon={icon2}
             />
             <InfoBox
               text={
                 'Standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries'
               }
-              icon={universityIcon}
+              icon={icon3}
             />
           </div>
         </div>
