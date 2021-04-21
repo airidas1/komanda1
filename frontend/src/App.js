@@ -12,6 +12,7 @@ import AdminLogin from "./pages/Admin/AdminLogin";
 import AdminPanel from "./pages/Admin/AdminPanel";
 import Carrer from "./pages/Carrer";
 import FAQ from "./pages/FAQ";
+import NotFound from "./pages/NotFound";
 
 function App() {
   return (
@@ -42,6 +43,9 @@ function App() {
           </Route>
           <Route path="/carrer">
             <Carrer />
+          </Route>
+          <Route path="/404">
+            <NotFound />
           </Route>
         </Switch>
         <Footer />

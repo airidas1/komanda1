@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { Link } from "react-router-dom";
-import "./Header.css";
+import styles from "./Header.module.css";
 import logo from "../assets/images/logo.png";
 
 function Header() {
@@ -12,22 +12,19 @@ function Header() {
 
   return (
     <header>
-      <div className="container">
-        {/* <div className='logo'>
-          <Link to='/v1'>LOGO.</Link>
-        </div> */}
-        <div className="logo">
+      <div className={styles.container}>
+        <div className={styles.logo}>
           <Link to="/v1">
             <img src={logo} alt="logo"></img>
           </Link>
         </div>
-        <div className="toggler" onClick={clickHandler}>
+        <div className={styles.toggler} onClick={clickHandler}>
           <span></span>
           <span></span>
           <span></span>
         </div>
-        <nav className="navbar">
-          <ul className="navbar__menu-items" ref={navigation}>
+        <nav className={styles.navbar}>
+          <ul className={styles.navbar__menu_items} ref={navigation}>
             <li>
               <Link to="/about">Apie mus</Link>
             </li>

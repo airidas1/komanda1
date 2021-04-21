@@ -11,45 +11,47 @@
   text-align: center;
 }
 
-.carrer .container form {
+.carrer .container .carrer_form {
   display: flex;
   flex-direction: column;
 
   padding-top: 2em;
 }
 
-.carrer .container form .form-control {
+.carrer .container .carrer_form .form_control {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.carrer .container form .form-control label {
+.carrer .container .carrer_form .form_control label {
   padding: 1em 0 0.5em 0;
   font-size: 1.1em;
 }
 
-.carrer .container form .form-control input,
-.carrer .container form .form-control textarea {
+.carrer .container .carrer_form .form_control .form_input,
+.carrer .container .carrer_form .form_control .form_textarea {
   width: 80%;
 
   padding: 0.5em;
   outline: none;
   border: 0px;
+  border-radius: 0;
   border-bottom: 1px solid #6dc4e9;
 }
 
-form button {
+.carrer_form a {
   margin: 2em auto;
   padding: 10px;
   width: 30%;
   border: none;
   background-color: #6dc4e9;
   border-radius: 5px;
+  text-align: center;
 }
 
-form button:hover {
+.carrer_form a:hover {
   cursor: pointer;
 }
 
@@ -64,17 +66,18 @@ form button:hover {
     font-size: 3em;
   }
 
-  .carrer .container form {
+  .carrer .container .carrer_form {
     padding-top: 5em;
     padding-bottom: 5em;
   }
 
-  .carrer .container form .form-control input,
-  .carrer .container form .form-control textarea {
+  .carrer .container .carrer_form .form_control .form_input,
+  .carrer .container .carrer_form .form_control .form_textarea {
     width: 50%;
+    border-radius: 0;
   }
 
-  form button {
+  .carrer_form a {
     width: 15%;
   }
 }
