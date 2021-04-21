@@ -1,0 +1,55 @@
+/* Mobile first */
+/* - */
+.notFound {
+  min-height: 80vh;
+}
+
+.notFound .container {
+  height: 100%;
+  padding: 4em 2em;
+  display: flex;
+  flex-direction: column;
+}
+
+.notFound .container h1 {
+  font-size: 2.5em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.notFound .container h1 span {
+  color: #6dc4e9;
+}
+
+.notFound .container .notFound_img {
+  width: auto;
+  height: auto;
+}
+
+/* Tablet */
+@media screen and (min-width: 768px) {
+  .notFound .container .notFound_img {
+    margin: auto;
+    width: auto;
+    height: 500px;
+  }
+}
+
+/* Desktop */
+@media screen and (min-width: 1280px) {
+  .notFound .container {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  .notFound .container {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .notFound .container .notFound_img {
+    margin: 0;
+  }
+}

@@ -1,90 +1,64 @@
 import React, {useRef} from 'react';
-import { AiFillCaretDown } from 'react-icons/ai';
-import './FAQ.css'
+import { Collapse } from 'antd';
+import styles from './FAQ.module.css'
+
+
+const { Panel } = Collapse;
 
 function FAQ() {
-    const answer = useRef();
-
-    function showAnswer() {
-        answer.current.classList.toggle('hide');
-    }
 
     return (
-        <main className='faq'>
-            <div className='container'>
+        <main className={styles.faq}>
+            <div className={styles.container}>
                 <h1>Dažniausiai užduodami klausimai</h1>
-                <div className='questions'>
-                    <div className='question'>
-                        <button className='question-btn' onClick={showAnswer}>Klausimas Nr. 1<span><AiFillCaretDown/></span></button>
-                        <div className='question-text hide' ref={answer}>Lorem Ipsum is simply dummy text of the printing and typesetting industry.  has been the industry's standard dummy text esince the 1500s Lorem Ipsum has been the
+                <div className={styles.questions}>
+                    <Collapse defaultActiveKey={['1']} className={styles.question}>
+                        <Panel header="Klausimas 1" key="1" className={styles.question_item}>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.  has been the industry's standard dummy text esince the 1500s Lorem Ipsum has been the
                         Lorem Ipsum is simply dummy text of the printing and typesetting has been the
+                        Lorem Ipsum is simply dummy text of the printing and.</p>
+                        </Panel>
+                        <Panel header="Klausimas 2" key="2" className={styles.question_item}>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.  has been the industry's standard dummy text esince the 1500s Lorem Ipsum has been the
                         Lorem Ipsum is simply dummy text of the printing and typesetting has been the
-                        industry. Lorem Ipsum has been the industry's standard dummy text ever printing and typesetting Lorem Ipsum has been the industry's standard dummy text ever</div>
-                    </div>
-                    <div className='question'>
-                        <button className='question-btn' onClick={showAnswer}>Klausimas Nr. 1<span><AiFillCaretDown/></span></button>
-                        <div className='question-text hide' ref={answer}>Lorem Ipsum is simply dummy text of the printing and typesetting industry.  has been the industry's standard dummy text esince the 1500s Lorem Ipsum has been the
+                        Lorem Ipsum is simply dummy text of the printing and.</p>
+                        </Panel>
+                        <Panel header="Klausimas 3" key="3" className={styles.question_item}>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.  has been the industry's standard dummy text esince the 1500s Lorem Ipsum has been the
                         Lorem Ipsum is simply dummy text of the printing and typesetting has been the
+                        Lorem Ipsum is simply dummy text of the printing and.</p>
+                        </Panel>
+                        <Panel header="Klausimas 4" key="4" className={styles.question_item}>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.  has been the industry's standard dummy text esince the 1500s Lorem Ipsum has been the
                         Lorem Ipsum is simply dummy text of the printing and typesetting has been the
-                        industry. Lorem Ipsum has been the industry's standard dummy text ever printing and typesetting Lorem Ipsum has been the industry's standard dummy text ever</div>
-                    </div>
-                    <div className='question'>
-                        <button className='question-btn' onClick={showAnswer}>Klausimas Nr. 1<span><AiFillCaretDown/></span></button>
-                        <div className='question-text hide' ref={answer}>Lorem Ipsum is simply dummy text of the printing and typesetting industry.  has been the industry's standard dummy text esince the 1500s Lorem Ipsum has been the
+                        Lorem Ipsum is simply dummy text of the printing and.</p>
+                        </Panel>
+                        <Panel header="Klausimas 5" key="5" className={styles.question_item}>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.  has been the industry's standard dummy text esince the 1500s Lorem Ipsum has been the
                         Lorem Ipsum is simply dummy text of the printing and typesetting has been the
+                        Lorem Ipsum is simply dummy text of the printing and.</p>
+                        </Panel>
+                        <Panel header="Klausimas 6" key="6" className={styles.question_item}>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.  has been the industry's standard dummy text esince the 1500s Lorem Ipsum has been the
                         Lorem Ipsum is simply dummy text of the printing and typesetting has been the
-                        industry. Lorem Ipsum has been the industry's standard dummy text ever printing and typesetting Lorem Ipsum has been the industry's standard dummy text ever</div>
-                    </div>
-                    <div className='question'>
-                        <button className='question-btn' onClick={showAnswer}>Klausimas Nr. 1<span><AiFillCaretDown/></span></button>
-                        <div className='question-text hide' ref={answer}>Lorem Ipsum is simply dummy text of the printing and typesetting industry.  has been the industry's standard dummy text esince the 1500s Lorem Ipsum has been the
+                        Lorem Ipsum is simply dummy text of the printing and.</p>
+                        </Panel>
+                        <Panel header="Klausimas 7" key="7" className={styles.question_item}>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.  has been the industry's standard dummy text esince the 1500s Lorem Ipsum has been the
                         Lorem Ipsum is simply dummy text of the printing and typesetting has been the
+                        Lorem Ipsum is simply dummy text of the printing and.</p>
+                        </Panel>
+                        <Panel header="Klausimas 8" key="8" className={styles.question_item}>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.  has been the industry's standard dummy text esince the 1500s Lorem Ipsum has been the
                         Lorem Ipsum is simply dummy text of the printing and typesetting has been the
-                        industry. Lorem Ipsum has been the industry's standard dummy text ever printing and typesetting Lorem Ipsum has been the industry's standard dummy text ever</div>
-                    </div>
-                    <div className='question'>
-                        <button className='question-btn' onClick={showAnswer}>Klausimas Nr. 1<span><AiFillCaretDown/></span></button>
-                        <div className='question-text hide' ref={answer}>Lorem Ipsum is simply dummy text of the printing and typesetting industry.  has been the industry's standard dummy text esince the 1500s Lorem Ipsum has been the
+                        Lorem Ipsum is simply dummy text of the printing and.</p>
+                        </Panel>
+                        <Panel header="Klausimas 9" key="9" className={styles.question_item}>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.  has been the industry's standard dummy text esince the 1500s Lorem Ipsum has been the
                         Lorem Ipsum is simply dummy text of the printing and typesetting has been the
-                        Lorem Ipsum is simply dummy text of the printing and typesetting has been the
-                        industry. Lorem Ipsum has been the industry's standard dummy text ever printing and typesetting Lorem Ipsum has been the industry's standard dummy text ever</div>
-                    </div>
-                    <div className='question'>
-                        <button className='question-btn' onClick={showAnswer}>Klausimas Nr. 1<span><AiFillCaretDown/></span></button>
-                        <div className='question-text hide' ref={answer}>Lorem Ipsum is simply dummy text of the printing and typesetting industry.  has been the industry's standard dummy text esince the 1500s Lorem Ipsum has been the
-                        Lorem Ipsum is simply dummy text of the printing and typesetting has been the
-                        Lorem Ipsum is simply dummy text of the printing and typesetting has been the
-                        industry. Lorem Ipsum has been the industry's standard dummy text ever printing and typesetting Lorem Ipsum has been the industry's standard dummy text ever</div>
-                    </div>
-                    <div className='question'>
-                        <button className='question-btn' onClick={showAnswer}>Klausimas Nr. 1<span><AiFillCaretDown/></span></button>
-                        <div className='question-text hide' ref={answer}>Lorem Ipsum is simply dummy text of the printing and typesetting industry.  has been the industry's standard dummy text esince the 1500s Lorem Ipsum has been the
-                        Lorem Ipsum is simply dummy text of the printing and typesetting has been the
-                        Lorem Ipsum is simply dummy text of the printing and typesetting has been the
-                        industry. Lorem Ipsum has been the industry's standard dummy text ever printing and typesetting Lorem Ipsum has been the industry's standard dummy text ever</div>
-                    </div>
-                    <div className='question'>
-                        <button className='question-btn' onClick={showAnswer}>Klausimas Nr. 1<span><AiFillCaretDown/></span></button>
-                        <div className='question-text hide' ref={answer}>Lorem Ipsum is simply dummy text of the printing and typesetting industry.  has been the industry's standard dummy text esince the 1500s Lorem Ipsum has been the
-                        Lorem Ipsum is simply dummy text of the printing and typesetting has been the
-                        Lorem Ipsum is simply dummy text of the printing and typesetting has been the
-                        industry. Lorem Ipsum has been the industry's standard dummy text ever printing and typesetting Lorem Ipsum has been the industry's standard dummy text ever</div>
-                    </div>
-                    <div className='question'>
-                        <button className='question-btn' onClick={showAnswer}>Klausimas Nr. 1<span><AiFillCaretDown/></span></button>
-                        <div className='question-text hide' ref={answer}>Lorem Ipsum is simply dummy text of the printing and typesetting industry.  has been the industry's standard dummy text esince the 1500s Lorem Ipsum has been the
-                        Lorem Ipsum is simply dummy text of the printing and typesetting has been the
-                        Lorem Ipsum is simply dummy text of the printing and typesetting has been the
-                        industry. Lorem Ipsum has been the industry's standard dummy text ever printing and typesetting Lorem Ipsum has been the industry's standard dummy text ever</div>
-                    </div>
-                    <div className='question'>
-                        <button className='question-btn' onClick={showAnswer}>Klausimas Nr. 1<span><AiFillCaretDown/></span></button>
-                        <div className='question-text hide' ref={answer}>Lorem Ipsum is simply dummy text of the printing and typesetting industry.  has been the industry's standard dummy text esince the 1500s Lorem Ipsum has been the
-                        Lorem Ipsum is simply dummy text of the printing and typesetting has been the
-                        Lorem Ipsum is simply dummy text of the printing and typesetting has been the
-                        industry. Lorem Ipsum has been the industry's standard dummy text ever printing and typesetting Lorem Ipsum has been the industry's standard dummy text ever</div>
-                    </div>
-                    
+                        Lorem Ipsum is simply dummy text of the printing and.</p>
+                        </Panel>
+                    </Collapse>
                 </div>
             </div>
         </main>
