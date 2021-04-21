@@ -1,34 +1,34 @@
 /* Mobile first */
 header {
-  background-color: #457b9d;
+  background-color: #fff;
   min-height: 10vh;
+  border-bottom: 2px solid #6dc4e9;
 }
 
 header .container {
+  height: 100%;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  padding: 1.5em 1em;
+  padding: 1em 1em;
 }
 
 header .container .logo {
   width: 70%;
   height: 100%;
-  font-size: 2em;
+}
+
+header .container .logo img {
+  width: auto;
+  height: 120px;
 }
 
 header .container .logo:hover {
   cursor: pointer;
 }
 
-header .container .logo a {
-  padding: 5px 10px;
-  text-decoration: none;
-  color: #f1faee;
-  font-weight: 600;
-}
-
 header .container .toggler {
+  padding: 3em 0;
   width: 30%;
   height: 100%;
 }
@@ -38,7 +38,7 @@ header .container .toggler span {
   height: 4px;
   width: 33px;
   margin-left: auto;
-  background: #f1faee;
+  background: #6dc4e9;
 }
 
 header .container .toggler:hover {
@@ -73,19 +73,24 @@ header .container .navbar .navbar__menu-items li {
 
 header .container .navbar .navbar__menu-items li a {
   text-decoration: none;
-  color: #f1faee;
-  font-size: 1.5em;
+  color: #6dc4e9;
+  font-size: 1.2em;
 }
 
 /* Tablet and Desktop */
 @media screen and (min-width: 768px) {
   header .container {
-    padding-top: 2em;
-    padding-bottom: 2em;
+    padding-top: 0;
+    padding-bottom: 0;
   }
 
   header .container .logo {
     width: 30%;
+  }
+
+  header .container .logo img {
+    width: auto;
+    height: 120px;
   }
 
   header .container .toggler {

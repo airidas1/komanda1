@@ -1,11 +1,11 @@
 import React from 'react';
-import './Contact.css'
+import './Carrer.css'
 
-function Contact() {
+function Carrer() {
     return (
-        <main className='contact'>
+        <main className='carrer'>
             <div className='container'>
-                <h1>Contact Us</h1>
+                <h1>Parašykite mums</h1>
 
                 <form>
                     <div className='form-control'>
@@ -20,7 +20,7 @@ function Contact() {
                         <label>Message</label>
                         <textarea type='message' id='message' cols='30' rows='5'></textarea>
                     </div>
-                    <button>Submit</button>
+                    <button>Pateikti</button>
                 </form>
 
             </div>
@@ -28,4 +28,4 @@ function Contact() {
     )
 }
 
-export default Contact
+export default Carrer

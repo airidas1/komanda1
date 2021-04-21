@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { Link } from "react-router-dom";
-import logo from "../assets/images/owl-logo.png";
 import "./Header.css";
+import logo from "../assets/images/logo.png";
 
 function Header() {
   const navigation = useRef();
@@ -13,9 +13,12 @@ function Header() {
   return (
     <header>
       <div className="container">
+        {/* <div className='logo'>
+          <Link to='/v1'>LOGO.</Link>
+        </div> */}
         <div className="logo">
-          <Link to="/">
-            <img src={logo} />
+          <Link to="/v1">
+            <img src={logo} alt="logo"></img>
           </Link>
         </div>
         <div className="toggler" onClick={clickHandler}>
@@ -26,19 +29,19 @@ function Header() {
         <nav className="navbar">
           <ul className="navbar__menu-items" ref={navigation}>
             <li>
-              <Link to="/">Home</Link>
+              <Link to="/about">Apie mus</Link>
             </li>
             <li>
-              <Link to="/about">About Us</Link>
+              <Link to="/education">Mokslas</Link>
             </li>
             <li>
-              <Link to="/education">Education</Link>
+              <Link to="/faq">D.U.K</Link>
             </li>
             <li>
-              <Link to="/contact">Contact Us</Link>
+              <Link to="/carrer">Karjera</Link>
             </li>
             <li>
-              <Link to="/admin">Log in</Link>
+              <Link to="/admin">Prisijungti</Link>
             </li>
           </ul>
         </nav>
