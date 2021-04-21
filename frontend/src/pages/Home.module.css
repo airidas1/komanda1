@@ -3,13 +3,14 @@
 #D5EAFF sviesi melyna
 */
 
+/* ----- Mobile ----- */
+
 .home {
-  width: 100vw;
   display: flex;
   justify-content: center;
 }
 
-.home-container {
+.home_container {
   max-width: 1280px;
   margin: 0 auto;
   display: flex;
@@ -21,6 +22,7 @@
 /* Filter */
 
 .filter {
+  width: 80%;
   margin: 25px 0;
   padding: 10px;
   background-color: #3a90ed;
@@ -29,15 +31,22 @@
   box-shadow: 1px 5px 11px 5px rgba(0, 0, 0, 0.3);
 }
 
-form input {
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form input {
   margin-right: 10px;
+  margin-bottom: 10px;
   padding: 10px;
   font-size: 1em;
   border: 0;
   border-radius: 20px;
 }
 
-form button {
+.form button {
+  width: 100%;
   padding: 10px;
   font-size: 1em;
   font-weight: 600;
@@ -50,7 +59,7 @@ form button {
   box-shadow: 1px 5px 11px -2px rgba(0, 0, 0, 0.38);
 }
 
-form button:hover {
+.form button:hover {
   cursor: pointer;
   background-color: #ffff;
   color: #3a90ed;
@@ -63,48 +72,106 @@ form button:hover {
 .hero {
   width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 7em 0;
+  padding: 3em 0;
 }
 
-.hero-text {
-  width: 50%;
+.hero_text {
+  width: 90%;
 }
 
-.hero-text h1 {
+.hero_text h1 {
   margin-bottom: 20px;
   color: #3a90ed;
 }
 
-.hero-text p {
+.hero_text p {
   margin-bottom: 20px;
 }
 
-.hero-img {
-  width: 50%;
+.hero_img {
+  width: 90%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.hero-image {
+.hero_image {
   width: 80%;
 }
 
 /* Info Boxes */
-.additional-info {
-  padding: 7em 0;
+.additional_info {
+  padding: 4em 0;
   text-align: center;
   border-top: 1px solid #d5eaff;
 }
 
-.additional-info h2 {
+.additional_info h2 {
   margin-bottom: 25px;
   color: #3a90ed;
 }
 
-.info-box-container {
+.info_box_container {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
+}
+
+/* ------ Tablet ------ */
+@media screen and (min-width: 768px) {
+  .hero {
+    flex-direction: row;
+    padding: 7em 1em;
+  }
+
+  .hero_img {
+    width: 50%;
+  }
+
+  .hero_text {
+    width: 50%;
+  }
+
+  .hero_image {
+    width: 90%;
+    margin-left: 15px;
+  }
+
+  .additional_info {
+    padding: 7em 1em;
+  }
+}
+
+/* ------- Desktop -------- */
+@media screen and (min-width: 1280px) {
+  .home {
+    min-height: calc(100vh - 102px - 58px);
+  }
+
+  .home .container {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  .filter {
+    width: auto;
+    margin: 25px 0;
+    padding: 10px;
+  }
+
+  .form input {
+    margin-right: 10px;
+  }
+
+  .form button {
+    width: auto;
+    margin: 0;
+  }
+
+  .form {
+    display: block;
+  }
 }
