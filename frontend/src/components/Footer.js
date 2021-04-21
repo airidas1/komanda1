@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from 'react';
-import './Footer.css'
+import styles from './Footer.module.css'
 
 function Footer() {
     const date = useRef();
@@ -10,7 +10,7 @@ function Footer() {
 
     return (
         <footer>
-            &copy; <span ref={date}></span> All rights reserved | <span className='team-name'>KOMANDA1</span>
+            &copy; <span ref={date}></span> All rights reserved | <span className={styles.team_name}>KOMANDA1</span>
         </footer>
     );
 }

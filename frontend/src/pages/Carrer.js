@@ -1,26 +1,27 @@
 import React from 'react';
-import './Carrer.css'
+import styles from './Carrer.module.css'
+import Button from '../components/Button'
 
 function Carrer() {
     return (
-        <main className='carrer'>
-            <div className='container'>
+        <main className={styles.carrer}>
+            <div className={styles.container}>
                 <h1>Parašykite mums</h1>
 
-                <form>
-                    <div className='form-control'>
+                <form className={styles.carrer_form}>
+                    <div className={styles.form_control}>
                         <label>Name</label>
-                        <input type='text'></input>
+                        <input type='text' className={styles.form_input}></input>
                     </div>
-                    <div className='form-control'>
+                    <div className={styles.form_control}>
                         <label>Email</label>
-                        <input type='email'></input>
+                        <input type='email' className={styles.form_input}></input>
                     </div>
-                    <div className='form-control'>
+                    <div className={styles.form_control}>
                         <label>Message</label>
-                        <textarea type='message' id='message' cols='30' rows='5'></textarea>
+                        <textarea type='message' id='message' cols='30' rows='5' className={styles.form_textarea}></textarea>
                     </div>
-                    <button>Pateikti</button>
+                    <Button title={'Pateikti'} href={'#'} />
                 </form>
 
             </div>

@@ -54,7 +54,7 @@ header .container .navbar {
   width: 100%;
 }
 
-header .container .navbar .navbar__menu-items {
+header .container .navbar .navbar__menu_items {
   width: 100%;
   padding-top: 1em;
   list-style: none;
@@ -63,15 +63,15 @@ header .container .navbar .navbar__menu-items {
   display: none;
 }
 
-header .container .navbar .navbar__menu-items.active {
+header .container .navbar .navbar__menu_items .active {
   display: block;
 }
 
-header .container .navbar .navbar__menu-items li {
+header .container .navbar .navbar__menu_items li {
   padding: 5px;
 }
 
-header .container .navbar .navbar__menu-items li a {
+header .container .navbar .navbar__menu_items li a {
   text-decoration: none;
   color: #6dc4e9;
   font-size: 1.2em;
@@ -101,13 +101,13 @@ header .container .navbar .navbar__menu-items li a {
     width: 70%;
   }
 
-  header .container .navbar .navbar__menu-items {
+  header .container .navbar .navbar__menu_items {
     display: flex;
     justify-content: flex-end;
     padding-top: 0px;
   }
 
-  header .container .navbar .navbar__menu-items li {
+  header .container .navbar .navbar__menu_items li {
     padding: 5px 25px;
   }
 }
