@@ -1,0 +1,52 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Montserrat;
+}
+
+main .section {
+  display: flex;
+  justify-content: space-between;
+  padding: 30px;
+  font-size: 24px;
+}
+
+main .article {
+  width: 800px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  line-height: 40px;
+}
+
+main .article h1 {
+  font-size: 32px;
+}
+
+main .img_container {
+  justify-content: center;
+  align-items: center;
+}
+
+main .educationPhoto {
+  width: 600px;
+  flex: 1;
+  border-radius: 20px;
+}
+
+main .help {
+  background-color: #d5eaff;
+  width: 100%;
+  padding: 20px;
+  text-align: center;
+}
+
+main .help a {
+  text-decoration: none;
+  color: #000000;
+  font-size: 24px;
+}

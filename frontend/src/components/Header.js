@@ -32,6 +32,9 @@ function Header() {
               <Link to="/about">About Us</Link>
             </li>
             <li>
+              <Link to="/education">Education</Link>
+            </li>
+            <li>
               <Link to="/contact">Contact Us</Link>
             </li>
             <li>
