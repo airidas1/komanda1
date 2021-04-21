@@ -10,7 +10,7 @@ function Home() {
     <main className='home'>
       <div className='home-container'>
         <div className='filter'>
-          {/* <form>
+          <form>
             <input type='text' placeholder='Miestas' value='Miestas' />
             <input type='text' placeholder='Grupė' value='Grupė' />
             <input
@@ -20,7 +20,7 @@ function Home() {
             />
             <input type='text' placeholder='Kalba' value='Kalba' />
             <button type='submit'>Noriu mokytis!</button>
-          </form> */}
+          </form>
         </div>
         <div className='hero'>
           <div className='hero-text'>
