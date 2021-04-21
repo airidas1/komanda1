@@ -37,7 +37,7 @@ function Education() {
           <img src={educationPhoto2} className={styles["educationPhoto"]} />
         </div>
         <article className={styles["article"]}>
-          <h1>Mokslas Lietuvoje</h1>
+          <h1>Formalus švietimas Lietuvoje</h1>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Et non
             voluptas facilis necessitatibus excepturi mollitia magnam rerum enim
@@ -51,7 +51,7 @@ function Education() {
 
       <section className={styles["section"]}>
         <article className={styles["article"]}>
-          <h1>Mokslas Lietuvoje</h1>
+          <h1>Ne formalus švietimas Lietuvoje</h1>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Et non
             voluptas facilis necessitatibus excepturi mollitia magnam rerum enim
