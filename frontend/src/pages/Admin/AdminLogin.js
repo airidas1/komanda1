@@ -54,7 +54,7 @@ function AdminLogin() {
                         <input onChange={e=>setPassword(e.target.value)} className={mode ? `${styles['input-text']} ${styles['active']}` : styles['input-text']} type="password"/>
                     </div>
                     <input className={mode ? `${styles.submit} ${styles.active}` : styles.submit} type="submit" value="Sign In" onClick = {signInHandler}/>
-                    {error ? <p>{error}</p> : null}
+                    {error ? <div className={styles.error}>{error}</div> : null}
                 </form>
             </div>
         </main>
