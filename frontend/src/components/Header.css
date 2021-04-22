@@ -1,34 +1,29 @@
 /* Mobile first */
 header {
-  background-color: #fff;
-  min-height: 10vh;
-  border-bottom: 2px solid #6dc4e9;
+  background-color: var(--accent-color);
 }
 
 header .container {
-  height: 100%;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  padding: 1em 1em;
+  padding: 1.5em 1em;
 }
 
 header .container .logo {
   width: 70%;
   height: 100%;
+  font-size: 2em;
 }
 
-header .container .logo img {
-  width: auto;
-  height: 120px;
-}
-
-header .container .logo:hover {
-  cursor: pointer;
+header .container .logo a {
+  padding: 5px 10px;
+  text-decoration: none;
+  color: var(--primary-color);
+  font-weight: bold;
 }
 
 header .container .toggler {
-  padding: 3em 0;
   width: 30%;
   height: 100%;
 }
@@ -38,11 +33,7 @@ header .container .toggler span {
   height: 4px;
   width: 33px;
   margin-left: auto;
-  background: #6dc4e9;
-}
-
-header .container .toggler:hover {
-  cursor: pointer;
+  background-color: black;
 }
 
 header .container .toggler span:nth-child(2) {
@@ -54,7 +45,7 @@ header .container .navbar {
   width: 100%;
 }
 
-header .container .navbar .navbar_menu {
+header .container .navbar .navbar__menu-items {
   width: 100%;
   padding-top: 1em;
   list-style: none;
@@ -63,34 +54,29 @@ header .container .navbar .navbar_menu {
   display: none;
 }
 
-header .container .navbar .navbar_menu .active {
+header .container .navbar .navbar__menu-items.active {
   display: block;
 }
 
-header .container .navbar .navbar_menu li {
+header .container .navbar .navbar__menu-items li {
   padding: 5px;
 }
 
-header .container .navbar .navbar_menu li a {
+header .container .navbar .navbar__menu-items li a {
   text-decoration: none;
-  color: #6dc4e9;
-  font-size: 1.2em;
+  color: var(--dark-color);
+  font-size: 1.5em;
 }
 
 /* Tablet and Desktop */
 @media screen and (min-width: 768px) {
   header .container {
-    padding-top: 0;
-    padding-bottom: 0;
+    padding-top: 2em;
+    padding-bottom: 2em;
   }
 
   header .container .logo {
     width: 30%;
-  }
-
-  header .container .logo img {
-    width: auto;
-    height: 120px;
   }
 
   header .container .toggler {
@@ -101,13 +87,13 @@ header .container .navbar .navbar_menu li a {
     width: 70%;
   }
 
-  header .container .navbar .navbar_menu {
+  header .container .navbar .navbar__menu-items {
     display: flex;
     justify-content: flex-end;
     padding-top: 0px;
   }
 
-  header .container .navbar .navbar_menu li {
+  header .container .navbar .navbar__menu-items li {
     padding: 5px 25px;
   }
 }
