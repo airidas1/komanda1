@@ -38,7 +38,7 @@ function Header() {
               <Link to="/carrer">Karjera</Link>
             </li>
             <li>
-              <Link to="/admin">Prisijungti</Link>
+              <Link to="/v1/admin/login">Prisijungti</Link>
             </li>
           </ul>
         </nav>

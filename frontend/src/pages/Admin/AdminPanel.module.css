@@ -167,6 +167,12 @@
   font-weight: 400;
 }
 
+/* LOADER */
+.override {
+  font-size: 18px;
+  margin-left: 10px;
+}
+
 .modal-container-background {
   position: absolute;
   top: 0;
