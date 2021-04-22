@@ -14,18 +14,19 @@ signUp = async (req, res) => {
 }
 
 login = async (req, res) => {
-  console.log(await Admin.findOne({
-    username: req.body.username
-  }))
   try {
     let admin = await Admin.findOne({
       username: req.body.username
     })
     if(admin){
       let response = await bcrypt.compare(req.body.password, admin.password)
-      if (!response) throw 'Incorrect password'
+      if (!response){ 
+        res.json({password: false})
+        return false;
+    }
     }else {
-      throw "User doesn't exist"
+      res.json({username:false})
+      return false;
     }
     
     let token = await jwt.sign({

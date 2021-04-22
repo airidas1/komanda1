@@ -1,13 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 .main {
-  background-color: #e63946;
+  background-color: var(--secondary-color);
   font-family: 'Montserrat', sans-serif;
   position: relative;
-}
-
-.main.active {
-  background-color: #fca311;
 }
 
 .form-wrapper {
@@ -21,8 +17,8 @@
 }
 
 .form {
-  background-color: #f1faee;
-  border: 1px solid #a8dadc;
+  background-color: var(--contrast-color);
+  border: 1px solid var(--primary-color);
   border-radius: 5px;
   height: 50%;
   width: 50%;
@@ -38,13 +34,14 @@
 }
 
 .form.active {
-  background-color: #ffffff;
-  border: 1px solid #e5e5e5;
+  background-color: var(--background-color);
+  border: 1px solid var(--outline-color);
 }
 
 .h3 {
   font-size: 20px;
   font-weight: 400;
+  padding: 0.5rem 0;
 }
 
 .form-control {
@@ -53,26 +50,19 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-bottom: 1rem;
 }
 
 .input-text {
   width: 100%;
   height: 2rem;
-  border: 1px solid #a8dadc;
+  border: 2px solid var(--primary-color);
   border-radius: 5px;
-}
-
-.input-text.active {
-  border: 1px solid #e5e5e5;
 }
 
 .input-text:focus {
   outline: 0;
-  border: 2px solid #457b9d;
-}
-
-.input-text.active:focus {
-  border: 2px solid #6d6875;
+  border: 2px solid var(--outline-color);
 }
 
 .submit {
@@ -81,41 +71,27 @@
   border-radius: 5px;
   width: 100%;
   height: 2rem;
-  background-color: #a8dadc;
+  background-color: var(--secondary-color);
   font-size: 18px;
   font-weight: 500;
   font-family: 'Montserrat', sans-serif;
   transition: all 500ms ease-in;
 }
 
-.submit.active {
-  background-color: #e5e5e5;
-  border: 1px solid #d4d4d4;
-}
-
 .submit:hover {
   cursor: pointer;
 }
 
-.submit:active {
-  outline: 0;
-  background-color: #1d3557;
-  transform: scale(0.98);
-  transition: background-color 200ms ease-in;
-}
-
-.submit.active:active {
-  background-color: #fca311;
-}
-
-.fancy {
-  position: absolute;
-  background-color: #1d3557;
-  top: 50%;
-  width: 100%;
-  height: 50%;
-}
-
-.fancy.active {
-  background-color: #14213d;
+.error {
+  height: 2rem;
+  width: 80%;
+  background-color: var(--error-color);
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  color: #fff;
+  font-weight: 800;
+  box-shadow: rgba(229, 115, 115, 1) 0px 5px 15px;
 }

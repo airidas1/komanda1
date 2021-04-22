@@ -18,6 +18,7 @@ authenticate = async (req, res, next) => {
     e = e.message == "jwt malformed" ? 'Wrong session token' : e
     res.status(401).json(e)
   }
+  
 }
 
 module.exports = {
