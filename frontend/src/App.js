@@ -36,7 +36,7 @@ function App() {
           <Route path='/carrer'>
             <Carrer />
           </Route>
-          <Route path='/404'>
+          <Route>
             <NotFound />
           </Route>
         </Switch>

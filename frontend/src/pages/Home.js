@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 // Style
 import styles from './Home.module.css';
 // Images
@@ -40,7 +40,7 @@ function Home() {
             <Button title={'Sužinok daugiau'} href={'#'} />
           </div>
           <div className={styles.hero_img}>
-            <img src={heroImg} alt='hero-image' className={styles.hero_image} />
+            <img src={heroImg} alt='heroIMG' className={styles.hero_image} />
           </div>
         </div>
         <div className={styles.additional_info}>
