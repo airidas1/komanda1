@@ -23,6 +23,8 @@ function AdminPanel() {
     const [grupe, setGrupe] = useState([])
     const [tipas, setTipas] = useState([])
     const [filtSub, setFiltSub] = useState({})
+    const [doubleTrouble, setDoubleTrouble] = useState([])
+
     /* ATVAIZDUOT */
     const [displayData, setDisplayData] = useState([])
 
@@ -66,36 +68,43 @@ function AdminPanel() {
             setSavivaldybes(Array.from(new Set(res.data.map(el => el['Savivaldybė']))))
             setGrupe(Array.from(new Set(res.data.map(el => el['Grupė']))))
             setTipas(Array.from(new Set(res.data.map(el => el['Pagrindinis tipas']))))
-        })
-        
-        axios.get(`http://localhost:3001/v1/data?page=${page}`).then(res => {
-            setFetchData(res.data)
-        })
-        
-        axios.get(`http://localhost:3001/v1/getAllData`).then(res => {
             setAmount(res.data.length)
             setFetchAllData(res.data)
         })
-    }, [page])
+        
+        /* axios.get(`http://localhost:3001/v1/data?page=${page}`).then(res => {
+            setFetchData(res.data)
+        }) */
+        console.log('useeffect running')
+    }, [])
+
     const handleFilterSubmit = (e) => {
-        let condition = new RegExp(filtSub['Pavadinimas']);
-        e.preventDefault()
+       e.preventDefault()
         setDisplayData([])
-        setDisplayData(fetchAllData.filter(el => {
-            for(let key in filtSub) {
-                if(el[key] === undefined || el[key] !== filtSub[key]) {
-                    return false
+        setDoubleTrouble(fetchAllData)
+        /* userefas nuresetinimui */
+        
+        /* Patikrinimas ar ieskot pagal paieskos lauka arba filtrus */
+        filtSub['Pavadinimas'] && (!filtSub['Grupė'] || !filtSub['Pagrindinis tipas'] || !filtSub['Savivaldybė']) ? setDisplayData(() => {
+
+        /* Paieskos lauko filtras ir regexo sukurimas */
+        let condition = new RegExp(filtSub['Pavadinimas'].toLowerCase())
+        return doubleTrouble.filter(el => {
+            return condition.test(el['Pavadinimas'].toLowerCase())
+        })
+        /* Filtravimas pagal kategorijas */
+        }) : setDisplayData(() => {
+            if(filtSub['Grupė'] && filtSub['Savivaldybė'] && filtSub['Pagrindinis tipas']) return false
+            return  doubleTrouble.filter(el => {
+                for(let key in filtSub) {
+                    if(key === 'Pavadinimas') return true
+                    if(el[key] === undefined || el[key] !== filtSub[key]) {
+                        return false
+                    }
                 }
-                console.log(key)
-            }
-            console.log(filtSub['Pavadinimas'])
-            console.log(el['Pavadinimas'])
-            if(filtSub['Pavadinimas'] && condition.test(el['Pavadinimas'])) {
-                console.log(el['Pavadinimas'])
                 return true
-            }
-            return true
-        }))
+            })
+        })
     }
 
     if(redirect) {
@@ -103,6 +112,7 @@ function AdminPanel() {
     }
     return (
         <>
+        {displayData ? console.log(displayData) : console.log('tuscia')}
             <header className = {styles.header}>
                 <ul className={styles.ul}>
                     <li>
@@ -144,7 +154,7 @@ function AdminPanel() {
                         </div>
                         <div className={styles['form-control']}>
                             <label className={styles['form-label']} htmlFor="pavadinimas">Pavadinimas</label>
-                            <input className={styles['form-input']} type="text"  onChange={(e) =>  setFiltSub({...filtSub, 'Pavadinimas': e.target.value})} />
+                            <input className={styles['form-input']} type="text"  onChange={(e) => setFiltSub({...filtSub, 'Pavadinimas': e.target.value})} />
                         </div>
                         <div className={styles['form-control']}>
                             <label className={styles['form-label']} htmlFor="grupe">Grupe</label>
@@ -165,7 +175,7 @@ function AdminPanel() {
                             </datalist>
                         </div>
                         <div className={styles['filter-container']}>
-                            <input className={styles['filter-submit']} type="submit" value="Filtruoti" onClick={handleFilterSubmit}/>
+                            <input className={styles['filter-submit']} type="reset" value="Filtruoti" onClick={handleFilterSubmit}/>
                         </div>
                     </form>
                 </div>
