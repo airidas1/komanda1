@@ -1,24 +1,24 @@
-import React, { useRef } from 'react';
-import { Link } from 'react-router-dom';
-import styles from './Header.module.css';
-import logo from '../assets/images/logo.png';
+import React, { useRef } from "react";
+import { Link } from "react-router-dom";
+import styles from "./Header.module.css";
+import logo from "../assets/images/logo.png";
 
 function Header(props) {
   const navigation = useRef();
 
   function clickHandler() {
-    navigation.current.classList.toggle('active');
+    navigation.current.classList.toggle("active");
   }
 
   console.log(props.url);
 
-  return props.url === '/v1/admin/login' ||
-    props.url === '/v1/admin/panel' ? null : (
+  return props.url === "/v1/admin/login" ||
+    props.url === "/v1/admin/panel" ? null : (
     <header>
       <div className={styles.container}>
         <div className={styles.logo}>
-          <Link to='/v1'>
-            <img src={logo} alt='logo'></img>
+          <Link to="/v1">
+            <img src={logo} alt="logo"></img>
           </Link>
         </div>
         <div className={styles.toggler} onClick={clickHandler}>
@@ -29,16 +29,13 @@ function Header(props) {
         <nav className={styles.navbar}>
           <ul className={styles.navbar_menu} ref={navigation}>
             <li>
-              <Link to='/about'>Apie mus</Link>
+              <Link to="/about">Apie mus</Link>
             </li>
             <li>
-              <Link to='/faq'>D.U.K</Link>
+              <Link to="/education">Mokslas</Link>
             </li>
             <li>
-              <Link to='/carrer'>Karjera</Link>
-            </li>
-            <li>
-                <Link to='v1/admin/login'>Prisijungti</Link>
+              <Link to="/faq">D.U.K</Link>
             </li>
           </ul>
         </nav>
@@ -49,8 +46,6 @@ function Header(props) {
 
 export default Header;
 
-
-
 // import React, { useRef} from 'react';
 // import { Link } from 'react-router-dom';
 // import './Header.css';
@@ -59,7 +54,6 @@ export default Header;
 
 // function Header() {
 //   const navigation = useRef();
-
 
 //   function clickHandler() {
 //     navigation.current.classList.toggle('active');
