@@ -34,25 +34,23 @@ function AdminLogin() {
     }
     if(redirect) return <Redirect exact to = {redirect} />
 
-    const changeColors = () => {
-        return mode ? setMode(false) : setMode(true)
-    }
+
     return (
-        <main className={mode ? `${styles.main} ${styles.active}` : styles.main}>
-            <div className={styles['form-wrapper']}>
-                {/* <h2>Admin Login Page Sample v1</h2>
-                <button onClick = {changeColors}>toggle</button> */}
-                <form className={styles.form}>
-                    <div className={styles['form-control']}>
-                        <h3 className={styles.h3}>Enter Username:</h3>
-                        <input onChange={e=>setUsername(e.target.value)} className={mode ? `${styles['input-text']} ${styles['active']}` : styles['input-text']} type="text"/>
+        <main className={styles.login}>
+            <div className={styles.container}>
+                <h1>Prisijungti</h1>
+                <form className={styles.login_form}>
+                    <div className={styles.login_form_wrapper}>
+                        <div className={styles.form_control}>
+                            <label >Naudotojo vardas:</label>
+                            <input onChange={e=>setUsername(e.target.value)} type="text" className={styles.form_input}/>
+                        </div>
+                        <div className={styles.form_control}>
+                            <label >Slaptažodis:</label>
+                            <input onChange={e=>setPassword(e.target.value)} type="password" className={styles.form_input}/>
+                        </div>
                     </div>
-                    <div className={styles['form-control']}>
-                        <h3 className={styles.h3}>Enter Password:</h3>
-                        <input onChange={e=>setPassword(e.target.value)} className={mode ? `${styles['input-text']} ${styles['active']}` : styles['input-text']} type="password"/>
-                    </div>
-                    <input className={mode ? `${styles.submit} ${styles.active}` : styles.submit} type="submit" value="Sign In" onClick = {signInHandler}/>
-                    {error ? <div className={styles.error}>{error}</div> : null}
+                    <button type="submit" value="Sign In" onClick = {signInHandler}>Prisijungti</button>
                 </form>
             </div>
         </main>

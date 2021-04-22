@@ -29,6 +29,7 @@
 }
 
 .main {
+  min-height: 75vh;
   background-color: var(--primary-color);
   padding: 1rem 2rem;
   position: relative;

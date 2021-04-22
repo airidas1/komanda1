@@ -27,7 +27,7 @@ function Header(props) {
           <span></span>
         </div>
         <nav className={styles.navbar}>
-          <ul className={styles.navbar__menu_items} ref={navigation}>
+          <ul className={styles.navbar_menu} ref={navigation}>
             <li>
               <Link to='/about'>Apie mus</Link>
             </li>
@@ -38,7 +38,7 @@ function Header(props) {
               <Link to='/carrer'>Karjera</Link>
             </li>
             <li>
-              <Link to='/admin'>Prisijungti</Link>
+                <Link to='v1/admin/login'>Prisijungti</Link>
             </li>
           </ul>
         </nav>
@@ -48,3 +48,55 @@ function Header(props) {
 }
 
 export default Header;
+
+
+
+// import React, { useRef} from 'react';
+// import { Link } from 'react-router-dom';
+// import './Header.css';
+// // import styles from './Header.module.css';
+// import logo from '../assets/images/logo.png'
+
+// function Header() {
+//   const navigation = useRef();
+
+
+//   function clickHandler() {
+//     navigation.current.classList.toggle('active');
+//   }
+
+//   return (
+//     <header>
+//       <div className='container'>
+//         <div className='logo'>
+//           <Link to='/v1'>
+//              <img src={logo} alt='logo'></img>
+//           </Link>
+//         </div>
+//         <div className='toggler' onClick={clickHandler}>
+//           <span></span>
+//           <span></span>
+//           <span></span>
+//         </div>
+//         <nav className='navbar'>
+//           <ul className='navbar__menu-items' ref={navigation}>
+//             <li>
+//                <Link to='/about'>Apie mus</Link>
+//              </li>
+//              <li>
+//                <Link to='/faq'>D.U.K</Link>
+//              </li>
+//              <li>
+//                <Link to='/carrer'>Karjera</Link>
+//              </li>
+//              <li>
+//                 <Link to='/admin'>Prisijungti</Link>
+//              </li>
+//           </ul>
+//         </nav>
+//       </div>
+//     </header>
+//   );
+// }
+
+// export default Header;

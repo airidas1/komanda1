@@ -220,9 +220,6 @@ function AdminPanel() {
                     </div>
                 </div>
             </main>
-            <footer>
-
-            </footer>
         </>
     )
 }
