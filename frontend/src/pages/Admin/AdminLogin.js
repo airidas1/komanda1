@@ -8,6 +8,7 @@ function AdminLogin() {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [redirect, setRedirect] = useState(null)
+    const [error, setError] = useState(null)
 
     const signInHandler = (e) => {
         e.preventDefault()
@@ -15,9 +16,21 @@ function AdminLogin() {
         axios.post('http://localhost:3001/v1/admin/login', {
             username: username, password: password
         }).then(data => {
-            localStorage.setItem('admin-id', data.headers['admin-id'])
-            setRedirect('/v1/admin/panel')
-        }).catch(e => console.log(e))
+            if(data.data.username === false){
+                 setError('Incorrect Username')
+                 return false;
+            }
+            if(data.data.password === false) {
+                setError('Incorrect Password')
+                return false
+            }
+            if(data.data.username && data.data.password) {
+                localStorage.setItem('admin-id', data.headers['admin-id'])
+                setRedirect('/v1/admin/panel')
+            }
+        }).catch(e => {
+            console.log(e)
+        })
     }
     if(redirect) return <Redirect exact to = {redirect} />
 
