@@ -1,22 +1,25 @@
 import React, { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Header.module.css';
-import logo from '../assets/images/logo.png'
+import logo from '../assets/images/logo.png';
 
-function Header() {
+function Header(props) {
   const navigation = useRef();
 
   function clickHandler() {
     navigation.current.classList.toggle('active');
   }
 
-  return (
+  console.log(props.url);
+
+  return props.url === '/v1/admin/login' ||
+    props.url === '/v1/admin/panel' ? null : (
     <header>
       <div className={styles.container}>
         <div className={styles.logo}>
-            <Link to='/v1'>
-              <img src={logo} alt='logo'></img>
-            </Link>
+          <Link to='/v1'>
+            <img src={logo} alt='logo'></img>
+          </Link>
         </div>
         <div className={styles.toggler} onClick={clickHandler}>
           <span></span>
@@ -35,7 +38,7 @@ function Header() {
               <Link to='/carrer'>Karjera</Link>
             </li>
             <li>
-                <Link to='/admin'>Prisijungti</Link>
+              <Link to='/admin'>Prisijungti</Link>
             </li>
           </ul>
         </nav>

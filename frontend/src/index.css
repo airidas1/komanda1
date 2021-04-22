@@ -11,3 +11,13 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* Variables */
+:root {
+  --primary-color: #3a90ed;
+  --secondary-color: #6daaec;
+  --accent-color: #1d4877;
+
+  --dark-color: #000;
+  --light-color: #fff;
+}

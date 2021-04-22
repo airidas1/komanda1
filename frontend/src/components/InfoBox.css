@@ -5,6 +5,7 @@
 
 .infoBox-image {
   width: 40%;
+  padding: 15px;
 }
 
 @media screen and (min-width: 768px) {

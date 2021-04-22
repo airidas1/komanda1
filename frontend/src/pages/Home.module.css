@@ -1,8 +1,3 @@
-/* Spalvos 
-#3A90ED tamsi melyna
-#D5EAFF sviesi melyna
-*/
-
 /* ----- Mobile ----- */
 
 .home {
@@ -111,7 +106,7 @@
 
 .additional_info h2 {
   margin-bottom: 25px;
-  color: #3a90ed;
+  color: #000000;
 }
 
 .info_box_container {

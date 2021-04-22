@@ -1,12 +1,12 @@
 footer {
   min-height: 5vh;
-  background-color: #6dc4e9;
+  background-color: var(--primary-color);
   padding: 20px 0;
   text-align: center;
   color: #f1faee;
 }
 
 .team_name {
-  color: #3a90ed;
+  color: #ffffff;
   font-weight: 600;
 }
