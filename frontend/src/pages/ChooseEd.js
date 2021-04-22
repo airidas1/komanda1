@@ -9,24 +9,20 @@ import presentation from "../assets/images/presentation.png";
 function ChooseEd() {
   return (
     <main>
-      <h1>Kaip išsirinkti geriausią įstaigą Lietuvoje?</h1>
+      <h1>Kaip išsirinkti sau tinkamą ūgdymo programą?</h1>
       <section className={styles.section}>
         <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque quasi
-          quo possimus? Velit voluptatum neque nemo tenetur pariatur deserunt id
-          sequi ea consectetur consequatur, vero nobis labore aperiam ad
-          delectus! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex
-          obcaecati perspiciatis optio asperiores expedita officiis excepturi
-          esse amet eveniet necessitatibus?
+          Formalusis mokymasis, organizuojamas švietimo įstaigose, nepakankamai
+          atskleidžia realaus gyvenimo fenomeną. Nėra paprasta žinias ir
+          įgūdžius, įgytus tokio mokymosi metu, perkelti“ į realią socialinę
+          situaciją, formaliajam mokymuisi nėra būdingas laisvas kontekstas.
         </p>
         <hr />
         <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque quasi
-          quo possimus? Velit voluptatum neque nemo tenetur pariatur deserunt id
-          sequi ea consectetur consequatur, vero nobis labore aperiam ad
-          delectus. Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          Reiciendis deserunt quas odio veniam aperiam dolorem at consectetur
-          exercitationem sint. Modi.
+          Savarankiško mokymosi procesas, kuris vyksta įvairiose aplinkose,
+          tačiau pasižymi planingumu, turi tikslus, yra apribotas laike. Vyksta
+          šalia švietimo ir mokymo sistemų. Valstybės pripažinti dokumentai
+          neišduodami ir nesuteikiama kvalifikacija. Išduodami pažymėjimai.
         </p>
       </section>
       <hr />

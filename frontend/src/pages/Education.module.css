@@ -33,6 +33,7 @@ main .article h1 {
 }
 
 main .img_container {
+  display: flex;
   justify-content: center;
   align-items: center;
   margin: 0 15px 0 15px;
