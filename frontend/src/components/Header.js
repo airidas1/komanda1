@@ -14,7 +14,7 @@ function Header(props) {
 
   return props.url === '/v1/admin/login' ||
     props.url === '/v1/admin/panel'? null : (
-    <header>
+    <header className={styles.container}>
       <div className={styles.container}>
         <div className={styles.logo}>
           <Link to='/v1'>
