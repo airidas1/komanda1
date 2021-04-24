@@ -13,7 +13,7 @@ function Header(props) {
   console.log(props.url);
 
   return props.url === '/v1/admin/login' ||
-    props.url === '/v1/admin/panel' ? null : (
+    props.url === '/v1/admin/panel'? null : (
     <header>
       <div className={styles.container}>
         <div className={styles.logo}>

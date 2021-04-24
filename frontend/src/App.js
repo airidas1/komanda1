@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './pages/Home';
@@ -16,7 +16,7 @@ function App() {
   return (
     <>
       <Router>
-        <Header url={window.location.pathname} />
+        <Header url={window.location.pathname}/>
         <Switch>
           <Route exact path='/v1'>
             <Home />
@@ -36,7 +36,7 @@ function App() {
           <Route path='/carrer'>
             <Carrer />
           </Route>
-          <Route path='/404'>
+          <Route >
             <NotFound />
           </Route>
         </Switch>
