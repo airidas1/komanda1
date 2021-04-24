@@ -1,12 +1,12 @@
 import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState} from 'react'
 import { Redirect, Link } from 'react-router-dom'
 import styles from './AdminPanel.module.css'
 import LOGO from '../../assets/images/logo.png'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fas } from '@fortawesome/free-solid-svg-icons'
 import { far } from '@fortawesome/free-regular-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
 function AdminPanel() {
@@ -107,6 +107,16 @@ function AdminPanel() {
         })
     }
 
+    const handleLogout = () => {
+        axios.get('http://localhost:3001/v1/admin/logout', {
+            headers: {
+                'admin-id': localStorage.getItem('admin-id')
+            }
+        })
+        localStorage.removeItem('admin-id');
+        window.location.pathname = '/v1/admin/login'
+    }
+
     if(redirect) {
         return <Redirect to = {redirect} />
     }
@@ -121,7 +131,7 @@ function AdminPanel() {
                     <nav className={styles.navbar}>
                         <ul className={styles.navbar_menu}>
                             <li>
-                                <button className={styles.header_btn}>Logout</button>
+                                <button className={styles.header_btn} onClick={handleLogout}>Logout</button>
                             </li>
                             <li>
                                 <button className={styles.header_btn}>
