@@ -12,6 +12,12 @@ main h1 {
   text-align: center;
   color: #3a90ed;
 }
+main h2 {
+  margin: 40px 0;
+  font-size: 30px;
+  text-align: center;
+  color: #3a90ed;
+}
 
 main .section {
   display: flex;
@@ -26,7 +32,7 @@ main:nth-child(2) > .section {
 }
 
 main:nth-child(2) > .section p {
-  margin: 10px;
+  margin: 20px;
   width: 500px;
 }
 
@@ -40,7 +46,7 @@ main:nth-child(2) > .section p {
 
 .infoBoxContainer {
   display: flex;
-  padding: 20px;
+  padding: 40px;
 }
 
 .infoBox {
@@ -50,7 +56,7 @@ main:nth-child(2) > .section p {
 }
 
 .infoBoxImage {
-  width: 60%;
+  width: 40%;
 }
 
 /* TABLET */

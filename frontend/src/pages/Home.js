@@ -135,7 +135,7 @@ function Home() {
           </div>
         </div>
         <div className={styles.additional_info}>
-          <h2>Kažkokie faktai apie mokslą Lietuvoje</h2>
+          <h2>Faktai apie mokslą Lietuvoje</h2>
           <div className={styles.info_box_container}>
             <InfoBox
               text={

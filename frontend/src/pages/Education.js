@@ -12,17 +12,21 @@ function Education() {
         <article className={styles["article"]}>
           <h1>Mokslas Lietuvoje</h1>
           <p>
-            Aukštasis mokslas Lietuvoje išgyvena ne pačius lengviausius laikus –
-            nors turime labai daug studentų, kas kai kuriuose viešuose
-            pasisakymuose įvardinama kaip didelis valstybės potencialas, pagal
-            įvairius rodiklius atsiliekame nuo daugelio šalių. Pavyzdžiui, pagal
-            inovacijas esame viena iš prasčiausiai gyvuojančių šalių Europos
-            Sąjungoje, ką rodo inovacijų švieslentė. „Turint 47 aukštąsias
-            mokyklas Lietuvoje, reikia rasti atsakymus į labai paprastus ir tuo
-            pačiu esminius konceptualius klausimus, kas yra universitetas, kas
-            yra kolegija, ko valstybė tikisi iš šių institucijų formuodama
-            aukštojo mokslo politiką, skirdama joms paramą, keldama tikslus
-            aukštajam mokslui“, - sako MOSTA direktorė Jurgita Petrauskienė.
+            Lietuvos švietimo sistema apima formalųjį švietimą (pradinį,
+            pagrindinį, vidurinį ugdymą, formalųjį profesinį mokymą, aukštojo
+            mokslo studijas), neformalųjį švietimą (ikimokyklinį,
+            priešmokyklinį, kitą neformalųjį vaikų (taip pat formalųjį švietimą
+            papildantį ugdymą) ir suaugusiųjų švietimą), savišvietą, švietimo
+            pagalbą (profesinį orientavimą, švietimo informacinę, psichologinę,
+            socialinę pedagoginę, specialiąją pedagoginę ir specialiąją pagalbą,
+            sveikatos priežiūrą mokykloje, konsultacinę, mokytojų kvalifikacijos
+            tobulinimo ir kitą pagalbą). Aukštasis mokslas Lietuvoje išgyvena ne
+            pačius lengviausius laikus – nors turime labai daug studentų, kas
+            kai kuriuose viešuose pasisakymuose įvardinama kaip didelis
+            valstybės potencialas, pagal įvairius rodiklius atsiliekame nuo
+            daugelio šalių. Pavyzdžiui, pagal inovacijas esame viena iš
+            prasčiausiai gyvuojančių šalių Europos Sąjungoje, ką rodo inovacijų
+            švieslentė.
           </p>
         </article>
         <div className={styles["img_container"]}>

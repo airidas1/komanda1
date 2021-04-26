@@ -26,38 +26,53 @@ function ChooseEd() {
         </p>
       </section>
       <hr />
+      <h2>Į ką reikėtų atkreipti dėmesį?</h2>
       <section className={styles.infoBoxContainer}>
         <div className={styles.infoBox}>
           <img src={happy} className={styles.infoBoxImage} />
           <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Provident,
-            nisi.
+            Besimokydami, nepamirškite skirti laiko savo stiprybių/silpnybių
+            pažinimui.
           </p>
-          <p>✔ Lorem ipsum dolor sit amet consectetur.</p>
+          <p>
+            <b>
+              ✔ Savęs pažinimas padės Jums geriau suprasti save, jaustis
+              laimingesniu bei žinoti kur galite pritaikyti savo gabumus.
+            </b>
+          </p>
         </div>
         <div className={styles.infoBox}>
           <img src={openBook} className={styles.infoBoxImage} />
           <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Provident,
-            nisi.
+            <b>Nenustokite domėtis!</b>
           </p>
-          <p>✔ Lorem ipsum dolor sit amet consectetur.</p>
+          <p>
+            ✔ Šiuolaikinis pasaulis nuolatos keičiasi ir juda į priekį.
+            Nenustokite domėtis, nebijokite naujovių ar visiškai nepažįstamų
+            dalykų. Išbandant save naujose srityse Jūs tobulėjate!
+          </p>
         </div>
         <div className={styles.infoBox}>
           <img src={idea} className={styles.infoBoxImage} />
+          <p>Idėjos yra mūsų kuras.</p>
           <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Provident,
-            nisi.
+            <b>
+              ✔ Per daug žmonių neįvertina savo įdėjų. Užrašykite jas ir
+              skirkite joms laiko. Galbūt įdėjose pastebėsite tendencijas, o tai
+              gali ženkliai palengvinti apsisprendimo procesą.
+            </b>
           </p>
-          <p>✔ Lorem ipsum dolor sit amet consectetur.</p>
         </div>
         <div className={styles.infoBox}>
           <img src={presentation} className={styles.infoBoxImage} />
           <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Provident,
-            nisi.
+            <b>Konsultacijos.</b>
           </p>
-          <p>✔ Lorem ipsum dolor sit amet consectetur.</p>
+          <p>
+            ✔ Visada galite išklausyti ką siūlo skirtingos švietimo įstaigos.
+            Kokias studijų programos siūlomos, kokie dalykai mokomi. Tai taip
+            pat gali padėti Jums apsispręsti.
+          </p>
         </div>
       </section>
     </main>
