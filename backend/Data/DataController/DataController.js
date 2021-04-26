@@ -24,7 +24,6 @@ getAllData = async (req, res) => {
 
 
 saveData = async (req, res) => {
-    console.log(req.body)
     let data = new Data({
         'Grupė': req.body['Grupė'],
         'Pagrindinis tipas': req.body['Pagrindinis tipas'],
@@ -43,7 +42,7 @@ saveData = async (req, res) => {
 
 removeData = async (req, res) => {
     try {
-        await Data.findOneAndRemove({ _id: '607dc5d371284455cc7a4af5' })
+        await Data.findOneAndRemove({ _id: req.body.id })
         res.json('success')
     } catch (e) {
         res.status(400).json(e)
@@ -51,12 +50,13 @@ removeData = async (req, res) => {
 }
 
 updateDataInfo = async(req,res) => {
-    try {
+    console.log(req.body)
+    /* try {
         let updated = await Data.findOneAndUpdate({ _id: req.params.id }, req.body)
         res.json(updated)
     } catch (e) {
         res.status(400).json(e)
-    }
+    } */
 }
 
 
