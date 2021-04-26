@@ -24,16 +24,14 @@ getAllData = async (req, res) => {
 
 
 saveData = async (req, res) => {
+    console.log(req.body)
     let data = new Data({
-        'Juridinio asmens kodas': true, 
-        'Pavadinimas': 'String', 
-        'Buveinė (adresas)': 1,
-        'Telefonas': 'String',
-        'Grupė': 'String',
-        'Savivaldybė': 'String',
-        'Pagrindinis tipas': 'String',
-        'El. paštas': 'String',
-        'Teisinė forma': 'String'
+        'Grupė': req.body['Grupė'],
+        'Pagrindinis tipas': req.body['Pagrindinis tipas'],
+        'Pavadinimas': req.body['Pavadinimas'],
+        'Savivaldybė': req.body['Savivaldybė'],
+        'Teisinė forma': req.body['Teisinė forma'],
+        'Telefonas': req.body['Telefonas']
     })
     try {
         let savedPost = await data.save()

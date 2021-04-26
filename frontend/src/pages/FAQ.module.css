@@ -40,7 +40,7 @@
   display: flex;
   flex-direction: column;
   border: none;
-  background-color: #d5eaff;
+  background-color: var(--secondary-color);
   font-size: 1em;
   border-radius: 10px;
   font-weight: 600;

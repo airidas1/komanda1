@@ -1,51 +1,47 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
-.main {
-  background-color: var(--secondary-color);
-  font-family: 'Montserrat', sans-serif;
-  position: relative;
+/* body {
+  display: flex;
+  min-height: 100vh;
 }
 
-.form-wrapper {
-  height: 100vh;
-  max-width: 1000px;
-  margin: 0 auto;
+#root {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+} */
+
+.login {
+  min-height: 93.5vh;
+}
+
+.login .container {
+  padding: 4em 1em;
+}
+
+.login .container h1 {
+  font-size: 2.5em;
+  text-align: center;
+}
+
+.login .container .login_form {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  padding-top: 2em;
 }
 
-.form {
-  background-color: var(--contrast-color);
-  border: 1px solid var(--primary-color);
-  border-radius: 5px;
-  height: 50%;
-  width: 50%;
-  padding: 1rem 2rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
-    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
-    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-  z-index: 100;
+.login .container .login_form .login_form_wrapper {
+  width: 80%;
+  padding: 2em 0 3em 0;
+  border-radius: 20px;
+  background-color: #d5eaff;
 }
 
-.form.active {
-  background-color: var(--background-color);
-  border: 1px solid var(--outline-color);
-}
-
-.h3 {
-  font-size: 20px;
-  font-weight: 400;
-  padding: 0.5rem 0;
-}
-
-.form-control {
-  width: 100%;
+.login .container .login_form .login_form_wrapper .form_control {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -53,45 +49,87 @@
   margin-bottom: 1rem;
 }
 
-.input-text {
-  width: 100%;
-  height: 2rem;
-  border: 2px solid var(--primary-color);
-  border-radius: 5px;
+.login .container .login_form .login_form_wrapper .form_control label {
+  padding: 1em 0 0.5em 0;
+  font-size: 1.1em;
 }
 
-.input-text:focus {
-  outline: 0;
-  border: 2px solid var(--outline-color);
-}
-
-.submit {
-  margin-top: 1em;
-  border: 0;
-  border-radius: 5px;
-  width: 100%;
-  height: 2rem;
-  background-color: var(--secondary-color);
-  font-size: 18px;
-  font-weight: 500;
-  font-family: 'Montserrat', sans-serif;
-  transition: all 500ms ease-in;
-}
-
-.submit:hover {
-  cursor: pointer;
-}
-
-.error {
-  height: 2rem;
+.login .container .login_form .login_form_wrapper .form_control .form_input {
   width: 80%;
-  background-color: var(--error-color);
-  margin-top: 1rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 5px;
+
+  padding: 0.5em;
+  outline: none;
+  border: 0px;
+  border-radius: 0;
+}
+
+.login_form button {
+  margin: 2em auto;
+  padding: 10px;
+  width: 30%;
+  border: none;
+  background-color: #6dc4e9;
   color: #fff;
-  font-weight: 800;
-  box-shadow: rgba(229, 115, 115, 1) 0px 5px 15px;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 1em;
+  font-weight: 600;
+  transition: all ease 0.3s;
+}
+
+.login_form button:hover {
+  cursor: pointer;
+  color: #3a90ed;
+  background-color: #ffffff;
+}
+
+/* Tablet */
+@media screen and (min-width: 768px) {
+  .login .container {
+    padding-top: 7em;
+    padding-bottom: 3em;
+  }
+
+  .login .container h1 {
+    font-size: 2.5em;
+  }
+
+  .login .container .login_form {
+    padding-top: 5em;
+    padding-bottom: 5em;
+  }
+
+  .login .container .login_form .login_form_wrapper {
+    width: 50%;
+  }
+
+  .login .container .login_form .login_form_wrapper .form_control .form_input {
+    width: 80%;
+    border-radius: 0;
+  }
+
+  .login_form button {
+    width: 15%;
+  }
+}
+
+/* Desktop */
+@media screen and (min-width: 1280px) {
+  .login {
+    min-height: 80vh;
+  }
+
+  .login .container {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  .login .container .login_form .login_form_wrapper {
+    width: 40%;
+  }
+
+  .login .container .login_form .login_form_wrapper .form_control .form_input {
+    width: 80%;
+    border-radius: 0;
+  }
 }

@@ -10,15 +10,15 @@ function Carrer() {
 
                 <form className={styles.carrer_form}>
                     <div className={styles.form_control}>
-                        <label>Name</label>
+                        <label>Vardas</label>
                         <input type='text' className={styles.form_input}></input>
                     </div>
                     <div className={styles.form_control}>
-                        <label>Email</label>
+                        <label>El. paštas</label>
                         <input type='email' className={styles.form_input}></input>
                     </div>
                     <div className={styles.form_control}>
-                        <label>Message</label>
+                        <label>Jūsų žinutė</label>
                         <textarea type='message' id='message' cols='30' rows='5' className={styles.form_textarea}></textarea>
                     </div>
                     <Button title={'Pateikti'} href={'#'} />

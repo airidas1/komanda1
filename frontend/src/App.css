@@ -1,12 +1,3 @@
-:root {
-  --primary-color: #b4d1ee;
-  --secondary-color: #3a90ed;
-  --contrast-color: #4590db;
-  --outline-color: #e5e5e5;
-  --background-color: #fff;
-  --error-color: #e57373;
-}
-
 * {
   box-sizing: border-box;
   padding: 0;

@@ -2,7 +2,8 @@
 header {
   background-color: #fff;
   min-height: 10vh;
-  border-bottom: 2px solid #6dc4e9;
+  -webkit-box-shadow: 0px 2px 12px -4px #000000;
+  box-shadow: 0px 2px 8px -4px #000000;
 }
 
 header .container {
@@ -21,6 +22,11 @@ header .container .logo {
 header .container .logo img {
   width: auto;
   height: 120px;
+  transition: 0.3s;
+}
+
+header .container .logo img:hover {
+  cursor: pointer;
 }
 
 header .container .logo:hover {
@@ -54,7 +60,7 @@ header .container .navbar {
   width: 100%;
 }
 
-header .container .navbar .navbar__menu_items {
+header .container .navbar .navbar_menu {
   width: 100%;
   padding-top: 1em;
   list-style: none;
@@ -63,18 +69,25 @@ header .container .navbar .navbar__menu_items {
   display: none;
 }
 
-header .container .navbar .navbar__menu_items .active {
+header .container .navbar .navbar_menu.active {
   display: block;
 }
 
-header .container .navbar .navbar__menu_items li {
+header .container .navbar .navbar_menu li {
   padding: 5px;
 }
 
-header .container .navbar .navbar__menu_items li a {
+header .container .navbar .navbar_menu li a {
   text-decoration: none;
-  color: #6dc4e9;
+  color: var(--seconadry-color);
   font-size: 1.2em;
+  transition: 0.1s;
+}
+
+header .container .navbar .navbar_menu li a:hover {
+  cursor: pointer;
+  color: var(--primary-color);
+  font-size: 1.3em;
 }
 
 /* Tablet and Desktop */
@@ -101,13 +114,13 @@ header .container .navbar .navbar__menu_items li a {
     width: 70%;
   }
 
-  header .container .navbar .navbar__menu_items {
+  header .container .navbar .navbar_menu {
     display: flex;
     justify-content: flex-end;
     padding-top: 0px;
   }
 
-  header .container .navbar .navbar__menu_items li {
+  header .container .navbar .navbar_menu li {
     padding: 5px 25px;
   }
 }

@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Error() {
+function Search() {
     return (
         <div>
             
@@ -8,4 +8,4 @@ function Error() {
     )
 }
 
-export default Error
+export default Search

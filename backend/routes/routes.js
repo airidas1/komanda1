@@ -20,7 +20,7 @@ router.post('/dataUpdate/:id', AdminMiddleware.authenticate, DataController.upda
 /* Post new post */
 router.post('/dataPost', AdminMiddleware.authenticate, DataController.saveData)
 /* Delete post */
-router.delete('/data', AdminMiddleware.authenticate, DataController.removeData)
+router.delete('/data/:id', AdminMiddleware.authenticate, DataController.removeData)
 
 
 module.exports = router
