@@ -36,9 +36,6 @@ function Header(props) {
              <li>
                <Link to='/carrer'>Karjera</Link>
              </li>
-             <li>
-                <Link to='v1/admin/login'>Prisijungti</Link>
-             </li>
           </ul>
         </nav>
       </div>
