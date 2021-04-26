@@ -18,7 +18,7 @@ function App() {
   return (
     <>
       <Router>
-        <Header url={window.location.pathname} />
+        <Header url={window.location.pathname}/>
         <Switch>
           <Route exact path="/v1">
             <Home />
@@ -44,7 +44,7 @@ function App() {
           <Route path="/carrer">
             <Carrer />
           </Route>
-          <Route path="/404">
+          <Route >
             <NotFound />
           </Route>
         </Switch>
