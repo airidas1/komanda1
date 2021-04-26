@@ -7,14 +7,8 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import { fas } from "@fortawesome/free-solid-svg-icons";
 import { far } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-<<<<<<< Updated upstream
-// Loader
-import { css } from "@emotion/core";
-import ClipLoader from "react-spinners/ClipLoader";
-=======
 import { ClipLoader } from "react-spinners";
 import { css } from "@emotion/core";
->>>>>>> Stashed changes
 
 function AdminPanel() {
   library.add(fas, far);
@@ -30,13 +24,8 @@ function AdminPanel() {
   const [grupe, setGrupe] = useState([]);
   const [tipas, setTipas] = useState([]);
   const [filtSub, setFiltSub] = useState({});
-<<<<<<< Updated upstream
-  //   Loader
-  const [isLoading, setisLoading] = useState(true);
-=======
   const [doubleTrouble, setDoubleTrouble] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
->>>>>>> Stashed changes
 
   /* ATVAIZDUOT */
   const [displayData, setDisplayData] = useState([]);
@@ -87,12 +76,8 @@ function AdminPanel() {
       setTipas(
         Array.from(new Set(res.data.map((el) => el["Pagrindinis tipas"])))
       );
-<<<<<<< Updated upstream
-=======
       setAmount(res.data.length);
       setFetchAllData(res.data);
-      setIsLoading(false);
->>>>>>> Stashed changes
     });
 
     axios.get(`http://localhost:3001/v1/data?page=${page}`).then((res) => {
@@ -356,16 +341,8 @@ function AdminPanel() {
   );
 }
 
-<<<<<<< Updated upstream
-// Loaderio stilius
-const override = css`
-  font-size: 10px;
-  margin-left: 10px;
-  border-color: black;
-=======
 const override = css`
   margin-left: 10px;
->>>>>>> Stashed changes
 `;
 
 export default AdminPanel;
