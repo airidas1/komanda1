@@ -13,12 +13,13 @@ import AdminPanel from './pages/Admin/AdminPanel';
 import Carrer from './pages/Carrer';
 import FAQ from './pages/FAQ';
 import NotFound from './pages/NotFound';
+import Results from './pages/Results';
 
 function App() {
   return (
     <>
       <Router>
-        <Header url={window.location.pathname}/>
+        <Header url={window.location.pathname} />
         <Switch>
           <Route exact path='/v1'>
             <Home />
@@ -43,6 +44,9 @@ function App() {
           </Route>
           <Route path='/carrer'>
             <Carrer />
+          </Route>
+          <Route path='/results' render={(props) => <Results {...props} />}>
+            {/* <Results /> */}
           </Route>
           <Route>
             <NotFound />
