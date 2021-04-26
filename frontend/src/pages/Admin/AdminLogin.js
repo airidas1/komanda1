@@ -34,9 +34,6 @@ function AdminLogin() {
     }
     if(redirect) return <Redirect exact to = {redirect} />
 
-    const changeColors = () => {
-        return mode ? setMode(false) : setMode(true)
-    }
     return (
         <main className={mode ? `${styles.main} ${styles.active}` : styles.main}>
             <div className={styles['form-wrapper']}>

@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Redirect } from 'react-router-dom'
 // Style
 import styles from './Home.module.css';
 // Images
@@ -10,6 +11,11 @@ import icon3 from '../assets/images/icon3.svg';
 // Components
 import Button from '../components/Button';
 import InfoBox from '../components/InfoBox';
+
+
+
+
+
 
 function Home() {
   return (

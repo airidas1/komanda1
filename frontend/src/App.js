@@ -11,6 +11,7 @@ import AdminPanel from './pages/Admin/AdminPanel';
 import Carrer from './pages/Carrer';
 import FAQ from './pages/FAQ';
 import NotFound from './pages/NotFound';
+import Search from './pages/Search/Search'
 
 function App() {
   return (
