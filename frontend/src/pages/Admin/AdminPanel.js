@@ -6,6 +6,8 @@ import LOGO from "../../assets/images/logo.png";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fas } from "@fortawesome/free-solid-svg-icons";
 import { far } from "@fortawesome/free-regular-svg-icons";
+import { ClipLoader } from "react-spinners";
+import { css } from "@emotion/core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 let AdminPanel = () => {
@@ -29,6 +31,8 @@ let AdminPanel = () => {
   const [displayData, setDisplayData] = useState([]);
   /* filtered AND paginated data to cope with big ammounts of information */
   const [paginatedData, setPaginatedData] = useState([]);
+  /* Loading spinner state while fetching data */
+  const [isLoading, setIsLoading] = useState(true);
 
   /* post-button data object */
   const [postObj, setPostObj] = useState({
@@ -68,6 +72,7 @@ let AdminPanel = () => {
         Array.from(new Set(res.data.map((el) => el["Teisinė forma"])))
       );
       setFetchAllData(res.data);
+      setIsLoading(false);
     });
 
     /* Actively listening for changes(check dependency arr) in filtered data to decide which page to display for the user */
@@ -247,318 +252,330 @@ let AdminPanel = () => {
           </li>
         </ul>
       </header>
-      <main className={styles.main}>
-        {postModal ? (
-          <div className={styles["post-modal"]}>
-            <div className={styles["modal-container-background"]}></div>
-            <div className={styles["modal-container"]}>
-              <div
-                className={styles["post-quit"]}
-                onClick={() => handlePostModal("close")}
-              >
+      {isLoading ? (
+        <ClipLoader css={override} size={150} />
+      ) : (
+        <main className={styles.main}>
+          {postModal ? (
+            <div className={styles["post-modal"]}>
+              <div className={styles["modal-container-background"]}></div>
+              <div className={styles["modal-container"]}>
+                <div
+                  className={styles["post-quit"]}
+                  onClick={() => handlePostModal("close")}
+                >
+                  <FontAwesomeIcon
+                    className={styles["fontawesome-close"]}
+                    icon={["far", "times-circle"]}
+                    size="2x"
+                  />
+                </div>
+                <form className={styles["post-button-form"]}>
+                  <div className={styles["form-control"]}>
+                    <label
+                      className={styles["form-label"]}
+                      htmlFor="post-savivaldybe"
+                    >
+                      Savivaldybe
+                    </label>
+                    <input
+                      className={styles["form-input"]}
+                      type="text"
+                      list="post-sav"
+                      onChange={(e) =>
+                        setPostObj({ ...postObj, Savivaldybė: e.target.value })
+                      }
+                    />
+                    <datalist id="post-sav">
+                      {savivaldybes
+                        ? savivaldybes.map((item, key) => {
+                            return <option key={key} value={item} />;
+                          })
+                        : null}
+                    </datalist>
+                  </div>
+                  <div className={styles["form-control"]}>
+                    <label
+                      className={styles["form-label"]}
+                      htmlFor="post-grupe"
+                    >
+                      Grupė
+                    </label>
+                    <input
+                      className={styles["form-input"]}
+                      type="text"
+                      list="post-gr"
+                      onChange={(e) =>
+                        setPostObj({ ...postObj, Grupė: e.target.value })
+                      }
+                    />
+                    <datalist id="post-gr">
+                      {grupe
+                        ? grupe.map((item, key) => {
+                            return <option key={key} value={item} />;
+                          })
+                        : null}
+                    </datalist>
+                  </div>
+                  <div className={styles["form-control"]}>
+                    <label
+                      className={styles["form-label"]}
+                      htmlFor="post-pagr-tipas"
+                    >
+                      Pagrindinis tipas
+                    </label>
+                    <input
+                      className={styles["form-input"]}
+                      type="text"
+                      list="post-pgr"
+                      onChange={(e) =>
+                        setPostObj({
+                          ...postObj,
+                          "Pagrindinis tipas": e.target.value,
+                        })
+                      }
+                    />
+                    <datalist id="post-pgr">
+                      {tipas
+                        ? tipas.map((item, key) => {
+                            return <option key={key} value={item} />;
+                          })
+                        : null}
+                    </datalist>
+                  </div>
+                  <div className={styles["form-control"]}>
+                    <label
+                      className={styles["form-label"]}
+                      htmlFor="post-pavadinimas"
+                    >
+                      Pavadinimas
+                    </label>
+                    <input
+                      className={styles["form-input"]}
+                      type="text"
+                      onChange={(e) =>
+                        setPostObj({ ...postObj, Pavadinimas: e.target.value })
+                      }
+                    />
+                  </div>
+                  <div className={styles["form-control"]}>
+                    <label
+                      className={styles["form-label"]}
+                      htmlFor="post-Telefonas"
+                    >
+                      Telefonas
+                    </label>
+                    <input
+                      className={styles["form-input"]}
+                      type="text"
+                      onChange={(e) =>
+                        setPostObj({ ...postObj, Telefonas: e.target.value })
+                      }
+                    />
+                  </div>
+                  <div className={styles["form-control"]}>
+                    <label
+                      className={styles["form-label"]}
+                      htmlFor="post-El. paštas"
+                    >
+                      El. paštas
+                    </label>
+                    <input
+                      className={styles["form-input"]}
+                      type="text"
+                      onChange={(e) =>
+                        setPostObj({ ...postObj, "El. paštas": e.target.value })
+                      }
+                    />
+                  </div>
+                  <div className={styles["form-control"]}>
+                    <label
+                      className={styles["form-label"]}
+                      htmlFor="post-teisine-forma"
+                    >
+                      Teisinė forma
+                    </label>
+                    <input
+                      className={styles["form-input"]}
+                      type="text"
+                      list="post-tf"
+                      onChange={(e) =>
+                        setPostObj({
+                          ...postObj,
+                          "Teisinė forma": e.target.value,
+                        })
+                      }
+                    />
+                    <datalist id="post-tf">
+                      {teisine
+                        ? teisine.map((item, key) => {
+                            return <option key={key} value={item} />;
+                          })
+                        : null}
+                    </datalist>
+                  </div>
+                  <div className={styles["form-control"]}>
+                    <input
+                      className={styles["post-submit"]}
+                      type="submit"
+                      value="Pateikti"
+                      onClick={handlePostSubmit}
+                    />
+                  </div>
+                </form>
+              </div>
+            </div>
+          ) : null}
+          <div className={styles["changePasswordModal"]}></div>
+          <div className={styles["filter-form-wrapper"]}>
+            <form className={styles["filter-form"]}>
+              <div className={styles["form-control"]}>
+                <label className={styles["form-label"]} htmlFor="savivaldybe">
+                  Savivaldybe
+                </label>
+                <input
+                  className={styles["form-input"]}
+                  type="text"
+                  list="data-sav"
+                  onChange={(e) =>
+                    setFiltSub({ ...filtSub, Savivaldybė: e.target.value })
+                  }
+                />
+                <datalist id="data-sav">
+                  {savivaldybes
+                    ? savivaldybes.map((item, key) => {
+                        return <option key={key} value={item} />;
+                      })
+                    : null}
+                </datalist>
+              </div>
+              <div className={styles["form-control"]}>
+                <label className={styles["form-label"]} htmlFor="pavadinimas">
+                  Pavadinimas
+                </label>
+                <input
+                  className={styles["form-input"]}
+                  type="text"
+                  onChange={(e) =>
+                    setFiltSub({ ...filtSub, Pavadinimas: e.target.value })
+                  }
+                />
+              </div>
+              <div className={styles["form-control"]}>
+                <label className={styles["form-label"]} htmlFor="grupe">
+                  Grupe
+                </label>
+                <input
+                  className={styles["form-input"]}
+                  type="text"
+                  list="data-gr"
+                  onChange={(e) =>
+                    setFiltSub({ ...filtSub, Grupė: e.target.value })
+                  }
+                />
+                <datalist id="data-gr">
+                  {grupe
+                    ? grupe.map((item, key) => {
+                        return <option key={key} value={item} />;
+                      })
+                    : null}
+                </datalist>
+              </div>
+              <div className={styles["form-control"]}>
+                <label className={styles["form-label"]} htmlFor="tipas">
+                  Tipas
+                </label>
+                <input
+                  className={styles["form-input"]}
+                  type="text"
+                  list="data-tipas"
+                  onChange={(e) =>
+                    setFiltSub({
+                      ...filtSub,
+                      "Pagrindinis tipas": e.target.value,
+                    })
+                  }
+                />
+                <datalist id="data-tipas">
+                  {tipas
+                    ? tipas.map((item, key) => {
+                        return <option key={key} value={item} />;
+                      })
+                    : null}
+                </datalist>
+              </div>
+              <div className={styles["filter-container"]}>
+                <input
+                  className={styles["filter-submit"]}
+                  type="reset"
+                  value="Filtruoti"
+                  onClick={handleFilterSubmit}
+                />
+              </div>
+            </form>
+          </div>
+          <div className={styles.wrapper}>
+            <div
+              className={styles["add-post"]}
+              onClick={() => handlePostModal("open")}
+            >
+              <div className={styles["fontawesome-wrapper"]}>
                 <FontAwesomeIcon
-                  className={styles["fontawesome-close"]}
-                  icon={["far", "times-circle"]}
+                  className={styles["fontawesome-plus"]}
+                  icon={["fas", "plus"]}
                   size="2x"
                 />
               </div>
-              <form className={styles["post-button-form"]}>
-                <div className={styles["form-control"]}>
-                  <label
-                    className={styles["form-label"]}
-                    htmlFor="post-savivaldybe"
-                  >
-                    Savivaldybe
-                  </label>
-                  <input
-                    className={styles["form-input"]}
-                    type="text"
-                    list="post-sav"
-                    onChange={(e) =>
-                      setPostObj({ ...postObj, Savivaldybė: e.target.value })
-                    }
-                  />
-                  <datalist id="post-sav">
-                    {savivaldybes
-                      ? savivaldybes.map((item, key) => {
-                          return <option key={key} value={item} />;
-                        })
-                      : null}
-                  </datalist>
-                </div>
-                <div className={styles["form-control"]}>
-                  <label className={styles["form-label"]} htmlFor="post-grupe">
-                    Grupė
-                  </label>
-                  <input
-                    className={styles["form-input"]}
-                    type="text"
-                    list="post-gr"
-                    onChange={(e) =>
-                      setPostObj({ ...postObj, Grupė: e.target.value })
-                    }
-                  />
-                  <datalist id="post-gr">
-                    {grupe
-                      ? grupe.map((item, key) => {
-                          return <option key={key} value={item} />;
-                        })
-                      : null}
-                  </datalist>
-                </div>
-                <div className={styles["form-control"]}>
-                  <label
-                    className={styles["form-label"]}
-                    htmlFor="post-pagr-tipas"
-                  >
-                    Pagrindinis tipas
-                  </label>
-                  <input
-                    className={styles["form-input"]}
-                    type="text"
-                    list="post-pgr"
-                    onChange={(e) =>
-                      setPostObj({
-                        ...postObj,
-                        "Pagrindinis tipas": e.target.value,
-                      })
-                    }
-                  />
-                  <datalist id="post-pgr">
-                    {tipas
-                      ? tipas.map((item, key) => {
-                          return <option key={key} value={item} />;
-                        })
-                      : null}
-                  </datalist>
-                </div>
-                <div className={styles["form-control"]}>
-                  <label
-                    className={styles["form-label"]}
-                    htmlFor="post-pavadinimas"
-                  >
-                    Pavadinimas
-                  </label>
-                  <input
-                    className={styles["form-input"]}
-                    type="text"
-                    onChange={(e) =>
-                      setPostObj({ ...postObj, Pavadinimas: e.target.value })
-                    }
-                  />
-                </div>
-                <div className={styles["form-control"]}>
-                  <label
-                    className={styles["form-label"]}
-                    htmlFor="post-Telefonas"
-                  >
-                    Telefonas
-                  </label>
-                  <input
-                    className={styles["form-input"]}
-                    type="text"
-                    onChange={(e) =>
-                      setPostObj({ ...postObj, Telefonas: e.target.value })
-                    }
-                  />
-                </div>
-                <div className={styles["form-control"]}>
-                  <label
-                    className={styles["form-label"]}
-                    htmlFor="post-El. paštas"
-                  >
-                    El. paštas
-                  </label>
-                  <input
-                    className={styles["form-input"]}
-                    type="text"
-                    onChange={(e) =>
-                      setPostObj({ ...postObj, "El. paštas": e.target.value })
-                    }
-                  />
-                </div>
-                <div className={styles["form-control"]}>
-                  <label
-                    className={styles["form-label"]}
-                    htmlFor="post-teisine-forma"
-                  >
-                    Teisinė forma
-                  </label>
-                  <input
-                    className={styles["form-input"]}
-                    type="text"
-                    list="post-tf"
-                    onChange={(e) =>
-                      setPostObj({
-                        ...postObj,
-                        "Teisinė forma": e.target.value,
-                      })
-                    }
-                  />
-                  <datalist id="post-tf">
-                    {teisine
-                      ? teisine.map((item, key) => {
-                          return <option key={key} value={item} />;
-                        })
-                      : null}
-                  </datalist>
-                </div>
-                <div className={styles["form-control"]}>
-                  <input
-                    className={styles["post-submit"]}
-                    type="submit"
-                    value="Pateikti"
-                    onClick={handlePostSubmit}
-                  />
-                </div>
-              </form>
             </div>
-          </div>
-        ) : null}
-        <div className={styles["changePasswordModal"]}></div>
-        <div className={styles["filter-form-wrapper"]}>
-          <form className={styles["filter-form"]}>
-            <div className={styles["form-control"]}>
-              <label className={styles["form-label"]} htmlFor="savivaldybe">
-                Savivaldybe
-              </label>
-              <input
-                className={styles["form-input"]}
-                type="text"
-                list="data-sav"
-                onChange={(e) =>
-                  setFiltSub({ ...filtSub, Savivaldybė: e.target.value })
-                }
-              />
-              <datalist id="data-sav">
-                {savivaldybes
-                  ? savivaldybes.map((item, key) => {
-                      return <option key={key} value={item} />;
-                    })
-                  : null}
-              </datalist>
-            </div>
-            <div className={styles["form-control"]}>
-              <label className={styles["form-label"]} htmlFor="pavadinimas">
-                Pavadinimas
-              </label>
-              <input
-                className={styles["form-input"]}
-                type="text"
-                onChange={(e) =>
-                  setFiltSub({ ...filtSub, Pavadinimas: e.target.value })
-                }
-              />
-            </div>
-            <div className={styles["form-control"]}>
-              <label className={styles["form-label"]} htmlFor="grupe">
-                Grupe
-              </label>
-              <input
-                className={styles["form-input"]}
-                type="text"
-                list="data-gr"
-                onChange={(e) =>
-                  setFiltSub({ ...filtSub, Grupė: e.target.value })
-                }
-              />
-              <datalist id="data-gr">
-                {grupe
-                  ? grupe.map((item, key) => {
-                      return <option key={key} value={item} />;
-                    })
-                  : null}
-              </datalist>
-            </div>
-            <div className={styles["form-control"]}>
-              <label className={styles["form-label"]} htmlFor="tipas">
-                Tipas
-              </label>
-              <input
-                className={styles["form-input"]}
-                type="text"
-                list="data-tipas"
-                onChange={(e) =>
-                  setFiltSub({
-                    ...filtSub,
-                    "Pagrindinis tipas": e.target.value,
-                  })
-                }
-              />
-              <datalist id="data-tipas">
-                {tipas
-                  ? tipas.map((item, key) => {
-                      return <option key={key} value={item} />;
-                    })
-                  : null}
-              </datalist>
-            </div>
-            <div className={styles["filter-container"]}>
-              <input
-                className={styles["filter-submit"]}
-                type="reset"
-                value="Filtruoti"
-                onClick={handleFilterSubmit}
-              />
-            </div>
-          </form>
-        </div>
-        <div className={styles.wrapper}>
-          <div
-            className={styles["add-post"]}
-            onClick={() => handlePostModal("open")}
-          >
-            <div className={styles["fontawesome-wrapper"]}>
-              <FontAwesomeIcon
-                className={styles["fontawesome-plus"]}
-                icon={["fas", "plus"]}
-                size="2x"
-              />
-            </div>
-          </div>
-          <div className={styles["output-list"]}>
-            {/* DYNAMIC DATA IS DISPLAYED TO THE USER HERE */}
-            {paginatedData.map((el) => {
-              return (
-                <div key={el._id} className={styles["output-item"]}>
-                  {Object.entries(el).map(([key, value]) => {
-                    return (
-                      <div className={styles["output-pair"]}>
-                        <h4 className={styles.h4}>{key}: </h4>
-                        <h5 className={styles.h5}> {value}</h5>
-                      </div>
-                    );
-                  })}
-                  <div className={styles["button-div"]}>
-                    <button className={`${styles.button} ${styles.delete}`}>
-                      Ištrinti
-                    </button>
-                    <button className={`${styles.button} ${styles.update}`}>
-                      Atnaujinti
-                    </button>
+            <div className={styles["output-list"]}>
+              {/* DYNAMIC DATA IS DISPLAYED TO THE USER HERE */}
+              {paginatedData.map((el) => {
+                return (
+                  <div key={el._id} className={styles["output-item"]}>
+                    {Object.entries(el).map(([key, value]) => {
+                      return (
+                        <div className={styles["output-pair"]}>
+                          <h4 className={styles.h4}>{key}: </h4>
+                          <h5 className={styles.h5}> {value}</h5>
+                        </div>
+                      );
+                    })}
+                    <div className={styles["button-div"]}>
+                      <button className={`${styles.button} ${styles.delete}`}>
+                        Ištrinti
+                      </button>
+                      <button className={`${styles.button} ${styles.update}`}>
+                        Atnaujinti
+                      </button>
+                    </div>
                   </div>
-                </div>
-              );
-            })}
-          </div>
-          <div className={styles.pagination}>
-            <div className={styles["input-pagination"]}>
-              <input
-                className={styles["input-txt"]}
-                type="number"
-                placeholder={page}
-                onKeyDown={pageInputHandler}
-              />
-              <h5 className={styles.pageCount}>
-                /{Math.ceil(displayData.length / 20)}
-              </h5>
+                );
+              })}
+            </div>
+            <div className={styles.pagination}>
+              <div className={styles["input-pagination"]}>
+                <input
+                  className={styles["input-txt"]}
+                  type="number"
+                  placeholder={page}
+                  onKeyDown={pageInputHandler}
+                />
+                <h5 className={styles.pageCount}>
+                  /{Math.ceil(displayData.length / 20)}
+                </h5>
+              </div>
             </div>
           </div>
-        </div>
-      </main>
+        </main>
+      )}
       <footer></footer>
     </>
   );
 };
+
+const override = css`
+  display: block;
+  margin: 0 auto;
+`;
 
 export default AdminPanel;
