@@ -43,6 +43,8 @@ let AdminPanel = () => {
     const [postModal, setPostModal] = useState(false)
     const [updateModal, setUpdateModal] = useState(false)
     const [updateModalData, setUpdateModalData] = useState({})
+    const [passwordModal, setPasswordModal] = useState(false)
+    const [passwordData, setPasswordData] = useState({})
 
     useEffect(() => {
         /* check if admin is logged in - redirect if admin doesnt have correct jwt */
@@ -186,18 +188,34 @@ let AdminPanel = () => {
             data: {
                 id: id
             }
+        }).then(data => {
+            window.location.reload()
         })
     }
     const updatePostHandler = (body) => {
-        console.log(body)
-        /* axios.post('http://localhost:3001/v1/dataUpdate', {
+        setUpdateModal(true)
+        setUpdateModalData(body)
+    }
+    const updateHandler = (e ,body) => {
+        e.preventDefault()
+        axios.post('http://localhost:3001/v1/dataUpdate', body, {
             headers: {
                 'admin-id': localStorage.getItem('admin-id')
             },
-            data: {
-                id: body.id
-            }
-        }) */
+        }).then(data => {
+            window.location.reload()
+        })
+    }
+    const passwordHandler = (e, body) => {
+        e.preventDefault()
+        axios.post('http://localhost:3001/v1/admin/update', body, {
+            headers: {
+                'admin-id': localStorage.getItem('admin-id'),
+                 'Content-Type': 'application/json'
+            },
+        }).then(data => {
+            window.location.reload()
+        })
     }
     /* Redirect if admin login jwt in local storage doesn't match the jwts in MongoDB, value of redirect which used in the if statement is determined inside useEffect (route: http://localhost:3001/v1/currentAdmin) */
     if(redirect) {
@@ -215,7 +233,7 @@ let AdminPanel = () => {
                         <button className={styles['header-btn']} onClick = {logoutHandler}>Logout</button>
                     </li>
                     <li>
-                        <button className={styles['header-btn']}>
+                        <button className={styles['header-btn']} onClick={() => setPasswordModal(!passwordModal)}>
                             <FontAwesomeIcon className={styles['fontawesome-icon']} icon={['fas', 'cog']} size='2x'/>
                         </button>
                     </li>
@@ -290,12 +308,13 @@ let AdminPanel = () => {
                     <div className={styles['modal-container-background']}>
                     </div>
                     <div className={styles['modal-container']}>
-                        <div className={styles['update-quit']} onClick = {() => handlePostModal('close')}>
+                        <div className={styles['update-quit']} onClick = {() => setUpdateModal(false)}>
                             <FontAwesomeIcon className={styles['fontawesome-close']} icon={['far', 'times-circle']}  size='2x'/>
                         </div>
                             <form className={styles['update-button-form']}>
                                 <div className={styles['form-control']}>
-                                    <label className={styles['form-label']} htmlFor="post-savivaldybe">Savivaldybe</label>
+                                    <label className={styles['form-label']} htmlFor="update-savivaldybe">Savivaldybe</label>
+                                    {console.log(updateModalData)}
                                     <input className={styles['form-input']} value = {updateModalData["Savivaldybė"] ? updateModalData["Savivaldybė"] : null} type="text" list="update-sav" onChange={(e) => setUpdateModalData({...updateModalData, "Savivaldybė": e.target.value})} />
                                     <datalist id="update-sav">
                                     {savivaldybes ? savivaldybes.map((item, key) => {
@@ -305,7 +324,7 @@ let AdminPanel = () => {
                                 </div>
                                 <div className={styles['form-control']}>
                                     <label className={styles['form-label']} htmlFor="update-grupe">Grupė</label>
-                                    <input className={styles['form-input']} type="text" list="update-gr" onChange={(e) => setUpdateModalData({...updateModalData, "Grupė": e.target.value})} />
+                                    <input className={styles['form-input']} value = {updateModalData["Grupė"] ? updateModalData["Grupė"] : null} type="text" list="update-gr" onChange={(e) => setUpdateModalData({...updateModalData, "Grupė": e.target.value})} />
                                     <datalist id="update-gr">
                                     {grupe ? grupe.map((item, key) => {
                                         return <option key={key} value={item} />
@@ -314,7 +333,7 @@ let AdminPanel = () => {
                                 </div>
                                 <div className={styles['form-control']}>
                                     <label className={styles['form-label']} htmlFor="update-pagr-tipas">Pagrindinis tipas</label>
-                                    <input className={styles['form-input']} type="text" list="update-pgr" onChange={(e) => setUpdateModalData({...updateModalData, "Pagrindinis tipas": e.target.value})} />
+                                    <input className={styles['form-input']} value = {updateModalData["Pagrindinis tipas"] ? updateModalData["Pagrindinis tipas"] : null} type="text" list="update-pgr" onChange={(e) => setUpdateModalData({...updateModalData, "Pagrindinis tipas": e.target.value})} />
                                     <datalist id="update-pgr">
                                     {tipas ? tipas.map((item, key) => {
                                         return <option key={key} value={item} />
@@ -323,19 +342,19 @@ let AdminPanel = () => {
                                 </div>
                                 <div className={styles['form-control']}>
                                     <label className={styles['form-label']} htmlFor="update-pavadinimas">Pavadinimas</label>
-                                    <input className={styles['form-input']} type="text"  onChange={(e) => setUpdateModalData({...updateModalData, "Pavadinimas": e.target.value})} />
+                                    <input className={styles['form-input']} value = {updateModalData["Pavadinimas"] ? updateModalData["Pavadinimas"] : null} type="text"  onChange={(e) => setUpdateModalData({...updateModalData, "Pavadinimas": e.target.value})} />
                                 </div>
                                 <div className={styles['form-control']}>
                                     <label className={styles['form-label']} htmlFor="update-Telefonas">Telefonas</label>
-                                    <input className={styles['form-input']} type="text"  onChange={(e) => setUpdateModalData({...updateModalData, "Telefonas": e.target.value})} />
+                                    <input className={styles['form-input']} value = {updateModalData["Telefonas"] ? updateModalData["Telefonas"] : null} type="text"  onChange={(e) => setUpdateModalData({...updateModalData, "Telefonas": e.target.value})} />
                                 </div>
                                 <div className={styles['form-control']}>
                                     <label className={styles['form-label']} htmlFor="update-El. paštas">El. paštas</label>
-                                    <input className={styles['form-input']} type="text"  onChange={(e) => setUpdateModalData({...updateModalData, "El. paštas": e.target.value})} />
+                                    <input className={styles['form-input']} value = {updateModalData["El. paštas"] ? updateModalData["El. paštas"] : null} type="text"  onChange={(e) => setUpdateModalData({...updateModalData, "El. paštas": e.target.value})} />
                                 </div>
                                 <div className={styles['form-control']}>
                                     <label className={styles['form-label']} htmlFor="update-teisine-forma">Teisinė forma</label>
-                                    <input className={styles['form-input']} type="text" list="update-tf" onChange={(e) => setUpdateModalData({...updateModalData, "Teisinė forma": e.target.value})} />
+                                    <input className={styles['form-input']} value = {updateModalData["Teisinė forma"] ? updateModalData["Teisinė forma"] : null} type="text" list="update-tf" onChange={(e) => setUpdateModalData({...updateModalData, "Teisinė forma": e.target.value})} />
                                     <datalist id="update-tf">
                                     {teisine ? teisine.map((item, key) => {
                                         return <option key={key} value={item} />
@@ -343,14 +362,26 @@ let AdminPanel = () => {
                                     </datalist>
                                 </div>
                                 <div className={styles['form-control']}>
-                                    <input className={styles['post-submit']} type="submit" value="Pateikti" onClick = {handlePostSubmit} />
+                                    <input className={styles['post-submit']} type="submit" value="Pateikti" onClick = {(e) => updateHandler(e, updateModalData)} />
                                 </div>
                             </form>
                     </div>
                 </div> : null}
-                <div className={styles['changePasswordModal']}>
-                    
-                </div>
+                {passwordModal ? <div className={styles['changePasswordModal']}>
+                    <div className={styles['modal-container-background']}>
+                        <form>
+                            <div className={styles['form-control']}>
+                                <label className={styles['form-label']} htmlFor="update-pass1">Iveskite Sena Slaptazodi</label>
+                                <input className={styles['form-input']} type="password"  onChange={(e) => setPasswordData({...passwordData, "password": e.target.value})} />
+                            </div>
+                            <div className={styles['form-control']}>
+                                <label className={styles['form-label']} htmlFor="update-pass2">Iveskite nauja slaptazodi</label>
+                                <input className={styles['form-input']} type="password"  onChange={(e) => setPasswordData({...passwordData, "password2": e.target.value})} />
+                            </div>
+                            <input className={styles['post-submit']} type="submit" value="Pateikti" onClick = {(e) => passwordHandler(e, passwordData)} />
+                        </form>
+                    </div>
+                </div>: null}
                 {/* ACTUAL MAIN PAGE */}
                 <div className={styles['filter-form-wrapper']}>
                     <form className={styles['filter-form']}>

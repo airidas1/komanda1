@@ -50,13 +50,12 @@ removeData = async (req, res) => {
 }
 
 updateDataInfo = async(req,res) => {
-    console.log(req.body)
-    /* try {
-        let updated = await Data.findOneAndUpdate({ _id: req.params.id }, req.body)
+    try {
+        let updated = await Data.findOneAndUpdate({ _id: req.body._id }, req.body)
         res.json(updated)
     } catch (e) {
         res.status(400).json(e)
-    } */
+    }
 }
 
 

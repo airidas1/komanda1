@@ -61,18 +61,17 @@ logout = async (req, res) => {
 
 updateAdminInfo = async(req,res) => {
     let admin = req.admin;
-
+    console.log(req.body)
     try {
       if(req.body.password || req.body.password2) {
-        if(!req.body.password) throw 'Enter your old password'
-        if(!req.body.password2) throw 'Enter new password'
+        if(!req.body.password) res.json({error: 'Enter your old password'})
+        if(!req.body.password2) res.json({error: 'Enter new password'}) 
         let response = await bcrypt.compare(req.body.password, admin.password);
-        if (!response) throw 'Incorrect password';
-        if(!response) admin.error = 'Incorrect password';
+        if (!response) res.json({response}) ;
         admin.password = req.body.password2;
       }
-       await user.save();
-       res.json(user);
+       await admin.save();
+       res.json(admin);
     } catch(e) {
       res.json(e)
     }
