@@ -1,0 +1,109 @@
+/* Mobile first */
+/* - */
+.school {
+  min-height: 80vh;
+}
+
+.school .container {
+  padding: 4em 2em;
+  display: flex;
+  flex-direction: column;
+}
+
+.school .container .school_info {
+  margin-bottom: 1em;
+  display: flex;
+  flex-direction: column;
+}
+
+.school .container .school_info .school_text {
+  margin-bottom: 1em;
+  display: flex;
+  flex-direction: column;
+}
+
+.school .container .school_info img {
+  margin: 2em 0;
+}
+
+.school .container .school_info p {
+  margin: 0.5em 0;
+}
+
+/* -- */
+.school .container .school_contacts {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+}
+
+.school .container .school_contacts {
+  margin: 2em 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+}
+
+.school .container .school_contacts h3 {
+  margin: 1em 0;
+}
+
+.school .container .school_contacts p {
+  margin: 0.5em 0;
+}
+
+.school .container .school_contacts p span {
+  font-weight: 600;
+}
+
+/* Tablet */
+@media screen and (min-width: 768px) {
+  .school .container {
+    display: flex;
+    flex-direction: column;
+
+    padding-top: 7em;
+    padding-bottom: 7em;
+  }
+
+  .school .container .school_info .school_text {
+    margin-bottom: 1em;
+    flex-direction: row;
+  }
+
+  .school .container .school_info .school_text img {
+    width: 400px;
+    height: 400px;
+    order: 2;
+  }
+
+  .school .container .school_info .school_text section {
+    padding: 2em;
+  }
+
+  .school .container .school_contacts {
+    padding: 2em;
+  }
+}
+
+/* Desktop */
+@media screen and (min-width: 1280px) {
+  .school {
+    min-height: calc(100vh - 102px - 58px);
+  }
+
+  .school .container {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  .school .container .about_us .headline {
+    width: 70%;
+  }
+
+  .school .container .about_us .featured_image {
+    width: 30%;
+  }
+}

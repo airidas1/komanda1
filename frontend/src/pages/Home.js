@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 // Style
 import styles from './Home.module.css';
 // Images
@@ -31,18 +32,21 @@ function Home() {
         </div>
         <div className={styles.hero}>
           <div className={styles.hero_text}>
-            <h1>Tavo karjeros ir tobulėjimo galimybės Lietuvoje!</h1>
+            <h1>Kodėl verta rinktis neformalųjį švietimą?</h1>
             <p>
               Lietuvoje įgytos profesinės kvalifikacijos pripažįstamos užsienio
               valstybėse. Kasmet studijuoti ar stažuotis į užsienio šalis
               išvyksta per 1 000 studentų ir dėstytojų.
             </p>
-            <Button title={'Sužinok daugiau'} href={'#'} />
+            <Link to={'/facts'}>
+              <Button title={'Sužinok daugiau'} href={'#'} />
+            </Link>
           </div>
           <div className={styles.hero_img}>
             <img src={heroImg} alt='heroIMG' className={styles.hero_image} />
           </div>
         </div>
+
         <div className={styles.additional_info}>
           <h2>Kažkokie faktai apie mokslą Lietuvoje</h2>
           <div className={styles.info_box_container}>
@@ -64,6 +68,36 @@ function Home() {
               }
               icon={icon3}
             />
+          </div>
+        </div>
+
+        <div className={styles.schools_wrapper}>
+          <h2>Neformaliojo švietimo TOP įstaigos</h2>
+          <div className={styles.schools}>
+            <div className={styles.school}>
+                <h3>Pavadinimas 1</h3>
+                <p>Lietuvoje įgytos profesinės kvalifikacijos pripažįstamos užsienio
+              valstybėse. Kasmet studijuoti ar stažuotis</p>
+                <Link to={'/school1'}>
+                  <button>Skaityti!</button>
+                </Link>
+            </div>
+            <div className={styles.school}>
+                <h3>Pavadinimas 1</h3>
+                <p>Lietuvoje įgytos profesinės kvalifikacijos pripažįstamos užsienio
+              valstybėse. Kasmet studijuoti ar stažuotis</p>
+                <Link to={'/school2'}>
+                  <button>Skaityti!</button>
+                </Link>
+            </div>
+            <div className={styles.school}>
+                <h3>Pavadinimas 1</h3>
+                <p>Lietuvoje įgytos profesinės kvalifikacijos pripažįstamos užsienio
+              valstybėse. Kasmet studijuoti ar stažuotis</p>
+                <Link to={'/school3'}>
+                  <button>Skaityti!</button>
+                </Link>
+            </div>
           </div>
         </div>
       </div>

@@ -115,6 +115,64 @@
   justify-content: center;
 }
 
+/* top schools */
+.schools_wrapper {
+  margin: 2em auto;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+}
+
+.schools_wrapper h2 {
+  text-align: center;
+}
+
+.schools {
+  margin: 1em 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.school {
+  margin: 1em auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid #3a90ed;
+  border-radius: 10px;
+}
+
+.school h3 {
+  margin: 1em 0;
+}
+
+.school p {
+  margin: 0 1.5em 1em 1.5em;
+}
+
+.school button {
+  margin: 1em 1.5em;
+  padding: 10px;
+  width: 120px;
+  border: none;
+  background-color: #3a90ed;
+  color: #fff;
+  border-radius: 5px;
+  justify-items: flex-end;
+  font-size: 1em;
+  font-weight: 600;
+  transition: all ease 0.3s;
+}
+
+.school button:hover {
+  cursor: pointer;
+  color: #3a90ed;
+  background-color: transparent;
+}
+
 /* ------ Tablet ------ */
 @media screen and (min-width: 768px) {
   .hero {
@@ -137,6 +195,19 @@
 
   .additional_info {
     padding: 7em 1em;
+  }
+
+  .schools {
+    margin: 1em 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .school {
+    margin: 1em 0;
+    width: 30%;
   }
 }
 
