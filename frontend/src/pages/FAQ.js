@@ -1,6 +1,6 @@
-import React, { useRef } from "react";
-import { Collapse } from "antd";
-import styles from "./FAQ.module.css";
+import React from 'react';
+import { Collapse } from 'antd';
+import styles from './FAQ.module.css';
 
 const { Panel } = Collapse;
 
@@ -10,10 +10,10 @@ function FAQ() {
       <div className={styles.container}>
         <h1>Dažniausiai užduodami klausimai</h1>
         <div className={styles.questions}>
-          <Collapse defaultActiveKey={["1"]} className={styles.question}>
+          <Collapse defaultActiveKey={['1']} className={styles.question}>
             <Panel
-              header="Kuo skiriasi formalusis ir neformalusis švietimai?"
-              key="1"
+              header='Kuo skiriasi formalusis ir neformalusis švietimai?'
+              key='1'
               className={styles.question_item}
             >
               <p>
@@ -29,8 +29,8 @@ function FAQ() {
               </p>
             </Panel>
             <Panel
-              header="Ką suteikia valstybės pripažintas diplomas, gautas baigus formaliojo švietimo studijas?"
-              key="2"
+              header='Ką suteikia valstybės pripažintas diplomas, gautas baigus formaliojo švietimo studijas?'
+              key='2'
               className={styles.question_item}
             >
               <p>
@@ -40,8 +40,8 @@ function FAQ() {
               </p>
             </Panel>
             <Panel
-              header="Ar formalusis švietimas brangesnis už neformalųjį?"
-              key="3"
+              header='Ar formalusis švietimas brangesnis už neformalųjį?'
+              key='3'
               className={styles.question_item}
             >
               <p>
@@ -52,8 +52,8 @@ function FAQ() {
               </p>
             </Panel>
             <Panel
-              header="Kaip Švietimo ir mokslo ministerija suteikia licenciją vykdyti formaliajam švietimui?"
-              key="4"
+              header='Kaip Švietimo ir mokslo ministerija suteikia licenciją vykdyti formaliajam švietimui?'
+              key='4'
               className={styles.question_item}
             >
               <p>
@@ -64,8 +64,8 @@ function FAQ() {
               </p>
             </Panel>
             <Panel
-              header="Kaip pasikeis CodeAcademy siūlomos programos, tapus formaliojo švietimo vykdytojais?"
-              key="5"
+              header='Kaip pasikeis CodeAcademy siūlomos programos, tapus formaliojo švietimo vykdytojais?'
+              key='5'
               className={styles.question_item}
             >
               <p>
@@ -76,8 +76,8 @@ function FAQ() {
               </p>
             </Panel>
             <Panel
-              header="Kokias galimybes suteikia formalusis mokymas?"
-              key="6"
+              header='Kokias galimybes suteikia formalusis mokymas?'
+              key='6'
               className={styles.question_item}
             >
               <p>
@@ -94,8 +94,8 @@ function FAQ() {
               </p>
             </Panel>
             <Panel
-              header="Klausimas 7"
-              key="7"
+              header='Klausimas 7'
+              key='7'
               className={styles.question_item}
             >
               <p>
@@ -107,8 +107,8 @@ function FAQ() {
               </p>
             </Panel>
             <Panel
-              header="Klausimas 8"
-              key="8"
+              header='Klausimas 8'
+              key='8'
               className={styles.question_item}
             >
               <p>
@@ -120,8 +120,8 @@ function FAQ() {
               </p>
             </Panel>
             <Panel
-              header="Klausimas 9"
-              key="9"
+              header='Klausimas 9'
+              key='9'
               className={styles.question_item}
             >
               <p>

@@ -17,7 +17,8 @@ code {
   --primary-color: #3a90ed;
   --secondary-color: #6daaec;
   --accent-color: #1d4877;
-
+  --error-color: #e57373;
   --dark-color: #000;
   --light-color: #fff;
+  --outline-color: #d4d4d4;
 }
