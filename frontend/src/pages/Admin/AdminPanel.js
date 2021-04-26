@@ -6,7 +6,7 @@ import LOGO from "../../assets/images/logo.png";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fas } from "@fortawesome/free-solid-svg-icons";
 import { far } from "@fortawesome/free-regular-svg-icons";
-import { ClipLoader } from "react-spinners";
+import { GridLoader } from "react-spinners";
 import { css } from "@emotion/core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -253,7 +253,10 @@ let AdminPanel = () => {
         </ul>
       </header>
       {isLoading ? (
-        <ClipLoader css={override} size={150} />
+        <div className={styles.loader}>
+          <GridLoader css={override} size={50} color={"#3a90ed"} />
+          <p>Gaunamos įstaigos...</p>
+        </div>
       ) : (
         <main className={styles.main}>
           {postModal ? (

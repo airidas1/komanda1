@@ -1,6 +1,6 @@
-import React from 'react';
-import { Collapse } from 'antd';
-import styles from './FAQ.module.css';
+import React from "react";
+import { Collapse } from "antd";
+import styles from "./FAQ.module.css";
 
 const { Panel } = Collapse;
 
@@ -10,10 +10,10 @@ function FAQ() {
       <div className={styles.container}>
         <h1>Dažniausiai užduodami klausimai</h1>
         <div className={styles.questions}>
-          <Collapse defaultActiveKey={['1']} className={styles.question}>
+          <Collapse defaultActiveKey={["1"]} className={styles.question}>
             <Panel
-              header='Kuo skiriasi formalusis ir neformalusis švietimai?'
-              key='1'
+              header="Kuo skiriasi formalusis ir neformalusis švietimai?"
+              key="1"
               className={styles.question_item}
             >
               <p>
@@ -29,8 +29,8 @@ function FAQ() {
               </p>
             </Panel>
             <Panel
-              header='Ką suteikia valstybės pripažintas diplomas, gautas baigus formaliojo švietimo studijas?'
-              key='2'
+              header="Ką suteikia valstybės pripažintas diplomas, gautas baigus formaliojo švietimo studijas?"
+              key="2"
               className={styles.question_item}
             >
               <p>
@@ -40,8 +40,8 @@ function FAQ() {
               </p>
             </Panel>
             <Panel
-              header='Ar formalusis švietimas brangesnis už neformalųjį?'
-              key='3'
+              header="Ar formalusis švietimas brangesnis už neformalųjį?"
+              key="3"
               className={styles.question_item}
             >
               <p>
@@ -52,8 +52,8 @@ function FAQ() {
               </p>
             </Panel>
             <Panel
-              header='Kaip Švietimo ir mokslo ministerija suteikia licenciją vykdyti formaliajam švietimui?'
-              key='4'
+              header="Kaip Švietimo ir mokslo ministerija suteikia licenciją vykdyti formaliajam švietimui?"
+              key="4"
               className={styles.question_item}
             >
               <p>
@@ -64,8 +64,8 @@ function FAQ() {
               </p>
             </Panel>
             <Panel
-              header='Kaip pasikeis CodeAcademy siūlomos programos, tapus formaliojo švietimo vykdytojais?'
-              key='5'
+              header="Kaip pasikeis CodeAcademy siūlomos programos, tapus formaliojo švietimo vykdytojais?"
+              key="5"
               className={styles.question_item}
             >
               <p>
@@ -76,8 +76,8 @@ function FAQ() {
               </p>
             </Panel>
             <Panel
-              header='Kokias galimybes suteikia formalusis mokymas?'
-              key='6'
+              header="Kokias galimybes suteikia formalusis mokymas?"
+              key="6"
               className={styles.question_item}
             >
               <p>
@@ -94,42 +94,39 @@ function FAQ() {
               </p>
             </Panel>
             <Panel
-              header='Klausimas 7'
-              key='7'
+              header="Ar neformaliojo švietimo būdu įgyta kompetencija yra pripažįstama?"
+              key="7"
               className={styles.question_item}
             >
               <p>
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. has been the industry's standard dummy text esince the
-                1500s Lorem Ipsum has been the Lorem Ipsum is simply dummy text
-                of the printing and typesetting has been the Lorem Ipsum is
-                simply dummy text of the printing and.
+                Neformaliojo švietimo būdu įgyta kompetencija gali būti
+                pripažįstama kaip baigta formaliojo švietimo ar studijų
+                programos dalis.
               </p>
             </Panel>
             <Panel
-              header='Klausimas 8'
-              key='8'
+              header="Kokia neformaliojo suaugusiųjų švietimo paskirtis?"
+              key="8"
               className={styles.question_item}
             >
               <p>
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. has been the industry's standard dummy text esince the
-                1500s Lorem Ipsum has been the Lorem Ipsum is simply dummy text
-                of the printing and typesetting has been the Lorem Ipsum is
-                simply dummy text of the printing and.
+                Neformaliojo suaugusiųjų švietimo paskirtis – sudaryti sąlygas
+                asmeniui mokytis visą gyvenimą, tenkinti pažinimo poreikius,
+                tobulinti įgytą kvalifikaciją, įgyti papildomų kompetencijų.
               </p>
             </Panel>
             <Panel
-              header='Klausimas 9'
-              key='9'
+              header="Ar aukštasis mokslas finansuojamas?"
+              key="9"
               className={styles.question_item}
             >
               <p>
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. has been the industry's standard dummy text esince the
-                1500s Lorem Ipsum has been the Lorem Ipsum is simply dummy text
-                of the printing and typesetting has been the Lorem Ipsum is
-                simply dummy text of the printing and.
+                Asmenys, stojantys į valstybinę aukštąją mokyklą, gali
+                pretenduoti į valstybės finansuojamą studijų vietą. Tokiu atveju
+                studentas nemoka už studijas. Asmenys, kurie geriausiais
+                rezultatais baigė bendrojo ugdymo mokyklą ir nori mokytis
+                nevalstybinėje aukštojoje mokykloje, gali gauti valstybės
+                studijų stipendiją.
               </p>
             </Panel>
           </Collapse>

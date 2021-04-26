@@ -39,23 +39,31 @@ function About() {
         <div className={styles.responses}>
           <div className={styles.response}>
             <p>
-              " Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500s. "
+              " Aukštojo mokslo studijos yra formaliojo švietimo dalis.
+              Aukštasis mokslas nėra privalomas, bet valstybė garantuoja
+              aukštojo mokslo studijų prieinamumą. Aukštojo mokslo studijos
+              teikiamos asmeniui, įgijusiam vidurinį išsilavinimą, tai yra,
+              baigusiam 12 klasių ir gebančiam savarankiškai studijuoti."
             </p>
           </div>
           <div className={styles.response}>
             <p>
-              " Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500s. "
+              " Vidurinis ugdymas yra formaliojo švietimo dalis. Vidurinis
+              ugdymas nėra privalomas, bet jį garantuoja valstybė. Vidurinio
+              ugdymo tikslas yra trejopas: padėti asmeniui įgyti bendrąjį
+              dalykinį, sociokultūrinį, technologinį raštingumą; dorinę, tautinę
+              ir pilietinę brandą; profesinės kompetencijos pradmenis. "
             </p>
           </div>
           <div className={styles.response}>
             <p>
-              " Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500s. "
+              " Neformaliojo suaugusiųjų švietimo paskirtis – sudaryti sąlygas
+              asmeniui mokytis visą gyvenimą, tenkinti pažinimo poreikius,
+              tobulinti įgytą kvalifikaciją, įgyti papildomų kompetencijų.
+              Neformalusis suaugusiųjų švietimas teikiamas kiekvienam jį
+              pasirinkusiam asmeniui. Asmuo turi būti ne jaunesnis kaip 18 metų.
+              Neformalųjį suaugusiųjų švietimą gali teikti visi švietimo
+              teikėjai. "
             </p>
           </div>
         </div>
