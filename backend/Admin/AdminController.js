@@ -13,6 +13,7 @@ signUp = async (req, res) => {
 }
 
 login = async (req, res) => {
+  console.log(req.body)
   try {
     let admin = await Admin.findOne({
       username: req.body.username

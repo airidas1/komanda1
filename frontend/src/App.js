@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Header from './components/Header';
@@ -21,11 +21,17 @@ import School3 from './pages/School3';
 import Facts from './pages/Facts';
 import Test from './pages/Test';
 
+
+
+export const HeaderContext = React.createContext();
+
 function App() {
+  const [header, setHeader] = useState(true)
   return (
     <>
+    <HeaderContext.Provider value={{header, setHeader}}>
       <Router>
-        <Header url={window.location.pathname} />
+        {header && <Header url={window.location.pathname}  />}
         <Switch>
           <Route exact path='/'>
             <Home />
@@ -77,6 +83,7 @@ function App() {
         </Switch>
         <Footer />
       </Router>
+      </HeaderContext.Provider>
     </>
   );
 }

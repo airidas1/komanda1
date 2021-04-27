@@ -8,7 +8,6 @@ function AdminLogin() {
   const [password, setPassword] = useState('');
   const [redirect, setRedirect] = useState(null);
   const [error, setError] = useState(null);
-  const [mode, setMode] = useState(false);
 
   const signInHandler = (e) => {
     e.preventDefault();

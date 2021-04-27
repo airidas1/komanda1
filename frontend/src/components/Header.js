@@ -11,9 +11,10 @@ function Header(props) {
   }
 
 
-  return props.url === '/v1/admin/login' ||
-    props.url === '/v1/admin/panel' || props.url === "/v1/admin/howto" ? null : (
+
+  return(
   <header>
+    {console.log('veikia')}
     <div className="container">
       <div className="logo">
         <Link to="/">

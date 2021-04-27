@@ -17,7 +17,7 @@ router.get('/currentAdmin', AdminMiddleware.authenticate, AdminController.getCur
 router.post('/admin/registerAdmin', AdminMiddleware.authenticate, AdminController.signUp)
 /* Manipulate a single object (Admin privilege) */
 /* Update post */
-router.post('/dataUpdate', AdminMiddleware.authenticate, DataController.updateDataInfo)
+router.put('/dataUpdate', AdminMiddleware.authenticate, DataController.updateDataInfo)
 /* Post new post */
 router.post('/dataPost', AdminMiddleware.authenticate, DataController.saveData)
 /* Delete post */

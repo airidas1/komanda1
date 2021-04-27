@@ -51,7 +51,14 @@ removeData = async (req, res) => {
 
 updateDataInfo = async(req,res) => {
     try {
-        let updated = await Data.findOneAndUpdate({ _id: req.body._id }, req.body)
+        let updated = await Data.findByIdAndUpdate(req.body._id, 
+        {'Grupė': req.body['Grupė'],
+        'Pagrindinis tipas': req.body['Pagrindinis tipas'],
+        'Pavadinimas': req.body['Pavadinimas'],
+        'Savivaldybė': req.body['Savivaldybė'],
+        'Teisinė forma': req.body['Teisinė forma'],
+        'Telefonas': req.body['Telefonas']}
+        )
         res.json(updated)
     } catch (e) {
         res.status(400).json(e)
