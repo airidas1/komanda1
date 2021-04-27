@@ -291,6 +291,9 @@ let AdminPanel = () => {
                           <button className={styles['header-btn']} onClick = {logoutHandler}>Logout</button>
                       </li>
                       <li>
+                        <Link to='/v1/admin/howto' className={styles['header-btn']}>How To</Link>
+                      </li>
+                      <li>
                           <button className={styles['header-btn']} onClick={() => {
                             setPasswordModal(!passwordModal)
                             setShow(!show)

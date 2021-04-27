@@ -10,6 +10,7 @@ import ChooseEd from './pages/ChooseEd';
 /* Backend routes */
 import AdminLogin from './pages/Admin/AdminLogin';
 import AdminPanel from './pages/Admin/AdminPanel';
+import HowTo from './pages/Admin/HowTo'
 import Carrer from './pages/Carrer';
 import FAQ from './pages/FAQ';
 import NotFound from './pages/NotFound';
@@ -47,6 +48,9 @@ function App() {
           </Route>
           <Route path='/results' render={(props) => <Results {...props} />}>
             {/* <Results /> */}
+          </Route>
+          <Route path='/v1/admin/howto'>
+            <HowTo />
           </Route>
           <Route>
             <NotFound />
