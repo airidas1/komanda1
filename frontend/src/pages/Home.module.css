@@ -2,6 +2,7 @@
 
 .home {
   display: flex;
+  flex-direction: column;
   justify-content: center;
 }
 
@@ -102,6 +103,7 @@
   padding: 4em 0;
   text-align: center;
   border-top: 1px solid #d5eaff;
+  border-bottom: 1px solid #d5eaff;
 }
 
 .additional_info h2 {
@@ -137,20 +139,23 @@
 
 .school {
   margin: 1em auto;
+  padding: 1em 1em;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 3px solid #3a90ed;
+  background-color: #d5eaff;
   border-radius: 10px;
 }
 
 .school h3 {
+  text-align: center;
   margin: 1em 0;
 }
 
 .school p {
-  margin: 0 1.5em 1em 1.5em;
+  margin: 0.5em 0;
+  text-align: left;
 }
 
 .school button {
@@ -208,6 +213,7 @@
   .school {
     margin: 1em 0;
     width: 30%;
+    height: 400px;
   }
 }
 
@@ -239,5 +245,13 @@
 
   .form {
     display: block;
+  }
+
+  .school {
+    height: 300px;
+  }
+
+  .school button {
+    margin: 2em 1.5em;
   }
 }
