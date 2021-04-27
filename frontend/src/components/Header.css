@@ -60,7 +60,7 @@ header .container .navbar {
   width: 100%;
 }
 
-header .container .navbar .navbar__menu_items {
+header .container .navbar .navbar_menu {
   width: 100%;
   padding-top: 1em;
   list-style: none;
@@ -69,22 +69,22 @@ header .container .navbar .navbar__menu_items {
   display: none;
 }
 
-header .container .navbar .navbar__menu_items .active {
+header .container .navbar .navbar_menu.active {
   display: block;
 }
 
-header .container .navbar .navbar__menu_items li {
+header .container .navbar .navbar_menu li {
   padding: 5px;
 }
 
-header .container .navbar .navbar__menu_items li a {
+header .container .navbar .navbar_menu li a {
   text-decoration: none;
   color: var(--seconadry-color);
   font-size: 1.2em;
   transition: 0.1s;
 }
 
-header .container .navbar .navbar__menu_items li a:hover {
+header .container .navbar .navbar_menu li a:hover {
   cursor: pointer;
   color: var(--primary-color);
   font-size: 1.3em;
@@ -114,13 +114,13 @@ header .container .navbar .navbar__menu_items li a:hover {
     width: 70%;
   }
 
-  header .container .navbar .navbar__menu_items {
+  header .container .navbar .navbar_menu {
     display: flex;
     justify-content: flex-end;
     padding-top: 0px;
   }
 
-  header .container .navbar .navbar__menu_items li {
+  header .container .navbar .navbar_menu li {
     padding: 5px 25px;
   }
 }

@@ -1,15 +1,17 @@
-import axios from 'axios'
-import React, { useEffect, useState } from 'react'
-import { Redirect, Link } from 'react-router-dom'
-import styles from './AdminPanel.module.css'
-import LOGO from '../../assets/images/logo.png'
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { fas } from '@fortawesome/free-solid-svg-icons'
-import { far } from '@fortawesome/free-regular-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { Redirect, Link } from "react-router-dom";
+import styles from "./AdminPanel.module.css";
+import LOGO from "../../assets/images/logo.png";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { fas } from "@fortawesome/free-solid-svg-icons";
+import { far } from "@fortawesome/free-regular-svg-icons";
+import { GridLoader } from "react-spinners";
+import { css } from "@emotion/core";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 let AdminPanel = () => {
+  
     library.add(fas, far)
     /* redirect to login page if not logged in */
     const [redirect, setRedirect] = useState(null)
@@ -45,129 +47,153 @@ let AdminPanel = () => {
     const [updateModalData, setUpdateModalData] = useState({})
     const [passwordModal, setPasswordModal] = useState(false)
     const [passwordData, setPasswordData] = useState({})
+  
+  /* Loading spinner state while fetching data */
+  const [isLoading, setIsLoading] = useState(true);
 
-    useEffect(() => {
-        /* check if admin is logged in - redirect if admin doesnt have correct jwt */
-        axios.get('http://localhost:3001/v1/currentAdmin', {
-            headers: {
-                'admin-id': localStorage.getItem('admin-id')
-            }
-        }).then(res => {
-        }).catch(e => {
-            setRedirect('/v1/admin/login')
-        })
-        
-        axios.get(`http://localhost:3001/v1/getAllData`).then(res => {
-            /* Fetching ALL data also fitering all UNIQUE criteria for filters used in data filtration */
-            setSavivaldybes(Array.from(new Set(res.data.map(el => el['Savivaldybė']))))
-            setGrupe(Array.from(new Set(res.data.map(el => el['Grupė']))))
-            setTipas(Array.from(new Set(res.data.map(el => el['Pagrindinis tipas']))))
-            setTeisine(Array.from(new Set(res.data.map(el => el['Teisinė forma']))))
-            setFetchAllData(res.data)
-        })
-        
-        /* Actively listening for changes(check dependency arr) in filtered data to decide which page to display for the user */
-        displayData ? setPaginatedData(displayData.slice((page-1)*20, page*20)) : console.log('asd')
 
-    }, [displayData, page])
+ 
+ 
 
-    const pageInputHandler = (e) => {
-        /* if the user presses enter and the page is valid: scroll to top and display paginated data for the user */
-        if(e.key === 'Enter') {
-            console.log('paginated page')
-            if((+e.target.value >= 1) && (e.target.value <= (Math.ceil(displayData.length/20))) ) {
-                window.scrollTo(0,0)
-                setPage(+e.target.value)
-                return page === e.target.value ? setPaginatedData(() => {
-                    return displayData.slice((page-1)*20, page*20)
-                }):null
-            }
-            
-        }
+  useEffect(() => {
+    /* check if admin is logged in - redirect if admin doesnt have correct jwt */
+    axios
+      .get("http://localhost:3001/v1/currentAdmin", {
+        headers: {
+          "admin-id": localStorage.getItem("admin-id"),
+        },
+      })
+      .then((res) => {})
+      .catch((e) => {
+        setRedirect("/v1/admin/login");
+      });
+
+    axios.get(`http://localhost:3001/v1/getAllData`).then((res) => {
+      /* Fetching ALL data also fitering all UNIQUE criteria for filters used in data filtration */
+      setSavivaldybes(
+        Array.from(new Set(res.data.map((el) => el["Savivaldybė"])))
+      );
+      setGrupe(Array.from(new Set(res.data.map((el) => el["Grupė"]))));
+      setTipas(
+        Array.from(new Set(res.data.map((el) => el["Pagrindinis tipas"])))
+      );
+      setTeisine(
+        Array.from(new Set(res.data.map((el) => el["Teisinė forma"])))
+      );
+      setFetchAllData(res.data);
+      setIsLoading(false);
+    });
+
+    /* Actively listening for changes(check dependency arr) in filtered data to decide which page to display for the user */
+    displayData
+      ? setPaginatedData(displayData.slice((page - 1) * 20, page * 20))
+      : console.log("asd");
+  }, [displayData, page]);
+
+  const pageInputHandler = (e) => {
+    /* if the user presses enter and the page is valid: scroll to top and display paginated data for the user */
+    if (e.key === "Enter") {
+      console.log("paginated page");
+      if (
+        +e.target.value >= 1 &&
+        e.target.value <= Math.ceil(displayData.length / 20)
+      ) {
+        window.scrollTo(0, 0);
+        setPage(+e.target.value);
+        return page === e.target.value
+          ? setPaginatedData(() => {
+              return displayData.slice((page - 1) * 20, page * 20);
+            })
+          : null;
+      }
     }
+  };
 
-    const handleFilterSubmit = e => {
-        /* Handle data filtration and set data arrays for pagination to use the information
+  const handleFilterSubmit = (e) => {
+    /* Handle data filtration and set data arrays for pagination to use the information
             NOTE: DATA GATHERED BY THE FILTER IS USED IN useEffect *****NOT HERE*****, DATA GATHERED HERE IS ONLY TO BE DISPLAYED LATER
         */
-        /* Prevent reload on submit and prepping array for DB info(resetting), also setting page to 1 in case it wasn't 1(if page isnt 1 and there is only 1 page there would obviously be nothing to paginate) before */
-       e.preventDefault()
-        setDisplayData([])
-        if(page !== 1) setPage(1)
-        /* Filter for when the user is ONLY searching via keyword */
-        if(filtSub['Pavadinimas'] && (!filtSub['Grupė'] && !filtSub['Pagrindinis tipas'] && !filtSub['Savivaldybė'])) {
-            setDisplayData(() => {
-            let condition = new RegExp(filtSub['Pavadinimas'].toLowerCase())
-            return fetchAllData.filter(el => {
-                return condition.test(el['Pavadinimas'].toLowerCase())
-        })})
-        /* Filter for when the user is searching by both: ALL the select filters AND keyword */
-        } else if(filtSub['Pavadinimas'] && (filtSub['Grupė'] && filtSub['Pagrindinis tipas'] && filtSub['Savivaldybė'])) {
-            setDisplayData(() => {
-                let condition = new RegExp(filtSub['Pavadinimas'].toLowerCase())
-                return fetchAllData.filter(el => {
-                    return condition.test(el['Pavadinimas'].toLowerCase())
-                }).filter((el,index,arr) => {
-                    for(let key in filtSub) {
-                            if(key === 'Pavadinimas') continue;
-                            if(el[key] !== filtSub[key]) return false
-                        }
-                        return true
-                })
-            })
-            /* filter for when the user is searching ONLY by select filters */
-        } else if((filtSub['Grupė'] || filtSub['Pagrindinis tipas'] || filtSub['Savivaldybė']) && filtSub['Pavadinimas']) {
-            setDisplayData(() => {
-                let condition = new RegExp(filtSub['Pavadinimas'].toLowerCase())
-                return fetchAllData.filter(el => {
-                    return condition.test(el['Pavadinimas'].toLowerCase())
-                }).filter((el, index, arr) => {
-                    for(let key in filtSub) {
-                        if(filtSub[key] === "" || key === 'Pavadinimas') continue;
-                        if(el[key] !== filtSub[key]) {
-                            return false
-                        }
-                    }
-                    return true
-            })
-        })
-        /* Filter for when the user is searching by one or more select filters AND via keyword */
-    } else if((filtSub['Grupė'] || filtSub['Pagrindinis tipas'] || filtSub['Savivaldybė']) && !filtSub['Pavadinimas']) {
-        setDisplayData(()=>{
-            return fetchAllData.filter(el => {
-            for(let key in filtSub) {
-            if(filtSub[key] === "" || key === 'Pavadinimas') continue;
-            if(el[key] !== filtSub[key]) {
-                return false
+    /* Prevent reload on submit and prepping array for DB info(resetting), also setting page to 1 in case it wasn't 1(if page isnt 1 and there is only 1 page there would obviously be nothing to paginate) before */
+    e.preventDefault();
+    setDisplayData([]);
+    if (page !== 1) setPage(1);
+    /* Filter for when the user is ONLY searching via keyword */
+    if (
+      filtSub["Pavadinimas"] &&
+      !filtSub["Grupė"] &&
+      !filtSub["Pagrindinis tipas"] &&
+      !filtSub["Savivaldybė"]
+    ) {
+      setDisplayData(() => {
+        let condition = new RegExp(filtSub["Pavadinimas"].toLowerCase());
+        return fetchAllData.filter((el) => {
+          return condition.test(el["Pavadinimas"].toLowerCase());
+        });
+      });
+      /* Filter for when the user is searching by both: ALL the select filters AND keyword */
+    } else if (
+      filtSub["Pavadinimas"] &&
+      filtSub["Grupė"] &&
+      filtSub["Pagrindinis tipas"] &&
+      filtSub["Savivaldybė"]
+    ) {
+      setDisplayData(() => {
+        let condition = new RegExp(filtSub["Pavadinimas"].toLowerCase());
+        return fetchAllData
+          .filter((el) => {
+            return condition.test(el["Pavadinimas"].toLowerCase());
+          })
+          .filter((el, index, arr) => {
+            for (let key in filtSub) {
+              if (key === "Pavadinimas") continue;
+              if (el[key] !== filtSub[key]) return false;
             }
-        }
-        return true
-    })})   
-    }
-}
-
-    const handlePostSubmit = (e) => {
-        e.preventDefault()
-        console.log(postObj)
-        for(let key in postObj) {
-            if(!postObj[key]) {
-                return false
+            return true;
+          });
+      });
+      /* filter for when the user is searching ONLY by select filters */
+    } else if (
+      (filtSub["Grupė"] ||
+        filtSub["Pagrindinis tipas"] ||
+        filtSub["Savivaldybė"]) &&
+      filtSub["Pavadinimas"]
+    ) {
+      setDisplayData(() => {
+        let condition = new RegExp(filtSub["Pavadinimas"].toLowerCase());
+        return fetchAllData
+          .filter((el) => {
+            return condition.test(el["Pavadinimas"].toLowerCase());
+          })
+          .filter((el, index, arr) => {
+            for (let key in filtSub) {
+              if (filtSub[key] === "" || key === "Pavadinimas") continue;
+              if (el[key] !== filtSub[key]) {
+                return false;
+              }
             }
-        }
-        axios.post('http://localhost:3001/v1/dataPost', postObj ,{
-            headers: {
-                'Content-Type': 'application/json',
-                'admin-id': localStorage.getItem('admin-id') 
+            return true;
+          });
+      });
+      /* Filter for when the user is searching by one or more select filters AND via keyword */
+    } else if (
+      (filtSub["Grupė"] ||
+        filtSub["Pagrindinis tipas"] ||
+        filtSub["Savivaldybė"]) &&
+      !filtSub["Pavadinimas"]
+    ) {
+      setDisplayData(() => {
+        return fetchAllData.filter((el) => {
+          for (let key in filtSub) {
+            if (filtSub[key] === "" || key === "Pavadinimas") continue;
+            if (el[key] !== filtSub[key]) {
+              return false;
             }
-        }).then(data => {
-            setPostModal(false)
-            
-        })
+          }
+          return true;
+        });
+      });
     }
-    const handlePostModal = (action) => {
-        if(action === 'close') setPostModal(false)
-        if(action === 'open') setPostModal(true)
-    }
+  };
 
     const logoutHandler = () => {
         axios.get('http://localhost:3001/v1/admin/logout', {
@@ -221,9 +247,30 @@ let AdminPanel = () => {
     if(redirect) {
         return <Redirect to = {redirect} />
     }
+    const handlePostSubmit = (e) => {
+      e.preventDefault();
+      console.log(postObj);
+      for (let key in postObj) {
+        if (!postObj[key]) {
+          return false;
+        }
+      axios.post("http://localhost:3001/v1/dataPost", postObj, {
+          headers: {
+            "Content-Type": "application/json",
+            "admin-id": localStorage.getItem("admin-id"),
+          },
+        })
+        .then((data) => {
+          setPostModal(false);
+        });
+  };
+}
+  const handlePostModal = (action) => {
+    if (action === "close") setPostModal(false);
+    if (action === "open") setPostModal(true);
+  };
 
-    return (
-        <>
+    return <>
             <header className = {styles.header}>
                 <ul className={styles.ul}>
                     <li>
@@ -438,15 +485,14 @@ let AdminPanel = () => {
                                     </div>
                                 })}
                                 <div className={styles['button-div']}>
-                                    <button className={`${styles.button} ${styles.delete}`} onClick = {() => deletePostHandler(el._id)}>Ištrinti</button>
-                                    <button className={`${styles.button} ${styles.update}`} onClick = {()=>updatePostHandler(el)}>Atnaujinti</button>
+                                    <button className={`${styles.button} ${styles.delete}`}>Ištrinti</button>
+                                    <button className={`${styles.button} ${styles.update}`}>Atnaujinti</button>
                                 </div>
                             </div>
                         })}
                     </div>
                     <div className={styles.pagination}>
                         <div className={styles['input-pagination']}><input className={styles['input-txt']} type='number' placeholder={page} onKeyDown={pageInputHandler} /><h5 className={styles.pageCount}>/{Math.ceil(displayData.length/20)}</h5></div>
-                        
                     </div>
                 </div>
             </main>
@@ -454,8 +500,11 @@ let AdminPanel = () => {
 
             </footer>
         </>
-    )
 }
 
+const override = css`
+  display: block;
+  margin: 0 auto;
+`;
 
-export default AdminPanel
+export default AdminPanel;

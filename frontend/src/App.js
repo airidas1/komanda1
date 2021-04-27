@@ -5,13 +5,15 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import About from './pages/About';
+import Education from './pages/Education';
+import ChooseEd from './pages/ChooseEd';
 /* Backend routes */
 import AdminLogin from './pages/Admin/AdminLogin';
 import AdminPanel from './pages/Admin/AdminPanel';
 import Carrer from './pages/Carrer';
 import FAQ from './pages/FAQ';
 import NotFound from './pages/NotFound';
-import Search from './pages/Search/Search'
+import Results from './pages/Results';
 
 function App() {
   return (
@@ -25,6 +27,12 @@ function App() {
           <Route path='/about'>
             <About />
           </Route>
+          <Route path='/education'>
+            <Education />
+          </Route>
+          <Route path='/choose'>
+            <ChooseEd />
+          </Route>
           <Route path='/faq'>
             <FAQ />
           </Route>
@@ -36,6 +44,9 @@ function App() {
           </Route>
           <Route path='/carrer'>
             <Carrer />
+          </Route>
+          <Route path='/results' render={(props) => <Results {...props} />}>
+            {/* <Results /> */}
           </Route>
           <Route>
             <NotFound />
