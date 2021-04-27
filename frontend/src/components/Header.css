@@ -90,6 +90,10 @@ header .container .navbar .navbar_menu li a:hover {
   font-size: 1.3em;
 }
 
+.search-btn {
+  color: var(--primary-color);
+}
+
 /* Tablet and Desktop */
 @media screen and (min-width: 768px) {
   header .container {
@@ -122,6 +126,12 @@ header .container .navbar .navbar_menu li a:hover {
 
   header .container .navbar .navbar_menu li {
     padding: 5px 25px;
+  }
+
+  .search-btn {
+    margin-left: 25px;
+    border: 1px solid var(--primary-color);
+    border-radius: 8px;
   }
 }
 
