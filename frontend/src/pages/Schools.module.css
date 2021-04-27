@@ -18,8 +18,10 @@
 
 .school .container .school_info .school_text {
   margin-bottom: 1em;
+  padding-bottom: 2em;
   display: flex;
   flex-direction: column;
+  border-bottom: 1px solid #3a90ed;
 }
 
 .school .container .school_info img {
@@ -28,6 +30,11 @@
 
 .school .container .school_info p {
   margin: 0.5em 0;
+}
+
+.school .container .school_info p ul li {
+  margin: 0.5em 0 0 0;
+  list-style: inside;
 }
 
 /* -- */
@@ -44,6 +51,10 @@
   flex-direction: column;
   justify-content: center;
   align-items: left;
+}
+
+.school .container .school_contacts h2 {
+  text-align: left;
 }
 
 .school .container .school_contacts h3 {
@@ -77,6 +88,11 @@
     width: 400px;
     height: 400px;
     order: 2;
+  }
+
+  .school .container .school_info .school_text .school2_img {
+    width: 450px;
+    height: 200px;
   }
 
   .school .container .school_info .school_text section {

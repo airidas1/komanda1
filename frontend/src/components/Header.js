@@ -18,7 +18,7 @@ function Header(props) {
     <header>
       <div className="container">
         <div className="logo">
-          <Link to="/v1">
+          <Link to="/">
             <img src={logo} alt="logo"></img>
           </Link>
         </div>

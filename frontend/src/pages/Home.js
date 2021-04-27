@@ -165,25 +165,22 @@ function Home() {
           <h2>Neformaliojo švietimo TOP įstaigos</h2>
           <div className={styles.schools}>
             <div className={styles.school}>
-                <h3>Pavadinimas 1</h3>
-                <p>Lietuvoje įgytos profesinės kvalifikacijos pripažįstamos užsienio
-              valstybėse. Kasmet studijuoti ar stažuotis</p>
+                <h3>Anykščių muzikos mokykla</h3>
+                <p>Moderni ugdymo institucija, tenkinanti vaikų ir jaunimo muzikinio ugdymo ir saviraiškos poreikius, visuomenei ir šeimai atviras kultūros židinys.</p>
                 <Link to={'/school1'}>
                   <button>Skaityti!</button>
                 </Link>
             </div>
             <div className={styles.school}>
-                <h3>Pavadinimas 1</h3>
-                <p>Lietuvoje įgytos profesinės kvalifikacijos pripažįstamos užsienio
-              valstybėse. Kasmet studijuoti ar stažuotis</p>
+                <h3>Vilniaus teniso akademija</h3>
+                <p>Vilniaus teniso akademija yra didžiausia ir aukščiausio lygio Lietuvos teniso mokykla, kurioje šio nuostabaus sporto paslaptis pažįsta daugiau nei pusė tūkstančio vaikų.</p>
                 <Link to={'/school2'}>
                   <button>Skaityti!</button>
                 </Link>
             </div>
             <div className={styles.school}>
-                <h3>Pavadinimas 1</h3>
-                <p>Lietuvoje įgytos profesinės kvalifikacijos pripažįstamos užsienio
-              valstybėse. Kasmet studijuoti ar stažuotis</p>
+                <h3>Lietuvos šachmatų mokykla</h3>
+                <p>Lietuvos šachmatų  mokykla (LŠM) - ne pelno siekianti organizacija, kurios pagrindiniai tikslai yra visoje Lietuvoje visų amžiaus grupių asmenis mokyti žaisti šachmatais.</p>
                 <Link to={'/school3'}>
                   <button>Skaityti!</button>
                 </Link>

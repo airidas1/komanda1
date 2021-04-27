@@ -1,27 +1,34 @@
 import React from 'react';
 import styles from './Schools.module.css'
-import school1 from '../assets/images/school1.jpg';
+import school3 from '../assets/images/school3.jpg';
 
 function School3() {
     return (
         <main className={styles.school}>
             <div className={styles.container}>
                 <div className={styles.school_info}>
-                    <h1>Anykščių muzikos mokykla</h1>
+                    <h1>Lietuvos šachmatų mokykla</h1>
                     <div className={styles.school_text}>
-                        <img src={school1}></img>
+                        <img src={school3}></img>
                         <section>
-                            <p>Kiekvieną rugpjūtį vykstančio Tarptautinio vargonų muzikos festivalio pradžią nulėmė galingų vargonų iš Didžiosios Britanijos parvežimas į Šv. Mato bažnyčią 1998 metų rudenį bei siekis simboliškai pratęsti istorinę sąsają tarp Anykščių ir Seinų (Lenkija), prisimenant, kad 1897 metais Seinų vyskupu tapo iškiliausia Anykščių krašto asmenybė Antanas Baranauskas. </p>
-                            <p>1999 metais vargonai buvo baigti montuoti, prasidėjo kasmetiniai vargonų muzikos festivaliai. Kaip rašoma Anykščių Šv. Mato parapijos interneto svetainėje: „Kiekvienais metais stengiamasi praplėsti festivalio veiklas. Nuo 2014 metų festivalį rengiant kartu su Všį „Prasmingas garsas“ (direktorius Stanislovas Aglinskas), prasiplėtė jo veiklos“. Festivalis išsiplėtė įvairiomis prasmėmis: dabar jo koncertai vyksta skirtingose Anykščių krašto bažnyčiose, o šalia vargonų ėmė skambėti vokalinė ir instrumentinė muzika, kurią atlieka labai žymūs bei dar visai jauni muzikos atlikėjai.</p>
-                            <p>Šiame festivalyje yra dalyvavusios ir mūsų mokyklos dvi mokytojos: Simona Liamo (vokalas) ir Lolita Liamo (vargonai).</p>
+                            <p>Lietuvos šachmatų  mokykla (LŠM) - ne pelno siekianti organizacija, kurios pagrindiniai tikslai yra visoje Lietuvoje visų amžiaus grupių asmenis mokyti žaisti šachmatais, skatinti ir populiarinti šachmatų sportą, tikslingai, kryptingai ir kompetentingai integruoti šachmatų sportą į Lietuvos visuomenės gyvenimą, pasitelkiant mokslinę ir metodinę veiklą, šachmatų sporto pagalba, organizuojant šachmatų treniruotes, stovyklas ir kitus renginius, ugdyti ir tobulinti visuomenę Lietuvoje bei padėti visiems besidomintiems  šia sritimi siekti profesinio tobulėjimo ir bendradarbiavimo.</p>
+                            <p>Lietuvos šachmatų mokykla organizuoja: <ul>
+                                <li>šachmatų treniruotes mokyklose ir darželiuose;</li>
+                                <li>šachmatų treniruotes suaugusiems;</li>
+                                <li>šachmatų treniruotes mažose grupėse;</li>
+                                <li>individualias šachmatų treniruotes;</li>
+                                <li>šachmatų renginius, seminarus, kursus;</li>
+                                <li>vaikų vasaros stovyklas.</li>
+                                </ul></p>
+                            <p>Lietuvos šachmatų mokykla yra oficialus ChessKid.com atstovas Lietuvoje. Šiuo metu metinę auksinę naryste ChessKid.com platformoje galima įsigyti su 25% nuolaida.</p>
                         </section>
                     </div>
                 </div>
                 <div className={styles.school_contacts}>
                     <h2>Kontaktai</h2>
                     <h3>Anykščių meno mokykla</h3>
-                    <p><span>Adresas:</span> J. Biliūno g., 21, Anykščiai, Lietuva, LT29111</p>
-                    <p><span>El. paštas:</span> anyksciumm@gmail.com</p>
+                    <p><span>Adresas:</span> Vytauto pr. 69-2, Kaunas</p>
+                    <p><span>El. paštas:</span> info@sachmatumokykla.lt</p>
                 </div>
             </div>
             
