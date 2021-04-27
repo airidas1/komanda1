@@ -40,7 +40,6 @@ function Results(props) {
         );
         if (filtered) {
           submitButton.current.click();
-          console.log(submitButton.current);
           setFiltered(false);
         }
       });
@@ -79,7 +78,6 @@ function Results(props) {
     /* Prevent reload on submit and prepping array for DB info(resetting), also setting page to 1 in case it wasn't 1(if page isnt 1 and there is only 1 page there would obviously be nothing to paginate) before */
     e.preventDefault();
     setDisplayData([]);
-    console.log(arrivingObj);
     if (page !== 1) setPage(1);
     /* Filter for when the user is ONLY searching via keyword */
     if (
@@ -274,6 +272,7 @@ function Results(props) {
           return (
             <div key={el._id} className={styles["output-item"]}>
               {Object.entries(el).map(([key, value]) => {
+                if (key === "_id") return null;
                 return (
                   <div className={styles["output-pair"]}>
                     <h4 className={styles.h4}>{key}: </h4>
@@ -281,14 +280,6 @@ function Results(props) {
                   </div>
                 );
               })}
-              <div className={styles["button-div"]}>
-                <button className={`${styles.button} ${styles.delete}`}>
-                  Ištrinti
-                </button>
-                <button className={`${styles.button} ${styles.update}`}>
-                  Atnaujinti
-                </button>
-              </div>
             </div>
           );
         })}

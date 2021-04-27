@@ -10,10 +10,16 @@ import ChooseEd from './pages/ChooseEd';
 /* Backend routes */
 import AdminLogin from './pages/Admin/AdminLogin';
 import AdminPanel from './pages/Admin/AdminPanel';
+import HowTo from './pages/Admin/HowTo'
 import Carrer from './pages/Carrer';
 import FAQ from './pages/FAQ';
 import NotFound from './pages/NotFound';
 import Results from './pages/Results';
+import School1 from './pages/School1';
+import School2 from './pages/School2';
+import School3 from './pages/School3';
+import Facts from './pages/Facts';
+import Test from './pages/Test';
 
 function App() {
   return (
@@ -21,7 +27,7 @@ function App() {
       <Router>
         <Header url={window.location.pathname} />
         <Switch>
-          <Route exact path='/v1'>
+          <Route exact path='/'>
             <Home />
           </Route>
           <Route path='/about'>
@@ -46,7 +52,24 @@ function App() {
             <Carrer />
           </Route>
           <Route path='/results' render={(props) => <Results {...props} />}>
-            {/* <Results /> */}
+          </Route>
+          <Route path='/school1'>
+            <School1 />
+          </Route>
+          <Route path='/school2'>
+            <School2 />
+          </Route>
+          <Route path='/school3'>
+            <School3 />
+          </Route>
+          <Route path='/facts'>
+            <Facts />
+          </Route>
+          <Route path='/test'>
+            <Test />
+          </Route>
+          <Route path='/v1/admin/howto'>
+            <HowTo />
           </Route>
           <Route>
             <NotFound />

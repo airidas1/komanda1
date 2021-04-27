@@ -102,6 +102,7 @@
   padding: 4em 0;
   text-align: center;
   border-top: 1px solid #d5eaff;
+  border-bottom: 1px solid #d5eaff;
 }
 
 .additional_info h2 {
@@ -113,6 +114,67 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+}
+
+/* top schools */
+.schools_wrapper {
+  margin: 2em auto;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+}
+
+.schools_wrapper h2 {
+  text-align: center;
+}
+
+.schools {
+  margin: 1em 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.school {
+  margin: 1em auto;
+  padding: 1em 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #d5eaff;
+  border-radius: 10px;
+}
+
+.school h3 {
+  text-align: center;
+  margin: 1em 0;
+}
+
+.school p {
+  margin: 0.5em 0;
+  text-align: left;
+}
+
+.school button {
+  margin: 1em 1.5em;
+  padding: 10px;
+  width: 120px;
+  border: none;
+  background-color: #3a90ed;
+  color: #fff;
+  border-radius: 5px;
+  justify-items: flex-end;
+  font-size: 1em;
+  font-weight: 600;
+  transition: all ease 0.3s;
+}
+
+.school button:hover {
+  cursor: pointer;
+  color: #3a90ed;
+  background-color: transparent;
 }
 
 /* ------ Tablet ------ */
@@ -137,6 +199,20 @@
 
   .additional_info {
     padding: 7em 1em;
+  }
+
+  .schools {
+    margin: 1em 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .school {
+    margin: 1em 0;
+    width: 30%;
+    height: 400px;
   }
 }
 
@@ -168,5 +244,13 @@
 
   .form {
     display: block;
+  }
+
+  .school {
+    height: 300px;
+  }
+
+  .school button {
+    margin: 2em 1.5em;
   }
 }
