@@ -16,11 +16,11 @@ router.get('/admins/all', AdminController.getAllAdmins)
 router.get('/currentAdmin', AdminMiddleware.authenticate, AdminController.getCurrentUser)
 /* Manipulate a single object (Admin privilege) */
 /* Update post */
-router.post('/dataUpdate/:id', AdminMiddleware.authenticate, DataController.updateDataInfo)
+router.post('/dataUpdate', AdminMiddleware.authenticate, DataController.updateDataInfo)
 /* Post new post */
 router.post('/dataPost', AdminMiddleware.authenticate, DataController.saveData)
 /* Delete post */
-router.delete('/data/:id', AdminMiddleware.authenticate, DataController.removeData)
+router.delete('/data', AdminMiddleware.authenticate, DataController.removeData)
 
 
 module.exports = router

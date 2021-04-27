@@ -39,7 +39,6 @@ function Results(props) {
         );
         if (filtered) {
           submitButton.current.click();
-          console.log(submitButton.current);
           setFiltered(false);
         }
       });
@@ -273,6 +272,7 @@ function Results(props) {
           return (
             <div key={el._id} className={styles['output-item']}>
               {Object.entries(el).map(([key, value]) => {
+                if(key === '_id') return null
                 return (
                   <div className={styles['output-pair']}>
                     <h4 className={styles.h4}>{key}: </h4>
@@ -280,14 +280,6 @@ function Results(props) {
                   </div>
                 );
               })}
-              <div className={styles['button-div']}>
-                <button className={`${styles.button} ${styles.delete}`}>
-                  Ištrinti
-                </button>
-                <button className={`${styles.button} ${styles.update}`}>
-                  Atnaujinti
-                </button>
-              </div>
             </div>
           );
         })}
