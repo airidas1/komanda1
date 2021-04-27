@@ -55,7 +55,6 @@ function Home() {
     e.preventDefault();
     setRedirect('/results');
   }
-
   return (
     <main className={styles.home}>
       <div className={styles.home_container}>
