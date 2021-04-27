@@ -102,6 +102,7 @@
   padding: 4em 0;
   text-align: center;
   border-top: 1px solid #d5eaff;
+  border-bottom: 1px solid #d5eaff;
 }
 
 .additional_info h2 {
