@@ -1,27 +1,27 @@
 import React from 'react';
 import styles from './Schools.module.css'
-import school1 from '../assets/images/school1.jpg';
+import school2 from '../assets/images/school2.png';
 
 function School2() {
     return (
         <main className={styles.school}>
             <div className={styles.container}>
                 <div className={styles.school_info}>
-                    <h1>Anykščių muzikos mokykla</h1>
+                    <h1>Vilniaus teniso akademija</h1>
                     <div className={styles.school_text}>
-                        <img src={school1}></img>
+                        <img src={school2} className={styles.school2_img}></img>
                         <section>
-                            <p>Kiekvieną rugpjūtį vykstančio Tarptautinio vargonų muzikos festivalio pradžią nulėmė galingų vargonų iš Didžiosios Britanijos parvežimas į Šv. Mato bažnyčią 1998 metų rudenį bei siekis simboliškai pratęsti istorinę sąsają tarp Anykščių ir Seinų (Lenkija), prisimenant, kad 1897 metais Seinų vyskupu tapo iškiliausia Anykščių krašto asmenybė Antanas Baranauskas. </p>
-                            <p>1999 metais vargonai buvo baigti montuoti, prasidėjo kasmetiniai vargonų muzikos festivaliai. Kaip rašoma Anykščių Šv. Mato parapijos interneto svetainėje: „Kiekvienais metais stengiamasi praplėsti festivalio veiklas. Nuo 2014 metų festivalį rengiant kartu su Všį „Prasmingas garsas“ (direktorius Stanislovas Aglinskas), prasiplėtė jo veiklos“. Festivalis išsiplėtė įvairiomis prasmėmis: dabar jo koncertai vyksta skirtingose Anykščių krašto bažnyčiose, o šalia vargonų ėmė skambėti vokalinė ir instrumentinė muzika, kurią atlieka labai žymūs bei dar visai jauni muzikos atlikėjai.</p>
-                            <p>Šiame festivalyje yra dalyvavusios ir mūsų mokyklos dvi mokytojos: Simona Liamo (vokalas) ir Lolita Liamo (vargonai).</p>
+                            <p>Birželio viduryje Vilniuje Lietuvos moterų teniso rinktinė, su dar 26 valstybių komandomis, stos į kovą dėl dviejų kelialapių į antrąją Billie Jean King taurės (buv. FedCup varžybos) grupę. Rinktinės kapitonė Edita Liachovičiūtė mano, kad Lietuvos teniso sąjungos iškeltas tikslas – iškovoti teisę kitąmet žaisti aukštesnėje turnyro grupėje – yra pasiekiamas. Tačiau tam, kad jis būtų įgyvendintas, prireiks ne tik kovos iš visų jėgų, tačiau ir šiek tiek sėkmės. </p>
+                            <p>„Kol kas tik dėlioju pradinius mūsų komandos eskizus. Lyderės vaidmuo yra numatytas aukščiausią reitingą iš mūsiškių dabar turinčiai Justinai Mikulskytei. Norą jungtis prie komandos taip pat išsakė į profesionalų tenisą po studijų JAV grįžti siekianti Akvilė Paražinskaitė. Manau, kad jos ir turėtų būti smogiamoji mūsų rinktinės jėga. Taip pat į komandą kviesiu bent keletą perspektyviausių jaunųjų mūsų tenisininkių. Konkrečių pavardžių minėti dar nenoriu. Kaip tik šiuo metu vyksta pokalbiai su merginomis ir jų treneriais. Kita vertus, reikia suvokti tai, kad Vilniuje mūsų lauks nelengvas bent 5 mačų maratonas. Ir patekti į antrąją Billie Jean King varžybų grupę tik lyderių pastangomis gali būti labai sunku. Mums reikės kiekvienos rinktinės žaidėjos indėlio“, – sako E. Liachovičiūtė. </p>
+                            <p>Lietuvos teniso mėgėjai palaikyti savo komandos birželio 15-19 d. „SEB arenoje“ vyksiančiose varžybose negalės. Dėl globalios koronaviruso pandemijos didžiausias šių metų teniso renginys šalyje vyks be žiūrovų.</p>
                         </section>
                     </div>
                 </div>
                 <div className={styles.school_contacts}>
                     <h2>Kontaktai</h2>
-                    <h3>Anykščių meno mokykla</h3>
-                    <p><span>Adresas:</span> J. Biliūno g., 21, Anykščiai, Lietuva, LT29111</p>
-                    <p><span>El. paštas:</span> anyksciumm@gmail.com</p>
+                    <h3>Vilniaus teniso akademija</h3>
+                    <p><span>Adresas:</span> Ąžuolyno g. 7, Vilnius, Lietuva</p>
+                    <p><span>El. paštas:</span> info@tenisoakademija.lt</p>
                 </div>
             </div>
             

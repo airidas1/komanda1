@@ -26,7 +26,7 @@ function App() {
       <Router>
         <Header url={window.location.pathname} />
         <Switch>
-          <Route exact path='/v1'>
+          <Route exact path='/'>
             <Home />
           </Route>
           <Route path='/about'>
