@@ -1,0 +1,97 @@
+/* Mobile first */
+/* - */
+.facts {
+  min-height: 80vh;
+}
+
+.facts .container {
+  padding: 4em 2em;
+  display: flex;
+  flex-direction: column;
+}
+
+.facts .container .facts_info {
+  margin: 0 auto;
+  width: 80%;
+}
+
+.facts .container .facts_info ol {
+  margin: 1.5em 0;
+}
+
+.facts .container .facts_info ol li {
+  margin: 0.5em 0;
+  font-size: 1.1em;
+  font-weight: 500;
+  list-style: none;
+}
+
+ol li::before {
+  margin-right: 0.5em;
+  content: counter(li);
+  color: #3a90ed;
+  display: inline-block;
+  width: 1em;
+  font-weight: 600;
+}
+
+li {
+  counter-increment: li;
+}
+
+.facts .container .test {
+  margin: 2em auto;
+  width: 80%;
+}
+
+.facts .container .test h2 {
+  margin-bottom: 1em;
+}
+
+.facts .container .test button {
+  padding: 10px;
+  width: 120px;
+  border: none;
+  background-color: #3a90ed;
+  color: #fff;
+  border-radius: 5px;
+  justify-items: flex-end;
+  font-size: 1em;
+  font-weight: 600;
+  transition: all ease 0.3s;
+}
+
+.facts .container .test button:hover {
+  cursor: pointer;
+  color: #3a90ed;
+  background-color: transparent;
+}
+
+/* Tablet */
+@media screen and (min-width: 768px) {
+  .facts .container .facts_info {
+    margin: 0 auto;
+    width: 60%;
+  }
+
+  .facts .container .facts_info h1 {
+    text-align: left;
+  }
+
+  .facts .container .test {
+    margin: 2em auto;
+    width: 60%;
+  }
+}
+
+/* Desktop */
+@media screen and (min-width: 1280px) {
+  .facts {
+    min-height: calc(100vh - 102px - 58px);
+  }
+
+  .facts .container {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+}
