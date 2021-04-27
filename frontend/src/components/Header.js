@@ -14,7 +14,7 @@ function Header(props) {
   console.log(props.url);
 
   return props.url === "/v1/admin/login" ||
-    props.url === "/v1/admin/panel" ? null : (
+    props.url === "/v1/admin/panel" || props.url === "/v1/admin/howto" ? null : (
     <header>
       <div className="container">
         <div className="logo">

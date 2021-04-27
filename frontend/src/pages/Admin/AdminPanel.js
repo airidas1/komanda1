@@ -291,7 +291,10 @@ let AdminPanel = () => {
                           <button className={styles['header-btn']} onClick = {logoutHandler}>Logout</button>
                       </li>
                       <li>
-                        <Link to='/v1/admin/howto' className={styles['header-btn']}>How To</Link>
+                        <Link to='/v1/admin/howto' className={`${styles['header-btn']} ${styles['Link']}`}>How To</Link>
+                      </li>
+                      <li>
+                        <Link to='/v1/admin/panel' className={`${styles['header-btn']} ${styles['Link']}`}>Panelė</Link>
                       </li>
                       <li>
                           <button className={styles['header-btn']} onClick={() => {
