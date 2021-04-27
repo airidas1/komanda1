@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useCallback, useRef } from "react";
 import axios from "axios";
 import styles from "../pages/Admin/AdminPanel.module.css";
+import { GridLoader } from "react-spinners";
+import { css } from "@emotion/core";
 
 function Results(props) {
   /* keep count of current page used to display data */
@@ -12,6 +14,7 @@ function Results(props) {
   /* filtered AND paginated data to cope with big ammounts of information */
   const [paginatedData, setPaginatedData] = useState([]);
   /* Loading spinner state while fetching data */
+  const [isLoading, setIsLoading] = useState(true);
 
   const [savivaldybes, setSavivaldybes] = useState([]);
   /* used to gather all unique groups of fetchAllData */
@@ -31,6 +34,7 @@ function Results(props) {
     (e) => {
       axios.get(`http://localhost:3001/v1/getAllData`).then((res) => {
         setFetchAllData(res.data);
+        setIsLoading(false);
         setSavivaldybes(
           Array.from(new Set(res.data.map((el) => el["Savivaldybė"])))
         );
@@ -157,7 +161,9 @@ function Results(props) {
     }
   };
 
-  return (
+  return isLoading ? (
+    <GridLoader css={override} size={50} color={"#3a90ed"} />
+  ) : (
     <div>
       {console.log(displayData)}
       <div className={styles["filter-form-wrapper"]}>
@@ -300,5 +306,10 @@ function Results(props) {
     </div>
   );
 }
+
+const override = css`
+  display: block;
+  margin: 300px auto;
+`;
 
 export default Results;
