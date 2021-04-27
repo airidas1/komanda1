@@ -452,6 +452,7 @@ let AdminPanel = () => {
                 {/* ACTUAL MAIN PAGE */}
                 {show ? (<>
                 <div className={styles["admin-container"]}>
+                {isLoading ? <GridLoader css={override} size={50} color={"#3a90ed"} /> :
                 <div className={styles['filter-form-wrapper']}>
                     <form className={styles['filter-form']}>
                         <div className={styles['form-control']}>
@@ -489,7 +490,7 @@ let AdminPanel = () => {
                             <input className={styles['filter-submit']} type="reset" value="Filtruoti" onClick={handleFilterSubmit}/>
                         </div>
                     </form>
-                </div>
+                </div>}
                 </div>
                 
                 <div className={styles.wrapper}>
