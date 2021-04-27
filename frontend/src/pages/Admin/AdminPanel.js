@@ -367,6 +367,7 @@ let AdminPanel = () => {
                             </form>
                     </div>
                 </div> : null}
+                {/* PASSWORD MODAL */}
                 {passwordModal ? <div className={styles['changePasswordModal']}>
                     <div className={styles['modal-container-background']}>
                         <form>
