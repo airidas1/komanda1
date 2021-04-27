@@ -11,11 +11,11 @@ function Header(props) {
     navigation.current.classList.toggle("active");
   }
 
-  console.log(props.url);
-
-  return props.url === "/v1/admin/login" ||
-    props.url === "/v1/admin/panel" || props.url === "/v1/admin/howto" ? null : (
-    <header>
+  
+  if(props.url === "/v1/admin/login" || props.url === "/v1/admin/panel" || props.url === "/v1/admin/howto") {
+    return null
+  }else{
+    return <header>
       <div className="container">
         <div className="logo">
           <Link to="/v1">
@@ -45,7 +45,7 @@ function Header(props) {
         </nav>
       </div>
     </header>
-  );
+  }
 }
 
 export default Header;
