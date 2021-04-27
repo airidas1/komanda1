@@ -39,7 +39,6 @@ let AdminPanel = () => {
         'Grupė': '',
         'Savivaldybė': '',
         'Pagrindinis tipas': '',
-        'El. paštas': '',
         'Teisinė forma': ''
     })
     const [postModal, setPostModal] = useState(false)
@@ -50,6 +49,7 @@ let AdminPanel = () => {
   
   /* Loading spinner state while fetching data */
   const [isLoading, setIsLoading] = useState(true);
+  const [show, setShow] = useState(true)
 
 
  
@@ -219,8 +219,10 @@ let AdminPanel = () => {
         })
     }
     const updatePostHandler = (body) => {
+      console.log(body)
         setUpdateModal(true)
         setUpdateModalData(body)
+        setShow(false)
     }
     const updateHandler = (e ,body) => {
         e.preventDefault()
@@ -230,6 +232,7 @@ let AdminPanel = () => {
             },
         }).then(data => {
             window.location.reload()
+            setUpdateModalData({})
         })
     }
     const passwordHandler = (e, body) => {
@@ -243,50 +246,62 @@ let AdminPanel = () => {
             window.location.reload()
         })
     }
-    /* Redirect if admin login jwt in local storage doesn't match the jwts in MongoDB, value of redirect which used in the if statement is determined inside useEffect (route: http://localhost:3001/v1/currentAdmin) */
-    if(redirect) {
-        return <Redirect to = {redirect} />
-    }
     const handlePostSubmit = (e) => {
       e.preventDefault();
-      console.log(postObj);
       for (let key in postObj) {
         if (!postObj[key]) {
           return false;
         }
+      };
       axios.post("http://localhost:3001/v1/dataPost", postObj, {
-          headers: {
-            "Content-Type": "application/json",
-            "admin-id": localStorage.getItem("admin-id"),
-          },
-        })
-        .then((data) => {
+        headers: {
+          "Content-Type": "application/json",
+          "admin-id": localStorage.getItem("admin-id"),
+        },
+      })
+      .then((data) => {
           setPostModal(false);
+          setShow(true)
+          window.location.reload()
         });
-  };
-}
-  const handlePostModal = (action) => {
-    if (action === "close") setPostModal(false);
-    if (action === "open") setPostModal(true);
-  };
-
+      }
+      const handlePostModal = (action) => {
+        if (action === "close") {
+          setPostModal(false);
+          setShow(true)
+        }
+        if (action === "open") {
+          setPostModal(true);
+          setShow(false)
+        }
+      };
+      
+      /* Redirect if admin login jwt in local storage doesn't match the jwts in MongoDB, value of redirect which used in the if statement is determined inside useEffect (route: http://localhost:3001/v1/currentAdmin) */
+      if(redirect) {
+          return <Redirect to = {redirect} />
+      }
     return <>
             <header className = {styles.header}>
-                <ul className={styles.ul}>
-                    <li>
-                        <Link to={'/v1'}><img src={LOGO} alt='logo' className={styles.img}></img></Link>
-                    </li>
-                    <li>
-                        <button className={styles['header-btn']} onClick = {logoutHandler}>Logout</button>
-                    </li>
-                    <li>
-                        <button className={styles['header-btn']} onClick={() => setPasswordModal(!passwordModal)}>
-                            <FontAwesomeIcon className={styles['fontawesome-icon']} icon={['fas', 'cog']} size='2x'/>
-                        </button>
-                    </li>
-                </ul>
+              <div className={styles["header-container"]}>
+                <ul className={`${styles['navbar']}`}>
+                      <li className={styles['list-item']}>
+                          <Link to={'/v1'}><img src={LOGO} alt='logo' className={styles.img}></img></Link>
+                      </li>
+                      <li>
+                          <button className={styles['header-btn']} onClick = {logoutHandler}>Logout</button>
+                      </li>
+                      <li>
+                          <button className={styles['header-btn']} onClick={() => {
+                            setPasswordModal(!passwordModal)
+                            setShow(!show)
+                            }}>
+                              <FontAwesomeIcon className={styles['fontawesome-icon']} icon={['fas', 'cog']} size='2x'/>
+                          </button>
+                      </li>
+                  </ul>
+              </div>
             </header>
-            <main className={styles.main}>
+            <main className={styles.admin}>
                 {/* ADD POST MODALAS */}
                 {postModal ? <div className={styles['post-modal']}>
                     <div className={styles['modal-container-background']}>
@@ -331,10 +346,10 @@ let AdminPanel = () => {
                                     <label className={styles['form-label']} htmlFor="post-Telefonas">Telefonas</label>
                                     <input className={styles['form-input']} type="text"  onChange={(e) => setPostObj({...postObj, "Telefonas": e.target.value})} />
                                 </div>
-                                <div className={styles['form-control']}>
+                                {/* <div className={styles['form-control']}>
                                     <label className={styles['form-label']} htmlFor="post-El. paštas">El. paštas</label>
                                     <input className={styles['form-input']} type="text"  onChange={(e) => setPostObj({...postObj, "El. paštas": e.target.value})} />
-                                </div>
+                                </div> */}
                                 <div className={styles['form-control']}>
                                     <label className={styles['form-label']} htmlFor="post-teisine-forma">Teisinė forma</label>
                                     <input className={styles['form-input']} type="text" list="post-tf" onChange={(e) => setPostObj({...postObj, "Teisinė forma": e.target.value})} />
@@ -352,16 +367,17 @@ let AdminPanel = () => {
                 </div> : null}
                 {/* UPDATE MODALAS */}
                 {updateModal ? <div className={styles['update-modal']}>
-                    <div className={styles['modal-container-background']}>
-                    </div>
                     <div className={styles['modal-container']}>
-                        <div className={styles['update-quit']} onClick = {() => setUpdateModal(false)}>
+                        <div className={styles['update-quit']} onClick = {() => {
+                          setUpdateModal(false)
+                          setShow(true)
+                          }}>
                             <FontAwesomeIcon className={styles['fontawesome-close']} icon={['far', 'times-circle']}  size='2x'/>
                         </div>
                             <form className={styles['update-button-form']}>
                                 <div className={styles['form-control']}>
                                     <label className={styles['form-label']} htmlFor="update-savivaldybe">Savivaldybe</label>
-                                    {console.log(updateModalData)}
+                                    
                                     <input className={styles['form-input']} value = {updateModalData["Savivaldybė"] ? updateModalData["Savivaldybė"] : null} type="text" list="update-sav" onChange={(e) => setUpdateModalData({...updateModalData, "Savivaldybė": e.target.value})} />
                                     <datalist id="update-sav">
                                     {savivaldybes ? savivaldybes.map((item, key) => {
@@ -395,10 +411,10 @@ let AdminPanel = () => {
                                     <label className={styles['form-label']} htmlFor="update-Telefonas">Telefonas</label>
                                     <input className={styles['form-input']} value = {updateModalData["Telefonas"] ? updateModalData["Telefonas"] : null} type="text"  onChange={(e) => setUpdateModalData({...updateModalData, "Telefonas": e.target.value})} />
                                 </div>
-                                <div className={styles['form-control']}>
+                                {/* <div className={styles['form-control']}>
                                     <label className={styles['form-label']} htmlFor="update-El. paštas">El. paštas</label>
                                     <input className={styles['form-input']} value = {updateModalData["El. paštas"] ? updateModalData["El. paštas"] : null} type="text"  onChange={(e) => setUpdateModalData({...updateModalData, "El. paštas": e.target.value})} />
-                                </div>
+                                </div> */}
                                 <div className={styles['form-control']}>
                                     <label className={styles['form-label']} htmlFor="update-teisine-forma">Teisinė forma</label>
                                     <input className={styles['form-input']} value = {updateModalData["Teisinė forma"] ? updateModalData["Teisinė forma"] : null} type="text" list="update-tf" onChange={(e) => setUpdateModalData({...updateModalData, "Teisinė forma": e.target.value})} />
@@ -415,8 +431,8 @@ let AdminPanel = () => {
                     </div>
                 </div> : null}
                 {/* PASSWORD MODAL */}
-                {passwordModal ? <div className={styles['changePasswordModal']}>
-                    <div className={styles['modal-container-background']}>
+                {passwordModal ? <div className={styles['modal-container-background']}>
+                    <div className={styles['modal-container']}>
                         <form>
                             <div className={styles['form-control']}>
                                 <label className={styles['form-label']} htmlFor="update-pass1">Iveskite Sena Slaptazodi</label>
@@ -431,6 +447,8 @@ let AdminPanel = () => {
                     </div>
                 </div>: null}
                 {/* ACTUAL MAIN PAGE */}
+                {show ? (<>
+                <div className={styles["admin-container"]}>
                 <div className={styles['filter-form-wrapper']}>
                     <form className={styles['filter-form']}>
                         <div className={styles['form-control']}>
@@ -469,8 +487,12 @@ let AdminPanel = () => {
                         </div>
                     </form>
                 </div>
+                </div>
+                
                 <div className={styles.wrapper}>
-                    <div className={styles['add-post']} onClick = {()=> handlePostModal('open')}>
+                    <div className={styles['add-post']} onClick = {()=> {
+                    handlePostModal('open')
+                    }}>
                         <div className={styles['fontawesome-wrapper']}>
                             <FontAwesomeIcon className={styles['fontawesome-plus']} icon={['fas', 'plus']} size='2x'/>
                         </div>
@@ -485,8 +507,8 @@ let AdminPanel = () => {
                                     </div>
                                 })}
                                 <div className={styles['button-div']}>
-                                    <button className={`${styles.button} ${styles.delete}`}>Ištrinti</button>
-                                    <button className={`${styles.button} ${styles.update}`}>Atnaujinti</button>
+                                    <button className={`${styles.button} ${styles.delete}`} onClick={() => deletePostHandler(el._id)}>Ištrinti</button>
+                                    <button className={`${styles.button} ${styles.update}`} onClick={() => updatePostHandler(el)}>Atnaujinti</button>
                                 </div>
                             </div>
                         })}
@@ -495,10 +517,8 @@ let AdminPanel = () => {
                         <div className={styles['input-pagination']}><input className={styles['input-txt']} type='number' placeholder={page} onKeyDown={pageInputHandler} /><h5 className={styles.pageCount}>/{Math.ceil(displayData.length/20)}</h5></div>
                     </div>
                 </div>
+                </>):null}
             </main>
-            <footer>
-
-            </footer>
         </>
 }
 

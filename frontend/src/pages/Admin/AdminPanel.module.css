@@ -1,46 +1,27 @@
 /* Header */
 .header {
+  width: 100%;
   background-color: #fff;
   min-height: 8vh;
   -webkit-box-shadow: 0px 2px 12px -4px #000000;
   box-shadow: 0px 2px 8px -4px #000000;
+  margin-bottom: 1em;
 }
 
-.header .container {
+.header-container {
+  padding: 0.5em 0.7em;
+  width: 100%;
   height: 100%;
+}
+
+.navbar {
   display: flex;
-  flex-wrap: wrap;
+  justify-content: space-between;
   align-items: center;
-  padding: 1em 1em;
 }
 
-header .container .logo {
-  width: 40%;
-  height: 100%;
-}
-
-header .container .logo img {
-  width: auto;
-  height: 120px;
-  transition: 0.3s;
-}
-
-header .container .navbar {
-  width: 60%;
-}
-
-header .container .navbar .navbar_menu {
-  display: flex;
-  justify-content: flex-end;
-  padding-top: 0px;
-}
-
-header .container .navbar .navbar_menu li {
-  padding: 5px 25px;
-}
-
-header .container .navbar .navbar_menu li .header_btn {
-  margin: 2em auto;
+.header-btn {
+  margin: 2em 0;
   width: 100px;
   height: 40px;
   border: none;
@@ -52,8 +33,7 @@ header .container .navbar .navbar_menu li .header_btn {
   font-weight: 600;
   transition: all ease 0.3s;
 }
-
-header .container .navbar .navbar_menu li .header_btn:hover {
+.header-btn:hover {
   cursor: pointer;
   color: #3a90ed;
   background-color: #ffffff;
@@ -61,15 +41,24 @@ header .container .navbar .navbar_menu li .header_btn:hover {
 
 /* Main */
 .admin {
+  width: 100%;
   min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1em;
 }
 
-.admin .container {
+.admin-container {
+  width: 100%;
   padding: 4em 1em;
+  display: flex;
+  justify-content: center;
 }
 
 /* Filtras */
-.admin .container .admin_form {
+.filter-form {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -78,35 +67,35 @@ header .container .navbar .navbar_menu li .header_btn:hover {
   padding-top: 2em;
 }
 
-.admin .container .admin_form .admin_form_wrapper {
+.filter-form-wrapper {
   width: 80%;
   padding: 2em 0 3em 0;
   border-radius: 20px;
   background-color: #d5eaff;
 }
 
-.admin .container .admin_form .admin_form_wrapper .form_control {
+.form-control {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-bottom: 1rem;
+  margin: 1rem;
 }
 
-.admin .container .admin_form .admin_form_wrapper .form_control .form_label {
+.form-label {
   padding: 0.5em 0 0.5em 0;
   font-size: 1.1em;
 }
 
-.admin .container .admin_form .admin_form_wrapper .form_control .form_input {
-  width: 80%;
+.form-input {
+  width: 100%;
 
   padding: 0.5em;
   outline: none;
   border: 0px;
 }
 
-.admin .container .admin_form .filter_container .filter_submit {
+.filter-submit {
   margin: 2em auto;
   padding: 10px;
   width: 100px;
@@ -120,26 +109,27 @@ header .container .navbar .navbar_menu li .header_btn:hover {
   transition: all ease 0.3s;
 }
 
-.admin .container .admin_form .filter_container .filter_submit:hover {
+.filter-submit:hover {
   cursor: pointer;
   color: #3a90ed;
   background-color: #ffffff;
 }
 
 /* Pages */
-.admin .container .wrapper {
+.wrapper {
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.admin .container .wrapper .add_post {
+.add-post {
   display: flex;
   justify-content: center;
 }
 
-.admin .container .wrapper .add_post .fontawesome_wrapper {
+.fontawesome-wrapper {
   width: 40px;
   height: 40px;
   background-color: #6dc4e9;
@@ -159,7 +149,7 @@ header .container .navbar .navbar_menu li .header_btn:hover {
 }
 
 /* Output */
-.admin .container .wrapper .output_list {
+.output-list {
   width: 80%;
   display: flex;
   flex-direction: column;
@@ -168,8 +158,7 @@ header .container .navbar .navbar_menu li .header_btn:hover {
   text-align: left;
   margin-bottom: 2rem;
 }
-
-.admin .container .wrapper .output_list .output_item {
+.output-item {
   padding: 2em;
   margin: 1em 0;
   font-size: 1em;
@@ -177,7 +166,7 @@ header .container .navbar .navbar_menu li .header_btn:hover {
   background-color: #d5eaff;
 }
 
-.admin .container .wrapper .output_list .output_item .output_pair {
+.output-pair {
   padding: 0.5em 0;
   display: flex;
   flex-direction: column;
@@ -185,24 +174,23 @@ header .container .navbar .navbar_menu li .header_btn:hover {
   align-items: left;
 }
 
-.admin .container .wrapper .output_list .output_item .output_pair .h4 {
+.h4 {
   font-size: 1.1em;
   font-weight: 800;
 }
-
-.admin .container .wrapper .output_list .output_item .output_pair .h5 {
+.h5 {
   font-size: 1em;
   font-weight: 400;
 }
 
-.admin .container .wrapper .output_list .output_item .button_div {
+.button-div {
   padding: 1.5em 0 0 0;
   display: flex;
   justify-content: space-between;
   align-self: center;
 }
 
-.admin .container .wrapper .output_list .output_item .button_div .delete {
+.delete {
   padding: 10px;
   width: 100px;
   border: none;
@@ -215,13 +203,13 @@ header .container .navbar .navbar_menu li .header_btn:hover {
   transition: all ease 0.3s;
 }
 
-.admin .container .wrapper .output_list .output_item .button_div .delete:hover {
+.delete:hover {
   cursor: pointer;
   color: #3a90ed;
   background-color: transparent;
 }
 
-.admin .container .wrapper .output_list .output_item .button_div .update {
+.update {
   padding: 10px;
   width: 100px;
   border: none;
@@ -234,40 +222,20 @@ header .container .navbar .navbar_menu li .header_btn:hover {
   transition: all ease 0.3s;
 }
 
-.admin .container .wrapper .output_list .output_item .button_div .update:hover {
+.update:hover {
   cursor: pointer;
   color: #3a90ed;
   background-color: transparent;
 }
 
 /* Pagination */
-.admin .container .wrapper .pagination {
+.pagination {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.admin .container .wrapper .pagination .pagination_button {
-  padding: 10px;
-  width: 40px;
-  height: 40px;
-  border: none;
-  background-color: #6dc4e9;
-  color: #fff;
-  border-radius: 5px;
-  text-align: center;
-  font-size: 0.6em;
-  font-weight: 600;
-  transition: all ease 0.3s;
-}
-
-.admin .container .wrapper .pagination .pagination_button:hover {
-  cursor: pointer;
-  color: #3a90ed;
-  background-color: transparent;
-}
-
-.admin .container .wrapper .pagination .input_pagination {
+.input-pagination {
   width: 100px;
   display: flex;
   flex-direction: column;
@@ -275,7 +243,7 @@ header .container .navbar .navbar_menu li .header_btn:hover {
   align-items: center;
 }
 
-.admin .container .wrapper .pagination .input_pagination .input_txt {
+.input-txt {
   padding: 0.5em;
   width: 50px;
   outline: none;
@@ -283,7 +251,7 @@ header .container .navbar .navbar_menu li .header_btn:hover {
   border-bottom: 1px solid #6dc4e9;
 }
 
-.admin .container .wrapper .pagination .input_pagination .pageCount {
+.pageCount {
   font-size: 1em;
   font-weight: 600;
 }
@@ -298,17 +266,20 @@ header .container .navbar .navbar_menu li .header_btn:hover {
 
 /* Tablet */
 @media screen and (min-width: 768px) {
-  .admin .container {
+  .admin-container {
     padding-top: 7em;
     padding-bottom: 3em;
   }
 
-  .admin .container .admin_form .admin_form_wrapper {
-    width: 60%;
+  .filter-form-wrapper {
+    width: 100%;
   }
 
-  .admin .container .wrapper .output_list {
+  .output-list {
     width: 60%;
+  }
+  .update-modal {
+    width: 80%;
   }
 }
 
@@ -318,54 +289,64 @@ header .container .navbar .navbar_menu li .header_btn:hover {
     min-height: 80vh;
   }
 
-  .admin .container {
+  .admin-container {
     max-width: 1280px;
     margin: 0 auto;
   }
 
-  .admin .container .admin_form .admin_form_wrapper {
-    width: 50%;
+  .filter-form-wrapper {
+    width: 100%;
   }
 
-  .admin .container .wrapper .output_list {
-    width: 50%;
+  .output-list {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .output-item {
+    width: 40%;
+    margin-right: 1em;
   }
 }
-.modal-container-background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-color: var(--light-color);
-  opacity: 1;
+
+.post-modal {
   width: 100%;
   height: 100%;
-  z-index: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1em;
+  position: relative;
 }
 
 .modal-container {
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 100;
-  padding: 20em;
+  background-color: #d5eaff;
+  border-radius: 20px;
+  margin-bottom: 1em;
+  padding: 1em;
+  position: relative;
 }
 
 .post-button-form {
   width: 100%;
-  height: 80vh;
+  height: 60vh;
   margin-bottom: 10em;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   flex-wrap: wrap;
 }
 
-.post-button-form .form-input {
+.form-input {
   height: 2em;
+  margin: 1em;
 }
 
 .post-submit {
@@ -378,6 +359,22 @@ header .container .navbar .navbar_menu li .header_btn:hover {
 .post-quit {
   position: absolute;
   top: 5%;
-  right: 25%;
+  right: 5%;
   cursor: pointer;
+}
+
+.update-quit {
+  position: absolute;
+  top: 5%;
+  right: 5%;
+  cursor: pointer;
+}
+
+.update-button-form {
+  width: 60%;
+  padding: 2em;
+}
+
+.update-modal {
+  width: 100%;
 }
