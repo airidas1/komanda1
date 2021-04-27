@@ -20,7 +20,7 @@ main .section {
 }
 
 main .article {
-  width: 800px;
+  max-width: 800px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -79,6 +79,6 @@ main .help a {
     margin-top: 20px;
   }
   main .educationPhoto {
-    max-width: 500px;
+    max-width: 450px;
   }
 }
