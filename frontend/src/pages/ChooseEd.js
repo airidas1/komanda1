@@ -1,6 +1,5 @@
 import React from "react";
 import styles from "./ChooseEd.module.css";
-import skylineImage from "../assets/images/city-skyline.jpg";
 import happy from "../assets/images/happy.png";
 import openBook from "../assets/images/open-book.png";
 import idea from "../assets/images/idea.png";
@@ -29,7 +28,7 @@ function ChooseEd() {
       <h2>Į ką reikėtų atkreipti dėmesį?</h2>
       <section className={styles.infoBoxContainer}>
         <div className={styles.infoBox}>
-          <img src={happy} className={styles.infoBoxImage} />
+          <img src={happy} className={styles.infoBoxImage} alt={"IMGhappy"} />
           <p>
             Besimokydami, nepamirškite skirti laiko savo stiprybių/silpnybių
             pažinimui.
@@ -42,7 +41,7 @@ function ChooseEd() {
           </p>
         </div>
         <div className={styles.infoBox}>
-          <img src={openBook} className={styles.infoBoxImage} />
+          <img src={openBook} className={styles.infoBoxImage} alt = {"IMGopenBook"} />
           <p>
             <b>Nenustokite domėtis!</b>
           </p>
@@ -53,7 +52,7 @@ function ChooseEd() {
           </p>
         </div>
         <div className={styles.infoBox}>
-          <img src={idea} className={styles.infoBoxImage} />
+          <img src={idea} className={styles.infoBoxImage} alt ={"IMGidea"} />
           <p>Idėjos yra mūsų kuras.</p>
           <p>
             <b>
@@ -64,7 +63,7 @@ function ChooseEd() {
           </p>
         </div>
         <div className={styles.infoBox}>
-          <img src={presentation} className={styles.infoBoxImage} />
+          <img src={presentation} className={styles.infoBoxImage} alt ={"IMGpresentation"} />
           <p>
             <b>Konsultacijos.</b>
           </p>

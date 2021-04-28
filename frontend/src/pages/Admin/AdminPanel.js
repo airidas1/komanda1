@@ -94,7 +94,7 @@ let AdminPanel = () => {
     displayData
       ? setPaginatedData(displayData.slice((page - 1) * 20, page * 20))
       : console.log("asd");
-  }, [displayData, page]);
+  }, [displayData, page, headerState]);
 
   
 

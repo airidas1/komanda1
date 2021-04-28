@@ -9,7 +9,7 @@ function School3() {
                 <div className={styles.school_info}>
                     <h1>Lietuvos šachmatų mokykla</h1>
                     <div className={styles.school_text}>
-                        <img src={school3}></img>
+                        <img src={school3} alt={"SchoolIMG"}></img>
                         <section>
                             <p>Lietuvos šachmatų  mokykla (LŠM) - ne pelno siekianti organizacija, kurios pagrindiniai tikslai yra visoje Lietuvoje visų amžiaus grupių asmenis mokyti žaisti šachmatais, skatinti ir populiarinti šachmatų sportą, tikslingai, kryptingai ir kompetentingai integruoti šachmatų sportą į Lietuvos visuomenės gyvenimą, pasitelkiant mokslinę ir metodinę veiklą, šachmatų sporto pagalba, organizuojant šachmatų treniruotes, stovyklas ir kitus renginius, ugdyti ir tobulinti visuomenę Lietuvoje bei padėti visiems besidomintiems  šia sritimi siekti profesinio tobulėjimo ir bendradarbiavimo.</p>
                             <p>Lietuvos šachmatų mokykla organizuoja: <ul>

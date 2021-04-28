@@ -63,6 +63,8 @@ function AdminLogin() {
           <button type='submit' value='Sign In' onClick={signInHandler}>
             Prisijungti
           </button>
+
+          {error ? <div>error</div>: null}
         </form>
       </div>
     </main>

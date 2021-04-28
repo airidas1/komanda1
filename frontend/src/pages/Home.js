@@ -13,7 +13,6 @@ import icon3 from "../assets/images/icon3.svg";
 // Components
 import Button from "../components/Button";
 import InfoBox from "../components/InfoBox";
-import Results from "./Results";
 
 import { HeaderContext } from '../App'
 
@@ -53,7 +52,7 @@ function Home() {
    
     headerState.setHeader(true)
 
-  }, []);
+  }, [headerState]);
 
 
   if (redirect) {
@@ -148,7 +147,7 @@ function Home() {
                 šalis išvyksta per 1 000 studentų ir dėstytojų.
               </p>
               <Link to={'/facts'}>
-                <Button title={'Sužinok daugiau'} href={'#'} />
+                <Button title={'Sužinok daugiau'} />
               </Link>
             </div>
             <div className={styles.hero_img}>

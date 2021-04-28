@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import styles from "../pages/Admin/AdminPanel.module.css";
 
@@ -19,7 +19,7 @@ function Results(props) {
   /* used to gather all unique types of fetchAllData */
   const [tipas, setTipas] = useState([]);
   // Getting data from home page user selection
-  const [arrivingObj, setArrivingObj] = useState(props.location.state.object);
+  const [arrivingObj, setArrivingObj] = useState({});
 
   const [firstLoad, setFirstLoad] = useState(true);
 
@@ -38,7 +38,9 @@ function Results(props) {
         setTipas(
           Array.from(new Set(res.data.map((el) => el["Pagrindinis tipas"])))
         );
-        if (filtered) {
+
+        
+        if (filtered && submitButton.current) {
           submitButton.current.click();
           setFiltered(false);
         }
@@ -49,7 +51,7 @@ function Results(props) {
         ? setPaginatedData(displayData.slice((page - 1) * 20, page * 20))
         : console.log("asd");
     },
-    [displayData, page]
+    [displayData, page, filtered]
   );
 
   const pageInputHandler = (e) => {
@@ -160,7 +162,6 @@ function Results(props) {
 
   return (
     <div>
-      {console.log(displayData)}
       <div className={styles["filter-form-wrapper"]}>
         <form className={styles["filter-form"]}>
           <div className={styles["form-control"]}>
