@@ -378,3 +378,13 @@
 .update-modal {
   width: 100%;
 }
+
+.list-item-doc {
+  margin: 1em;
+  border-bottom: dashed 5px #d5eaff;
+}
+
+.Link {
+  text-decoration: none;
+  padding: 0.5rem 0.7rem;
+}

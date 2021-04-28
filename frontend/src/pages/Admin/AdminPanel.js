@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { Redirect, Link } from "react-router-dom";
 import styles from "./AdminPanel.module.css";
 import LOGO from "../../assets/images/logo.png";
@@ -10,7 +10,11 @@ import { GridLoader } from "react-spinners";
 import { css } from "@emotion/core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
+import { HeaderContext } from '../../App'
+
 let AdminPanel = () => {
+
+    const headerState = useContext(HeaderContext)
   
     library.add(fas, far)
     /* redirect to login page if not logged in */
@@ -84,11 +88,15 @@ let AdminPanel = () => {
       setIsLoading(false);
     });
 
+    headerState.setHeader(false)
+
     /* Actively listening for changes(check dependency arr) in filtered data to decide which page to display for the user */
     displayData
       ? setPaginatedData(displayData.slice((page - 1) * 20, page * 20))
       : console.log("asd");
-  }, [displayData, page]);
+  }, [displayData, page, headerState]);
+
+  
 
   const pageInputHandler = (e) => {
     /* if the user presses enter and the page is valid: scroll to top and display paginated data for the user */
@@ -206,6 +214,7 @@ let AdminPanel = () => {
         })
     }
 
+
     const deletePostHandler = (id) => {
         axios.delete('http://localhost:3001/v1/data', {
             headers: {
@@ -226,7 +235,7 @@ let AdminPanel = () => {
     }
     const updateHandler = (e ,body) => {
         e.preventDefault()
-        axios.post('http://localhost:3001/v1/dataUpdate', body, {
+        axios.put('http://localhost:3001/v1/dataUpdate', body, {
             headers: {
                 'admin-id': localStorage.getItem('admin-id')
             },
@@ -285,13 +294,16 @@ let AdminPanel = () => {
               <div className={styles["header-container"]}>
                 <ul className={`${styles['navbar']}`}>
                       <li className={styles['list-item']}>
-                          <Link to={'/v1'}><img src={LOGO} alt='logo' className={styles.img}></img></Link>
+                          <Link to={'/'}><img src={LOGO} alt='logo' className={styles.img}></img></Link>
                       </li>
                       <li>
                           <button className={styles['header-btn']} onClick = {logoutHandler}>Logout</button>
                       </li>
                       <li>
-                        <Link to='/v1/admin/howto' className={styles['header-btn']}>How To</Link>
+                        <Link to='/v1/admin/howto' className={`${styles['header-btn']} ${styles['Link']}`}>How To</Link>
+                      </li>
+                      <li>
+                        <Link to='/v1/admin/panel' className={`${styles['header-btn']} ${styles['Link']}`}>Panelė</Link>
                       </li>
                       <li>
                           <button className={styles['header-btn']} onClick={() => {
@@ -452,6 +464,7 @@ let AdminPanel = () => {
                 {/* ACTUAL MAIN PAGE */}
                 {show ? (<>
                 <div className={styles["admin-container"]}>
+                {isLoading ? <GridLoader css={override} size={50} color={"#3a90ed"} /> :
                 <div className={styles['filter-form-wrapper']}>
                     <form className={styles['filter-form']}>
                         <div className={styles['form-control']}>
@@ -489,7 +502,7 @@ let AdminPanel = () => {
                             <input className={styles['filter-submit']} type="reset" value="Filtruoti" onClick={handleFilterSubmit}/>
                         </div>
                     </form>
-                </div>
+                </div>}
                 </div>
                 
                 <div className={styles.wrapper}>

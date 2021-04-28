@@ -9,7 +9,7 @@ function School1() {
                 <div className={styles.school_info}>
                     <h1>Anykščių muzikos mokykla</h1>
                     <div className={styles.school_text}>
-                        <img src={school1}></img>
+                        <img src={school1} alt={"SchoolIMG"}></img>
                         <section>
                             <p>Kiekvieną rugpjūtį vykstančio Tarptautinio vargonų muzikos festivalio pradžią nulėmė galingų vargonų iš Didžiosios Britanijos parvežimas į Šv. Mato bažnyčią 1998 metų rudenį bei siekis simboliškai pratęsti istorinę sąsają tarp Anykščių ir Seinų (Lenkija), prisimenant, kad 1897 metais Seinų vyskupu tapo iškiliausia Anykščių krašto asmenybė Antanas Baranauskas. </p>
                             <p>1999 metais vargonai buvo baigti montuoti, prasidėjo kasmetiniai vargonų muzikos festivaliai. Kaip rašoma Anykščių Šv. Mato parapijos interneto svetainėje: „Kiekvienais metais stengiamasi praplėsti festivalio veiklas. Nuo 2014 metų festivalį rengiant kartu su Všį „Prasmingas garsas“ (direktorius Stanislovas Aglinskas), prasiplėtė jo veiklos“. Festivalis išsiplėtė įvairiomis prasmėmis: dabar jo koncertai vyksta skirtingose Anykščių krašto bažnyčiose, o šalia vargonų ėmė skambėti vokalinė ir instrumentinė muzika, kurią atlieka labai žymūs bei dar visai jauni muzikos atlikėjai.</p>

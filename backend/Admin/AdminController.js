@@ -4,7 +4,6 @@ const Admin = require('./AdminModel')
 
 signUp = async (req, res) => {
   let admin = new Admin({username: 'testas', password: 'testas'})
-  console.log(admin)
   try {
     let createdAdmin = await admin.save()
     res.json(createdAdmin)
@@ -14,6 +13,7 @@ signUp = async (req, res) => {
 }
 
 login = async (req, res) => {
+  console.log(req.body)
   try {
     let admin = await Admin.findOne({
       username: req.body.username

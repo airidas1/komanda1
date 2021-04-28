@@ -8,7 +8,6 @@ function AdminLogin() {
   const [password, setPassword] = useState('');
   const [redirect, setRedirect] = useState(null);
   const [error, setError] = useState(null);
-  const [mode, setMode] = useState(false);
 
   const signInHandler = (e) => {
     e.preventDefault();
@@ -64,6 +63,8 @@ function AdminLogin() {
           <button type='submit' value='Sign In' onClick={signInHandler}>
             Prisijungti
           </button>
+
+          {error ? <div>error</div>: null}
         </form>
       </div>
     </main>

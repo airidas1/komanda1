@@ -12,11 +12,12 @@ router.post('/admin/login', AdminController.login)
 router.get('/admin/logout', AdminMiddleware.authenticate, AdminController.logout)
 router.post('/admin/update', AdminMiddleware.authenticate, AdminController.updateAdminInfo)
 router.post('/admin/new', AdminController.signUp)
-router.get('/admins/all', AdminController.getAllAdmins)
+router.get('/admin/all', AdminMiddleware.authenticate,AdminController.getAllAdmins)
 router.get('/currentAdmin', AdminMiddleware.authenticate, AdminController.getCurrentUser)
+router.post('/admin/registerAdmin', AdminMiddleware.authenticate, AdminController.signUp)
 /* Manipulate a single object (Admin privilege) */
 /* Update post */
-router.post('/dataUpdate', AdminMiddleware.authenticate, DataController.updateDataInfo)
+router.put('/dataUpdate', AdminMiddleware.authenticate, DataController.updateDataInfo)
 /* Post new post */
 router.post('/dataPost', AdminMiddleware.authenticate, DataController.saveData)
 /* Delete post */

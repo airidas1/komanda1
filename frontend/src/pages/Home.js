@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Redirect, Link } from "react-router-dom";
 import axios from "axios";
 // Style
@@ -13,9 +13,11 @@ import icon3 from "../assets/images/icon3.svg";
 // Components
 import Button from "../components/Button";
 import InfoBox from "../components/InfoBox";
-import Results from "./Results";
+
+import { HeaderContext } from '../App'
 
 function Home() {
+  const headerState = useContext(HeaderContext)
   // Springas
   const props = useSpring({
     to: { opacity: 1 },
@@ -27,6 +29,7 @@ function Home() {
   const [grupe, setGrupe] = useState([]);
   const [tipas, setTipas] = useState([]);
   const [redirect, setRedirect] = useState(false);
+  
 
   const [postObj, setPostObj] = useState({
     Pavadinimas: "",
@@ -46,7 +49,11 @@ function Home() {
         Array.from(new Set(res.data.map((el) => el["Pagrindinis tipas"])))
       );
     });
-  }, []);
+   
+    headerState.setHeader(true)
+
+  }, [headerState]);
+
 
   if (redirect) {
     return (
@@ -63,7 +70,6 @@ function Home() {
     e.preventDefault();
     setRedirect("/results");
   }
-
   return (
     <animated.main style={props}>
       <main className={styles.home}>
@@ -140,7 +146,9 @@ function Home() {
                 užsienio valstybėse. Kasmet studijuoti ar stažuotis į užsienio
                 šalis išvyksta per 1 000 studentų ir dėstytojų.
               </p>
-              <Button title={"Sužinok daugiau"} href={"#"} />
+              <Link to={'/facts'}>
+                <Button title={'Sužinok daugiau'} />
+              </Link>
             </div>
             <div className={styles.hero_img}>
               <img src={heroImg} alt="heroIMG" className={styles.hero_image} />
