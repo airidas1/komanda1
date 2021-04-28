@@ -72,6 +72,7 @@ function Results(props) {
   };
 
   const handleFilterSubmit = (e) => {
+    console.log(arrivingObj)
     /* Handle data filtration and set data arrays for pagination to use the information
         NOTE: DATA GATHERED BY THE FILTER IS USED IN useEffect *****NOT HERE*****, DATA GATHERED HERE IS ONLY TO BE DISPLAYED LATER
     */
