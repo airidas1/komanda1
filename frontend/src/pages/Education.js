@@ -52,7 +52,11 @@ function Education() {
           </article>
           <div className={styles["img_container"]}>
             <animated.div style={rightImgProps}>
-              <img src={educationPhoto1} className={styles["educationPhoto"]} />
+              <img
+                src={educationPhoto1}
+                className={styles["educationPhoto"]}
+                alt="Studentai džiaugiasi baigę studijas"
+              />
             </animated.div>
           </div>
         </section>
@@ -66,7 +70,11 @@ function Education() {
         <section className={styles["section"]}>
           <div className={styles["img_container"]}>
             <animated.div style={leftImgProps}>
-              <img src={educationPhoto2} className={styles["educationPhoto"]} />
+              <img
+                src={educationPhoto2}
+                className={styles["educationPhoto"]}
+                alt="biblioteka"
+              />
             </animated.div>
           </div>
           <article className={styles["article"]}>
@@ -105,7 +113,11 @@ function Education() {
           </article>
           <div className={styles["img_container"]}>
             <animated.div style={rightImgProps}>
-              <img src={educationPhoto3} className={styles["educationPhoto"]} />
+              <img
+                src={educationPhoto3}
+                className={styles["educationPhoto"]}
+                alt="codeacademy"
+              />
             </animated.div>
           </div>
         </section>
