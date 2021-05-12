@@ -51,7 +51,7 @@ function Results(props) {
         ? setPaginatedData(displayData.slice((page - 1) * 20, page * 20))
         : console.log("asd");
     },
-    [displayData, page, filtered]
+    [displayData, page]
   );
 
   const pageInputHandler = (e) => {
