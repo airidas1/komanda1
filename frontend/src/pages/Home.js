@@ -11,7 +11,6 @@ import icon2 from "../assets/images/icon2.svg";
 import icon3 from "../assets/images/icon3.svg";
 
 // Components
-import Button from "../components/Button";
 import InfoBox from "../components/InfoBox";
 
 import { HeaderContext } from '../App'
