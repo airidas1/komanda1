@@ -147,7 +147,7 @@ function Home() {
                 šalis išvyksta per 1 000 studentų ir dėstytojų.
               </p>
               <Link to={'/facts'}>
-                <Button title={'Sužinok daugiau'} />
+                <button>Sužinok daugiau</button>
               </Link>
             </div>
             <div className={styles.hero_img}>

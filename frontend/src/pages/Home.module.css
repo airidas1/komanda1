@@ -98,6 +98,26 @@
   width: 80%;
 }
 
+.hero_text button {
+  margin: 1em 1.5em;
+  padding: 12px 10px;
+  width: 200px;
+  border: none;
+  background-color: #3a90ed;
+  color: #fff;
+  border-radius: 5px;
+  justify-items: flex-end;
+  font-size: 1em;
+  font-weight: 600;
+  transition: all ease 0.3s;
+}
+
+.hero_text button:hover {
+  cursor: pointer;
+  color: #3a90ed;
+  background-color: transparent;
+}
+
 /* Info Boxes */
 .additional_info {
   padding: 4em 0;
