@@ -5,10 +5,10 @@ import styles from "./AdminPanel.module.css";
 import LOGO from "../../assets/images/logo.png";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fas } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { far } from "@fortawesome/free-regular-svg-icons";
 import { GridLoader } from "react-spinners";
 import { css } from "@emotion/core";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { HeaderContext } from '../../App'
 
@@ -94,7 +94,7 @@ let AdminPanel = () => {
     displayData
       ? setPaginatedData(displayData.slice((page - 1) * 20, page * 20))
       : console.log("asd");
-  }, [displayData, page, headerState]);
+  }, [displayData, page]);
 
   
 
