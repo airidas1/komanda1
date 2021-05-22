@@ -57,7 +57,7 @@ function Results(props) {
 
       setArrivingObj(searchParams);
     },
-    [displayData, page, filtered]
+    [displayData, page, filtered, props.location.state.object]
   );
 
   const pageInputHandler = (e) => {
@@ -80,7 +80,6 @@ function Results(props) {
   };
 
   const handleFilterSubmit = (e) => {
-    console.log(arrivingObj);
     /* Handle data filtration and set data arrays for pagination to use the information
         NOTE: DATA GATHERED BY THE FILTER IS USED IN useEffect *****NOT HERE*****, DATA GATHERED HERE IS ONLY TO BE DISPLAYED LATER
     */
@@ -181,7 +180,7 @@ function Results(props) {
               type='text'
               list='data-sav'
               value={
-                arrivingObj['Savivaldybė'] ? arrivingObj['Savivaldybė'] : null
+                arrivingObj['Savivaldybė'] ? arrivingObj['Savivaldybė'] : ''
               }
               onChange={(e) =>
                 setArrivingObj({ ...arrivingObj, Savivaldybė: e.target.value })
@@ -203,7 +202,7 @@ function Results(props) {
               className={styles['form-input']}
               type='text'
               value={
-                arrivingObj['Pavadinimas'] ? arrivingObj['Pavadinimas'] : null
+                arrivingObj['Pavadinimas'] ? arrivingObj['Pavadinimas'] : ''
               }
               onChange={(e) =>
                 setArrivingObj({ ...arrivingObj, Pavadinimas: e.target.value })
@@ -218,7 +217,7 @@ function Results(props) {
               className={styles['form-input']}
               type='text'
               list='data-gr'
-              value={arrivingObj['Grupė'] ? arrivingObj['Grupė'] : null}
+              value={arrivingObj['Grupė'] ? arrivingObj['Grupė'] : ''}
               onChange={(e) =>
                 setArrivingObj({ ...arrivingObj, Grupė: e.target.value })
               }
@@ -242,7 +241,7 @@ function Results(props) {
               value={
                 arrivingObj['Pagrindinis tipas']
                   ? arrivingObj['Pagrindinis tipas']
-                  : null
+                  : ''
               }
               onChange={(e) =>
                 setArrivingObj({
